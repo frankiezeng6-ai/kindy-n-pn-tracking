@@ -78,6 +78,10 @@
   .memo-inp:disabled{background:#f4f5f7;color:#a9b0be}
   .memo-inp::placeholder{color:#b0b6c2}
   tr.rec-done{background:var(--green-bg)}
+  /* ── 重要提醒可點選 ＋ 選中高亮（2026-09-16 二輪） ── */
+  .tag.clickable{cursor:pointer}
+  .tag.rem-on{outline:2px solid var(--brand);outline-offset:1px}
+  li.rem-li-on{background:var(--brand-bg);border-radius:8px}
 </style>
 </head>
 <body data-page-node-id="RZLrv224BmBfJDtJHh3tuA">
@@ -405,6 +409,34 @@
     <div class="note" data-page-node-id="ura0jLM0EnDwyqxycF39mj">連結為各校官方報名入口（已核實至 2026-09-09）；每週自動覆核一次，開放後會在此更新為可直接報名的連結。狀態排序：「現正接受報名 → 即將開放（&lt;7 天）→ 9 月中公布 → 9–10 月滾動 → 12 月公布 → 明年 3 月才開放」。</div>
   </div>
 
+  <div class="card">
+    <h2><span class="no" style="background:var(--brand-bg);color:var(--brand)">🎓</span>學校開放日／資訊日（2027/28 入學週期）</h2>
+    <table>
+      <thead><tr><th>學校</th><th>日期／時間</th><th>內容</th><th>報名／登記連結</th></tr></thead>
+      <tbody>
+        <tr>
+          <td class="school">維多利亞 VEO<span class="sub">入學資訊日 · 4 場講座</span></td>
+          <td><b>2026-09-19（六）</b>10:00–11:15（粵語）、12:00–13:00（雙語）</td>
+          <td>九龍及新界區校舍場（九龍塘達之路創新中心展覽館）：IB 課程、三語教學、升小支援＋校長現場問答；港島場 9/12 已舉行</td>
+          <td><a href="https://www.victoria.edu.hk/contact-us/" target="_blank" rel="noopener">victoria.edu.hk（招生處）</a></td>
+        </tr>
+        <tr>
+          <td class="school">德萃 St. Hilary's<span class="sub">紅磡校舍</span></td>
+          <td><b>2026-10-03（六）</b>開放日</td>
+          <td>10/24（六）紅磡首輪面試前的實地參觀機會；9/30 前交表可趕上 10 月面試</td>
+          <td><a href="https://www.sthilarys.edu.hk" target="_blank" rel="noopener">sthilarys.edu.hk</a></td>
+        </tr>
+        <tr>
+          <td class="school">啟思 Creative<span class="sub">九龍塘正校</span></td>
+          <td>2026-09-05（六）已舉行</td>
+          <td>開放日已過；報名期即日起至 10 月期間，仍可親身或網上遞交</td>
+          <td><a href="http://www.creative.edu.hk/admissions/" target="_blank" rel="noopener">creative.edu.hk/admissions</a></td>
+        </tr>
+      </tbody>
+    </table>
+    <p class="note">其餘追蹤學校（St. Catherine's、學之園、迦南、民生、劍鳴、SPN 等）27/28 週期暫未公布開放日／資訊日，公布後隨每週更新補上。來源：各校官網及 gostudy 升幼攻略（二手來源，以校方最新公告為準）。</p>
+  </div>
+
   <div class="card" data-page-node-id="G5omsbFsikWlRvH7j5HXpW">
     <h2 data-page-node-id="SttBAL6gtg7zyUEonskoHt"><span class="no" data-page-node-id="jJV0EyzBp7LrpCvt6K6kbj">3</span>分校明細</h2>
 
@@ -498,6 +530,7 @@
       <li data-page-node-id="FnxEL2bqk0Xp1VTIMAQ139">N 班不獲學券資助、全額自費；報名費普遍 HK$40，部分收註冊費。</li>
       <li data-page-node-id="wk20260916a"><span class="tag t-green">本週（9/16–9/22）行動清單</span> — ① <b>VEO 網上遞交</b>（已開放，最遲 12/14 17:00，選滿 6 個志願）；② <b>德萃 9/30 前交</b> 才能趕上 10/24 紅磡首輪面試；③ 啟思即日起至 10 月；④ 約克全年可交；⑤ <b>9/18（五）10:00 St. Catherine's 紅磡 PN 開放</b>，9/29 17:00 截止，預先註冊網上報名系統。</li>
     </ul>
+    <p class="note">💡 以上「提醒」標籤已可點擊：點選即在表二只顯示相關學校，可與「狀態」篩選疊加；再點一次取消。</p>
   </div>
 
   <div class="foot" data-page-node-id="7I5tp5jKoCEGBnEnPeW98h">
@@ -506,6 +539,7 @@
   </div>
 
 </div>
+
 
 <script>
 (function(){
@@ -528,7 +562,39 @@
     headRow.appendChild(th);
   });
 
-  /* 每行：讀狀態、加記錄欄 */
+  /* 學校別名：「重要提醒」文字 → 表格行 匹配用 */
+  var ALIAS = [
+    ['約克', ['約克']],
+    ['德萃', ['德萃', 'St. Hilary']],
+    ['啟思', ['啟思']],
+    ['St. Catherine', ['St. Catherine']],
+    ['維多利亞', ['維多利亞', 'VEO']],
+    ['迦南', ['迦南']],
+    ['民生', ['民生']],
+    ['學之園', ['學之園', 'LH']],
+    ['劍鳴', ['劍鳴']],
+    ['崇真', ['崇真']],
+    ['高主教', ['高主教']],
+    ['蘇浙', ['蘇浙']],
+    ['聖保祿', ['聖保祿']],
+    ['京斯敦', ['京斯敦', 'Kingston']],
+    ['耀中', ['耀中', 'YCIS']],
+    ['保良局蔡繼有', ['蔡繼有', 'CKY']],
+    ['靈糧堂', ['靈糧堂', '秀德']],
+    ['明慧', ['明慧']],
+    ['寶山', ['寶山']],
+    ['維麗斯', ['維麗斯']],
+    ['根德園', ['根德園']],
+    ['基督堂', ['基督堂', 'CCKG']]
+  ];
+  function aliasesFor(key){
+    for (var i = 0; i < ALIAS.length; i++){
+      if (key.indexOf(ALIAS[i][0]) === 0) return ALIAS[i][1];
+    }
+    return [key];
+  }
+
+  /* 每行：記錄欄 ＋ 狀態/別名 */
   rows.forEach(function(tr){
     var nameTd = tr.querySelector('.school') || tr.children[0];
     var clone = nameTd.cloneNode(true);
@@ -537,12 +603,11 @@
     tr.setAttribute('data-key', key);
 
     var tags = Array.prototype.slice.call(tr.children[1].querySelectorAll('.tag'));
-    var stats = tags.map(function(t){ return (t.textContent || '').trim(); }).filter(Boolean);
-    tr.setAttribute('data-stats', stats.join('|'));
     var lvl = '已截止／不適用';
     if (tags.some(function(t){ return t.classList.contains('t-green'); })) lvl = '可報名';
     else if (tags.some(function(t){ return t.classList.contains('t-amber'); })) lvl = '待開放';
     tr.setAttribute('data-lvl', lvl);
+    tr.setAttribute('data-alias', aliasesFor(key).join('|'));
 
     var r = rec[key] || {};
 
@@ -574,38 +639,29 @@
     if (cb.checked) tr.classList.add('rec-done');
   });
 
-  /* 篩選狀態 */
-  var selA = {}, selB = {}, onlyDone = false;
+  /* ── 篩選列：狀態（大類）＋ 提醒 ＋ 已報名 ── */
+  var selA = {}, selR = {}, onlyDone = false;
 
   var rowA = document.createElement('div'); rowA.className = 'frow';
-  var rowB = document.createElement('div'); rowB.className = 'frow';
-  bar.appendChild(rowA); bar.appendChild(rowB);
+  var rowR = document.createElement('div'); rowR.className = 'frow';
+  bar.appendChild(rowA); bar.appendChild(rowR);
 
-  var statCount = {};
-  rows.forEach(function(tr){
-    (tr.getAttribute('data-stats') || '').split('|').forEach(function(s){ if (s) statCount[s] = (statCount[s] || 0) + 1; });
-  });
   var lvlCount = {};
   rows.forEach(function(tr){ var l = tr.getAttribute('data-lvl'); lvlCount[l] = (lvlCount[l] || 0) + 1; });
 
-  function mkChip(label, count, group, key, parent){
-    var b = document.createElement('span'); b.className = 'chip'; b.setAttribute('role','button');
-    b.innerHTML = label + (count != null ? '<span class="cnt">' + count + '</span>' : '');
+  function mkLvlChip(label, count){
+    var b = document.createElement('span'); b.className = 'chip'; b.setAttribute('role', 'button');
+    b.innerHTML = label + '<span class="cnt">' + count + '</span>';
     b.addEventListener('click', function(){
-      var sel = (group === 'A') ? selA : selB;
-      if (sel[key]) delete sel[key]; else sel[key] = 1;
-      b.classList.toggle('on', !!sel[key]);
+      if (selA[label]) delete selA[label]; else selA[label] = 1;
+      b.classList.toggle('on', !!selA[label]);
       apply();
     });
-    parent.appendChild(b);
-    return b;
+    rowA.appendChild(b);
   }
-
   var labA = document.createElement('span'); labA.className = 'flabel'; labA.textContent = '狀態：';
   rowA.appendChild(labA);
-  ['可報名','待開放','已截止／不適用'].forEach(function(l){
-    if (lvlCount[l]) mkChip(l, lvlCount[l], 'A', l, rowA);
-  });
+  ['可報名', '待開放', '已截止／不適用'].forEach(function(l){ if (lvlCount[l]) mkLvlChip(l, lvlCount[l]); });
 
   var btnDone = document.createElement('span'); btnDone.className = 'fbtn'; btnDone.textContent = '只看已報名';
   btnDone.addEventListener('click', function(){
@@ -613,32 +669,74 @@
   });
   rowA.appendChild(btnDone);
 
-  var sp = document.createElement('span'); sp.className = 'fspacer'; rowA.appendChild(sp);
-  var cntEl = document.createElement('span'); cntEl.className = 'fcount'; rowA.appendChild(cntEl);
-
-  var labB = document.createElement('span'); labB.className = 'flabel'; labB.textContent = '細項：';
-  rowB.appendChild(labB);
-  Object.keys(statCount).sort().forEach(function(s){ mkChip(s, statCount[s], 'B', s, rowB); });
-
   var btnClear = document.createElement('span'); btnClear.className = 'fbtn'; btnClear.textContent = '清除篩選';
   btnClear.addEventListener('click', function(){
-    selA = {}; selB = {}; onlyDone = false;
+    selA = {}; selR = {}; onlyDone = false;
     Array.prototype.forEach.call(bar.querySelectorAll('.chip'), function(c){ c.classList.remove('on'); });
+    Array.prototype.forEach.call(document.querySelectorAll('.tag.rem-on'), function(t){ t.classList.remove('rem-on'); });
+    Array.prototype.forEach.call(document.querySelectorAll('li.rem-li-on'), function(l){ l.classList.remove('rem-li-on'); });
     btnDone.classList.remove('on');
     apply();
   });
-  rowB.appendChild(btnClear);
+  rowA.appendChild(btnClear);
 
+  var sp = document.createElement('span'); sp.className = 'fspacer'; rowA.appendChild(sp);
+  var cntEl = document.createElement('span'); cntEl.className = 'fcount'; rowA.appendChild(cntEl);
+
+  /* ── 「重要提醒」→ 可篩選 chips（與卡片內標籤雙向同步） ── */
+  var remUl = document.querySelector('ul[data-page-node-id="JRSZ5HNy9XeEJerQKwftwM"]');
+  var rems = [];
+  if (remUl){
+    Array.prototype.forEach.call(remUl.querySelectorAll('li'), function(li){
+      var t = li.querySelector('.tag');
+      var label = t ? t.textContent.trim() : ('提醒 ' + (rems.length + 1));
+      var text = li.textContent || '';
+      var keys = [];
+      rows.forEach(function(tr, idx){
+        var als = (tr.getAttribute('data-alias') || '').split('|');
+        if (als.some(function(a){ return a && text.indexOf(a) >= 0; })) keys.push(idx);
+      });
+      rems.push({ label: label, keys: keys, li: li, tag: t, chip: null });
+    });
+  }
+  var labR = document.createElement('span'); labR.className = 'flabel'; labR.textContent = '提醒：';
+  rowR.appendChild(labR);
+  rems.forEach(function(rm){
+    var b = document.createElement('span'); b.className = 'chip'; b.setAttribute('role', 'button');
+    b.innerHTML = rm.label + '<span class="cnt">' + rm.keys.length + '</span>';
+    b.addEventListener('click', function(){ toggleRem(rm); });
+    rm.chip = b; rowR.appendChild(b);
+  });
+  rems.forEach(function(rm){
+    if (!rm.tag) return;
+    rm.tag.classList.add('clickable');
+    rm.tag.title = '點擊篩選表二：只顯示相關學校';
+    rm.tag.addEventListener('click', function(){ toggleRem(rm); });
+  });
+  function toggleRem(rm){
+    if (selR[rm.label]) delete selR[rm.label]; else selR[rm.label] = 1;
+    var on = !!selR[rm.label];
+    rm.chip.classList.toggle('on', on);
+    if (rm.tag) rm.tag.classList.toggle('rem-on', on);
+    rm.li.classList.toggle('rem-li-on', on);
+    apply();
+  }
+
+  /* ── 組合過濾：狀態(OR) AND 提醒(OR) AND 已報名 ── */
   function apply(){
-    var shown = 0;
-    rows.forEach(function(tr){
-      var ka = Object.keys(selA), kb = Object.keys(selB);
+    var ka = Object.keys(selA), kr = Object.keys(selR), shown = 0;
+    rows.forEach(function(tr, idx){
       var okA = !ka.length || ka.indexOf(tr.getAttribute('data-lvl')) >= 0;
-      var st = (tr.getAttribute('data-stats') || '').split('|');
-      var okB = !kb.length || st.some(function(s){ return kb.indexOf(s) >= 0; });
+      var okR = true;
+      if (kr.length){
+        okR = false;
+        for (var i = 0; i < rems.length; i++){
+          if (selR[rems[i].label] && rems[i].keys.indexOf(idx) >= 0){ okR = true; break; }
+        }
+      }
       var r = rec[tr.getAttribute('data-key')] || {};
       var okC = !onlyDone || !!r.done;
-      var vis = okA && okB && okC;
+      var vis = okA && okR && okC;
       tr.style.display = vis ? '' : 'none';
       if (vis) shown++;
     });
@@ -647,6 +745,7 @@
   apply();
 })();
 </script>
+
 
 </body>
 </html>
