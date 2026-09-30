@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>石門中學香港校友會 · 群內招聘資訊彙編</title>
+<style>
+:root{
+  --bg:#f6f7f9; --card:#ffffff; --ink:#1c2430; --sub:#5b6674; --line:#e3e7ec;
+  --brand:#1f5f8b; --brand-soft:#eaf2f8; --accent:#b3541e; --chip:#eef1f5;
+  --ok:#1f7a4d; --warn:#9a6b00;
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);
+  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif;
+  line-height:1.75;-webkit-font-smoothing:antialiased}
+.wrap{max-width:1080px;margin:0 auto;padding:32px 20px 64px}
+header.hero{background:linear-gradient(180deg,#ffffff,#fbfcfd);border:1px solid var(--line);
+  border-radius:16px;padding:28px 28px 22px;margin-bottom:20px}
+h1{margin:0 0 6px;font-size:26px;letter-spacing:.3px}
+.sub{color:var(--sub);font-size:14px}
+.stats{display:flex;flex-wrap:wrap;gap:10px;margin-top:18px}
+.stat{background:var(--brand-soft);border:1px solid #d6e6f0;border-radius:10px;padding:8px 14px;font-size:13px;color:var(--brand)}
+.stat b{font-size:16px}
+.toolbar{position:sticky;top:0;z-index:5;background:rgba(246,247,249,.96);backdrop-filter:blur(6px);
+  padding:12px 0 10px;margin-bottom:8px;border-bottom:1px solid transparent}
+.row{display:flex;flex-wrap:wrap;gap:10px;align-items:center}
+input[type=search]{flex:1 1 260px;min-width:220px;padding:10px 14px;border:1px solid var(--line);
+  border-radius:10px;font-size:14px;background:#fff;color:var(--ink)}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chip{border:1px solid var(--line);background:#fff;color:var(--sub);border-radius:999px;
+  padding:6px 14px;font-size:13px;cursor:pointer;user-select:none;transition:.15s}
+.chip:hover{border-color:#bcd0dd}
+.chip.on{background:var(--brand);border-color:var(--brand);color:#fff}
+select{padding:8px 12px;border:1px solid var(--line);border-radius:10px;background:#fff;font-size:13px;color:var(--ink)}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:16px;margin-top:14px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:18px 20px 16px;
+  display:flex;flex-direction:column;gap:10px;box-shadow:0 1px 2px rgba(20,30,50,.04)}
+.card .top{display:flex;justify-content:space-between;align-items:flex-start;gap:10px}
+.date{font-size:12px;color:var(--sub);font-variant-numeric:tabular-nums;white-space:nowrap;padding-top:3px}
+.tags{display:flex;flex-wrap:wrap;gap:6px}
+.tag{font-size:11px;border-radius:6px;padding:2px 8px;background:var(--chip);color:var(--sub)}
+.tag.cat{background:#e8f0e9;color:var(--ok)}
+.tag.type{background:#fdf1e4;color:var(--accent)}
+h3{margin:0;font-size:17px;line-height:1.5}
+.co{font-size:13px;color:var(--sub)}
+.co b{color:var(--ink);font-weight:600}
+.sec{font-size:13px}
+.sec h4{margin:0 0 4px;font-size:12px;color:var(--sub);font-weight:600;letter-spacing:.5px}
+ul{margin:0;padding-left:18px}
+li{margin:2px 0;font-size:13.5px}
+.contact{background:#fbfcfd;border:1px dashed #cddbe6;border-radius:10px;padding:10px 12px;font-size:13px}
+.contact a{color:var(--brand);word-break:break-all}
+.hint{font-size:12px;color:var(--warn)}
+.empty{display:none;text-align:center;color:var(--sub);padding:48px 0;font-size:14px}
+footer{margin-top:40px;padding-top:18px;border-top:1px solid var(--line);font-size:12.5px;color:var(--sub)}
+footer p{margin:6px 0}
+@media(max-width:640px){
+  .wrap{padding:18px 14px 48px}
+  h1{font-size:21px}
+  .grid{grid-template-columns:1fr}
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header class="hero">
+  <h1>石門中學香港校友會 · 群內招聘資訊彙編</h1>
+  <div class="sub">整理自「5. 石門中學香港校友會大家庭」微信群公開招募訊息 · 覆蓋 2025-09-11 至 2026-09-30</div>
+  <div class="stats">
+    <div class="stat">職位總數 <b id="s-total">0</b></div>
+    <div class="stat">最近更新 <b id="s-latest">—</b></div>
+    <div class="stat">全職 / 實習 / 兼職 <b id="s-mix">—</b></div>
+  </div>
+</header>
+
+<div class="toolbar">
+  <div class="row">
+    <input type="search" id="q" placeholder="搜尋公司、職位、地點、關鍵字…（如：基金 / AI / 深圳 / 實習）">
+    <select id="sort">
+      <option value="new">時間：最新優先</option>
+      <option value="old">時間：最早優先</option>
+    </select>
+  </div>
+  <div class="chips" id="chips" style="margin-top:10px"></div>
+</div>
+
+<div class="grid" id="grid"></div>
+<div class="empty" id="empty">沒有符合條件的職位，試試其他關鍵字。</div>
+
+<footer>
+  <p><b>資料來源：</b>石門中學香港校友會微信群內由校友／校友會人力資源部公開轉發的招聘訊息，按發出時間輯錄，內容未作改寫。</p>
+  <p><b>聯絡方式：</b>均為原訊息中列明的招聘聯絡渠道。標註「校友會人力資源部」者，可透過校友會人力資源部代為投遞。</p>
+  <p><b>注意：</b>職位可能已滿或已截止，應徵前請先向聯絡人確認是否有效。本頁僅作資訊彙編，不對職位真實性作保證；如為訊息發布人且不欲公開，請聯絡移除。</p>
+  <p id="stamp"></p>
+</footer>
+
+</div>
+
+<script>
+const JOBS = [
+{
+ date:"2026-09-30", cat:"金融 · 資產管理", type:"全職",
+ title:"銷售（資產管理）", co:"校友企業／資產管理公司（未具名）", loc:"香港",
+ duties:["協助 KYC／開戶及持續盡職調查，配合合規要求","編製日常客戶報告、投資組合表現及市場回顧","製作路演 PPT、產品單頁及銷售支援材料","處理客戶諮詢、帳戶查詢及會議安排","支援資產配置及投研基礎數據整理、圖表製作","與營運、交易、合規等部門協調，確保流程順暢"],
+ reqs:["本科或以上，金融／經濟等相關專業","1–3 年金融行業經驗，熟悉 KYC／AML 優先","熟練 PPT、Excel，會 Bloomberg／Wind 優先","持 SFC 1／4／9 牌或相關資格考試優先","持香港工作簽證"],
+ contact:"可透過校友會人力資源部直接投遞簡歷至用人單位"
+},
+{
+ date:"2026-09-30", cat:"金融 · 資產管理", type:"全職",
+ title:"財富管理系統開發工程師", co:"國泰君安國際（1788.HK，國泰海通集團境外子公司）", loc:"深圳（服務香港財富管理團隊）",
+ duties:["負責財富管理相關系統、內部工具及自動化應用開發","直接與香港財富管理業務團隊溝通需求","與公司 IT、Risk、OPS 等部門緊密合作"],
+ reqs:["3 年以上軟件開發經驗，能獨立完成項目開發","具較強金融知識，熟悉結構性產品優先（FCN、ELN、Accumulator／Decumulator 等）","熟悉港股、美股等境外證券市場及基本交易流程","熟練使用 Vibe Coding／AI Coding 工具","有大型互聯網、科技、券商、投行、財富管理或金融科技開發經驗者優先","有 0→1 獨立開發系統或內部工具經驗者優先"],
+ contact:"可透過校友會人力資源部投遞"
+},
+{
+ date:"2026-09-30", cat:"金融 · 資產管理", type:"全職",
+ title:"Junior Sales", co:"國泰君安國際", loc:"香港",
+ duties:["財富管理／銷售崗位（原訊息未列詳細職責）"],
+ reqs:["薪酬預算 30–40k（原訊息標註）"],
+ contact:"可透過校友會人力資源部投遞"
+},
+{
+ date:"2026-09-30", cat:"電訊 · 科技", type:"全職",
+ title:"「電信國際微招聘」多個職位", co:"電信國際", loc:"未註明",
+ duties:["原訊息以微信連結（公眾號／招聘專頁）形式發出，具體職位與要求請打開群內連結查閱"],
+ reqs:[],
+ contact:"詳見群內「電信國際微招聘」連結"
+},
+{
+ date:"2026-09-24", cat:"金融 · 資產管理", type:"全職",
+ title:"風控經理（風控管理部）", co:"鵬華基金", loc:"未註明（內地）",
+ duties:["對各類基金組合進行事前、事中、事後全流程投資風險監控，並及時預警處理","進行風險量化研究及風險分析指標、模型開發，並出具風險評估報告","協助進行風險管理制度及投資管理流程體系建設","協助進行投資監管及風險管理系統開發建設","其他日常風險管理工作"],
+ reqs:["金融工程、數學、計算機、統計學等相關專業碩士及以上學歷","具紮實風險分析基礎，良好數理分析、邏輯推理能力","具基金公司、銀行理財、證券資管、保險資管等機構投資風控／金融工程／研究分析領域 1–3 年工作經歷，從事投資監督相關工作經驗優先","掌握 Python、Oracle SQL 等至少一種編程語言","熟悉主流 AI 大模型工具，具 Agent 應用經驗者優先"],
+ contact:"簡歷投遞郵箱：<a href='mailto:qiuyuye@phfund.com.cn'>qiuyuye@phfund.com.cn</a>"
+},
+{
+ date:"2026-09-24", cat:"內地 · 專家項目", type:"項目／專家",
+ title:"財務專家（國家財政重大專項資金審計）", co:"國家財政重大專項（百億以上規模）— 自然資源部科技重大專項", loc:"北京",
+ duties:["參與自然資源部科技重大專項資金審計","即將開展中期檢查和驗收審計"],
+ reqs:["具註冊會計師或高級會計師資格（HKICPA、高級會計師或中國註冊會計師）","按標準支付審計勞務費"],
+ contact:"有興趣者可私聊校友會人力資源部部長，協助直接投遞簡歷至用人單位"
+},
+{
+ date:"2026-09-23", cat:"校友組織 · 行政", type:"兼職",
+ title:"青年企業家分會 兼職秘書", co:"石門中學青年企業家分會", loc:"線上辦公為主（線下活動需到場）",
+ duties:["小程序日常維護：發布活動通知、供需信息，會員及訪客人員審核","會員走訪與關懷：維護會員通訊錄及核心會員名單，定期走訪會員企業、收集需求反饋","資料整理與宣傳：整理分會過往活動資料與會員信息並建立檔案","每月至少 2–3 次線下活動的全流程策劃與執行（海報／推文／現場拍攝／後期文案與視頻剪輯／多平台發布）","處理日常行政事務，與其他商協會、校友總會對接溝通","協助會長及內部團隊推進各項工作落地"],
+ reqs:["時間靈活，每月能參與 2–3 次線下活動籌備與執行（可能涉周末）","性格開朗、情商高、做事靠譜，能經常走訪企業與電話溝通會員","熟練 PPT、微信推文編輯器；必須熟練掌握視頻剪輯軟件（如剪映），能獨立完成活動視頻剪輯","能快速掌握小程序後台操作","加分：學生社團組織經驗、商協會／會務／新媒體運營經驗、有交通工具"],
+ contact:"簡歷發送至：<a href='mailto:smsaa_yaec@163.com'>smsaa_yaec@163.com</a>；薪酬待遇面議"
+},
+{
+ date:"2026-09-21", cat:"金融 · 資產管理", type:"全職",
+ title:"電商運營崗", co:"長安基金", loc:"未註明（內地）",
+ duties:["配合公司產品在互聯網平台的整體營銷策劃方向，完成產品推介、投資者教育、社區／用戶運營活動、新媒體宣傳（直播及短視頻）等工作","策劃並執行互聯網平台活動，監控數據反饋，優化營銷投放效率、提高用戶活躍度、促進轉化","持續關注各類電商渠道、端外流量平台最新動態，探索有效電商渠道運營合作模式","完成公司及部門領導交辦的其他工作"],
+ reqs:["碩士及以上學歷，金融、經濟、市場營銷、電子商務、新聞傳播等相關專業","具公募基金、資管公司、證券公司電商運營／營銷策劃／營銷支持相關部門工作經驗者優先","熟練操作辦公軟件及視頻剪輯軟件（如剪映），會用 PS、AI 等工具者優先","良好文字功底，擅長軟文或新媒體文案寫作者優先","溝通表達、抗壓、分析及解決問題能力良好，服務意識好、踏實細緻、責任心強"],
+ contact:"簡歷郵箱：<a href='mailto:hr@cafund.com'>hr@cafund.com</a>（或私信群內轉發人）"
+},
+{
+ date:"2026-08-21", cat:"科技 · 產品", type:"實習",
+ title:"Business Analyst Intern", co:"校友企業（未具名）", loc:"香港",
+ duties:["支援產品經理進行商業研究與用戶訪談，收集整理市場洞察與用戶痛點","協助定義產品需求：撰寫功能規格、基礎 UI 草圖、交互流程圖","在指導下製作線框圖、簡單原型及 PRD","協助追蹤項目進度、更新任務板、跟進開發團隊確保里程碑達成","收集用戶反饋、使用數據與市場反饋，支援體驗改進建議","參與跨團隊會議、記錄會議紀要，協助 QA 檢查與問題追蹤"],
+ reqs:["現正修讀學士或碩士課程，計算機科學、信息系統、商學、金融或相關專業優先","須持有效香港實習授權","對數字產品、移動 App、金融科技或社交／營銷工具有真實興趣","基本熟悉至少一種原型／線框工具（Axure、Figma、Sketch）及常用辦公軟件，懂 UML 或數據庫概念加分","良好邏輯思維與用戶視角、溝通與團隊合作能力","英語、粵語、普通話良好，能閱讀英文技術文檔"],
+ contact:"請聯絡石門中學香港校友會人力資源部"
+},
+{
+ date:"2026-08-20", cat:"製造 · 食品", type:"全職",
+ title:"食品生產經理 / Food Production Manager", co:"恆香（hangheung.com.hk）", loc:"香港 元朗",
+ duties:["工作內容詳見原訊息所附文檔"],
+ reqs:["至少三年生產管理層經驗"],
+ contact:"CV 發送至：<a href='mailto:carmancheung@hangheung.com.hk'>carmancheung@hangheung.com.hk</a>"
+},
+{
+ date:"2026-08-11", cat:"金融 · 科技", type:"全職",
+ title:"量化私募公司 AI Agent 工程師", co:"量化私募公司（未具名）", loc:"未註明",
+ duties:["原訊息以小程序形式發出，具體職位與要求請打開群內小程序查閱"],
+ reqs:[],
+ contact:"詳見群內小程序；可透過校友會人力資源部查詢"
+},
+{
+ date:"2026-08-11", cat:"金融 · 資產管理", type:"全職",
+ title:"電商渠道運營崗", co:"華泰證券", loc:"未註明（內地）",
+ duties:["原訊息以微信招聘連結形式發出（「從此刻，耀未來！華泰證券期待你的加入！」），具體職責請打開連結查閱"],
+ reqs:[],
+ contact:"詳見群內華泰證券招聘連結"
+},
+{
+ date:"2026-08-11", cat:"金融 · 合規牌照", type:"全職",
+ title:"負責人員（RO）— 第 1、4、9 號牌", co:"新申請牌照公司（未具名）", loc:"香港",
+ duties:["持有／符合資格申請香港證監會第 1 類（證券交易）、第 4 類（就證券提供意見）及第 9 類（資產管理）負責人員牌照，用以為新公司申請牌照"],
+ reqs:["1 號牌：具備證券交易業務拓展與發展經驗，有孖展及 EP 經驗","4 號牌：熟悉提供證券投資意見及合規諮詢","9 號牌：擁有基金管理實戰經驗、管理團隊能力，並熟悉持有客戶資產的托管與運營流程"],
+ contact:"有興趣者請透過校友會人力資源部自行投檔"
+},
+{
+ date:"2026-07-29", cat:"科技 · AI", type:"全職",
+ title:"全職 AI / Software R&D Engineer", co:"BuildSync Tech", loc:"香港 科學園",
+ duties:["AI 產品、Web／Backend、數據及 API、LLM workflow、測試及技術文件"],
+ reqs:["電腦科學、AI、數據科學、軟件工程或相關 STEM 學位","熟悉 Python／JavaScript／TypeScript／SQL 其中一項","應屆畢業生或 0–2 年經驗均可","可合法在香港全職工作","可短期內到職者優先"],
+ contact:"CV、學歷證明及 GitHub／Portfolio 發送至：<a href='mailto:info@buildsynctech.com'>info@buildsynctech.com</a>"
+},
+{
+ date:"2026-07-10", cat:"金融 · 投資銀行", type:"實習",
+ title:"投資銀行部醫療組 實習生", co:"某 top 券商（中金 CICC 郵箱投遞）", loc:"未註明",
+ duties:["協助境內外 IPO 項目執行工作，包括但不限於文件撰寫、PPT 製作、底稿及申報材料製作、數據收集與統計分析"],
+ reqs:["立志從事投行工作，對投行有熱情有追求的學生","每周可保證工作日至少 4 天以上，可盡快入職並持續支持至少 6 個月，表現出色可長期續簽，有留用機會","投行相關實習經歷優先","有 A 股／港股 IPO 項目經驗及生物醫藥行業經驗優先；具良好學習能力、溝通協調能力、團隊合作精神及保密意識","吃苦耐勞，能適應高強度工作節奏"],
+ contact:"簡歷命名「姓名-學校-專業-年級-每周onsite天數-最早入職時間-持續實習時間」，投遞至 <a href='mailto:chenjuan.pang@cicc.com.cn'>chenjuan.pang@cicc.com.cn</a>"
+},
+{
+ date:"2026-06-26", cat:"科技 · 數據 / Web3", type:"全職／實習",
+ title:"數據採集專員（RWA）", co:"CoinFound（TradFi × Crypto 數據科技公司）", loc:"香港 · 應屆全職／實習",
+ duties:["按規格採集 RWA 相關數據：發行人公開材料、鏈上數據、第三方數據源及中文語境數據調研","維護數據源清單，對採集數據進行基礎核對（版本對齊、缺漏排查、可疑值識別）","完成臨時收錄並提交，配合 review 流程正式入庫","協助維護數據需求表單"],
+ reqs:["細緻有耐心，對數據準確性敏感（首要條件）","熟練 Excel／Google Sheets；有 SQL 或 Python 基礎更佳","中文流利，英文可讀","加分：對加密／RWA／金融有真實興趣；用過鏈上數據工具（區塊瀏覽器、Dune 等）；有數據錄入、標註或研究助理經驗"],
+ contact:"投遞簡歷：<a href='mailto:hr@coinfound.org'>hr@coinfound.org</a>；提供有競爭力薪酬、轉正機會、導師帶教、簽證支援"
+},
+{
+ date:"2026-06-25", cat:"研究 · 社企", type:"全職",
+ title:"博士後 / 研究助理", co:"樂齡實驗室（倡議研究機構）", loc:"香港",
+ duties:["參與具影響力的研究及顧問項目，共同應對區內新興的老齡化相關挑戰","範疇涵蓋房屋設計與規劃、鄰里開放空間微觀研究、長者社交及身體活動與精神健康、跨境養老等議題"],
+ reqs:["懂廣東話、能在香港工作（必要考慮條件）"],
+ contact:"與實驗室負責人毛教授聯絡：<a href='mailto:khmo@cuhk.edu.hk'>khmo@cuhk.edu.hk</a>；職位詳情：<a href='https://www.linkedin.com/jobs/view/4431835170/' target='_blank' rel='noopener'>LinkedIn</a>"
+},
+{
+ date:"2026-06-18", cat:"科技 · AI", type:"全職／實習",
+ title:"產品經理（內推）", co:"階躍星辰（AI 大模型獨角獸企業）", loc:"未註明",
+ duties:["產品經理崗位（正職 & 實習），原訊息附二維碼掃碼投遞"],
+ reqs:[],
+ contact:"掃描群內二維碼投遞（原訊息附圖片）"
+},
+{
+ date:"2026-06-17", cat:"科技 · 機器人", type:"實習",
+ title:"暑期實習生：AI 算法、機器人結構、動漫及工業設計", co:"ZeroneRobotics 零一星際", loc:"未註明",
+ duties:["AI 算法工程師實習生、機器人結構工程師、動漫及工業設計方向暑期實習"],
+ reqs:["詳見原訊息所附招聘連結"],
+ contact:"詳見群內 ZeroneRobotics 暑期實習招聘連結"
+},
+{
+ date:"2026-03-11", cat:"物業 · 行政財務", type:"初級職位",
+ title:"Property Assistant / Property Officer / Administration Officer / Accounting Officer / Accounting Assistant", co:"物業管理公司（黃文基會長）", loc:"香港",
+ duties:["物業管理公司多個初級職位（原訊息未逐項列明職責）"],
+ reqs:[],
+ contact:"有意者或查詢詳情請聯絡黃文基會長：+852 9037 0160（說明來意）"
+},
+{
+ date:"2026-03-11", cat:"教育", type:"全職",
+ title:"小學各科教師（2026–2027 學年）", co:"保良局陸慶濤小學", loc:"新界西貢區將軍澳寶林邨",
+ duties:["任教小一至小六各科","負責行政及教務工作，協助推動校務及科務發展"],
+ reqs:["持相關大學學位及完成學位教師教育文憑（小學）","持有檢定教員證書","須在《基本法及香港國安法》（學位程度）測試取得及格成績","準僱員需進行並持有有效之《性罪行定罪紀錄查核》（SCRC）結果"],
+ contact:"將申請信及詳細履歷郵寄至「將軍澳寶林邨 保良局陸慶濤小學 校長收」，信封面註明「應徵職位（2026-27學年各科老師）」；聯絡人：藍小姐"
+},
+{
+ date:"2025-11-28", cat:"企業秘書 · 行政", type:"全職",
+ title:"公司秘書", co:"穩健發展企業（貿易、製造及投資，未具名）", loc:"香港 尖沙咀",
+ duties:["支援管理層處理一般行政事務及私人事務","處理公司物業租務事宜","處理董事會會議安排、會議記錄及文件存檔","協助準備及提交政府及監管機構所需文件（商業登記、稅務報表等）","處理一般文書工作"],
+ reqs:["持有公司秘書相關專業資格（HKCGI／ICSA）優先","至少 2 年公司秘書或相關工作經驗","能獨立處理多間公司事務者優先","細心有條理，良好溝通能力及責任感","熟悉中英文文書處理，能操流利粵語、普通話及英語"],
+ contact:"履歷連同薪金要求電郵至 <a href='mailto:carmen.asiaforce@gmail.com'>carmen.asiaforce@gmail.com</a>，標題註明「申請公司秘書職位」；福利：銀行假期、年假（周一至五 09:00–18:30）"
+},
+{
+ date:"2025-09-19", cat:"內地 · 人才引進", type:"人才計劃",
+ title:"2025 港澳人才招聘計劃", co:"佛山市南海區（石門中學香港校友會人力資源發展部轉發）", loc:"佛山南海",
+ duties:["面向製造業企業（研發類、技術類）及科研機構一線科研崗位","入選最高可獲得 110 萬補貼（省 50 萬元，市最高 60 萬元）"],
+ reqs:["2024 年 1 月 1 日前已在佛山南海工作","年齡不超過 40 周歲，集成電路、人工智能、機器人領域放寬至 50 周歲，女性在上述年齡要求基礎上放寬 2 歲","學歷不限（建議考慮碩士以上）","製造業企業人才（研發類、技術類）、科研機構一線科研人才優先考慮"],
+ contact:"有興趣校友請私聊群內轉發人或 Frankie"
+},
+{
+ date:"2025-09-11", cat:"製造 · 化工", type:"全職",
+ title:"海外派駐崗位", co:"华特气体（688268.SS，校友企業）", loc:"海外派駐",
+ duties:["職位內容和要求見原訊息附件「海外派驻岗位.docx」"],
+ reqs:["詳見附件"],
+ contact:"有興趣應聘請發簡歷至：<a href='mailto:info@huategas.com'>info@huategas.com</a>"
+},
+{
+ date:"2025-09-11", cat:"活動 · 兼職", type:"兼職",
+ title:"中秋／聖誕手工工作坊幫手（Part-time）", co:"校友個人（港島活動統籌）", loc:"香港島（308 Central des Voeux / AIA Financial Centre / AIA Tower）",
+ duties:["現場簽到／輔助工作坊導師／分發物料等","共 11 次工作坊（2/10、3/10、6/11、13/11、20/11、21/11、27/11、28/11、4/12、5/12、12/12），每次約 2–3 小時（主要集中在 12:00–14:00）"],
+ reqs:["粵語無障礙溝通，最好是母語","不需滿足所有時間段，最好能滿足其中 3 次","建議住在港島附近的同學"],
+ contact:"群內私聊了解具體時間（原訊息未列公開聯絡方式）"
+}
+];
+
+const grid=document.getElementById('grid');
+const empty=document.getElementById('empty');
+const chipsEl=document.getElementById('chips');
+const qEl=document.getElementById('q');
+const sortEl=document.getElementById('sort');
+
+const cats=["全部",...[...new Set(JOBS.map(j=>j.cat))]];
+let active="全部";
+
+document.getElementById('s-total').textContent=JOBS.length;
+document.getElementById('s-latest').textContent=JOBS.map(j=>j.date).sort().pop();
+const mix={};JOBS.forEach(j=>mix[j.type]=(mix[j.type]||0)+1);
+document.getElementById('s-mix').textContent=Object.entries(mix).map(([k,v])=>k+' '+v).join(' · ');
+document.getElementById('stamp').textContent='最後整理時間：2026-09-30';
+
+cats.forEach(c=>{
+  const b=document.createElement('div');
+  b.className='chip'+(c===active?' on':'');
+  b.textContent=c;
+  b.onclick=()=>{active=c;[...chipsEl.children].forEach(x=>x.classList.toggle('on',x.textContent===c));render();};
+  chipsEl.appendChild(b);
+});
+
+function esc(s){return String(s).replace(/[&<>]/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;'}[m]));}
+
+function card(j){
+  const d=j.duties&&j.duties.length?`<div class="sec"><h4>工作內容</h4><ul>${j.duties.map(x=>`<li>${esc(x)}</li>`).join('')}</ul></div>`:'';
+  const r=j.reqs&&j.reqs.length?`<div class="sec"><h4>任職要求</h4><ul>${j.reqs.map(x=>`<li>${esc(x)}</li>`).join('')}</ul></div>`:'';
+  return `<article class="card">
+    <div class="top">
+      <div>
+        <div class="tags" style="margin-bottom:6px">
+          <span class="tag cat">${esc(j.cat)}</span>
+          <span class="tag type">${esc(j.type)}</span>
+        </div>
+        <h3>${esc(j.title)}</h3>
+        <div class="co"><b>${esc(j.co)}</b>${j.loc?(' · '+esc(j.loc)):''}</div>
+      </div>
+      <div class="date">${esc(j.date)}</div>
+    </div>
+    ${d}${r}
+    <div class="contact"><b>聯絡方式：</b>${j.contact}</div>
+  </article>`;
+}
+
+function render(){
+  const kw=qEl.value.trim().toLowerCase();
+  let list=JOBS.filter(j=>active==="全部"||j.cat===active);
+  if(kw) list=list.filter(j=>JSON.stringify(j).toLowerCase().includes(kw));
+  list.sort((a,b)=>sortEl.value==="new"?b.date.localeCompare(a.date):a.date.localeCompare(b.date));
+  grid.innerHTML=list.map(card).join('');
+  empty.style.display=list.length?'none':'block';
+}
+qEl.oninput=render; sortEl.onchange=render;
+render();
+</script>
+</body>
+</html>
