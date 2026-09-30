@@ -3,11 +3,12 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="icon" type="image/png" href="logo.png">
 <title>石門中學香港校友會 · 群內招聘資訊彙編</title>
 <style>
 :root{
-  --bg:#f6f7f9; --card:#ffffff; --ink:#1c2430; --sub:#5b6674; --line:#e3e7ec;
-  --brand:#1f5f8b; --brand-soft:#eaf2f8; --accent:#b3541e; --chip:#eef1f5;
+  --bg:#f5f8f6; --card:#ffffff; --ink:#1d2a23; --sub:#5c6b62; --line:#dfe8e2;
+  --brand:#2b7a50; --brand-soft:#edf5f0; --accent:#b3541e; --chip:#eef3ef;
   --ok:#1f7a4d; --warn:#9a6b00;
 }
 *{box-sizing:border-box}
@@ -15,12 +16,15 @@ body{margin:0;background:var(--bg);color:var(--ink);
   font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif;
   line-height:1.75;-webkit-font-smoothing:antialiased}
 .wrap{max-width:1080px;margin:0 auto;padding:32px 20px 64px}
-header.hero{background:linear-gradient(180deg,#ffffff,#fbfcfd);border:1px solid var(--line);
-  border-radius:16px;padding:28px 28px 22px;margin-bottom:20px}
-h1{margin:0 0 6px;font-size:26px;letter-spacing:.3px}
+header.hero{background:linear-gradient(180deg,#ffffff,#f6fbf8);border:1px solid var(--line);
+  border-radius:16px;padding:26px 28px 22px;margin-bottom:20px}
+.brandrow{display:flex;align-items:center;gap:18px}
+.logo{width:68px;height:68px;flex:0 0 68px;filter:drop-shadow(0 2px 4px rgba(43,122,80,.18))}
+h1{margin:0 0 6px;font-size:26px;letter-spacing:.3px;color:var(--ink)}
+h1 .hd{color:var(--brand)}
 .sub{color:var(--sub);font-size:14px}
 .stats{display:flex;flex-wrap:wrap;gap:10px;margin-top:18px}
-.stat{background:var(--brand-soft);border:1px solid #d6e6f0;border-radius:10px;padding:8px 14px;font-size:13px;color:var(--brand)}
+.stat{background:var(--brand-soft);border:1px solid #d3e6da;border-radius:10px;padding:8px 14px;font-size:13px;color:var(--brand)}
 .stat b{font-size:16px}
 .toolbar{position:sticky;top:0;z-index:5;background:rgba(246,247,249,.96);backdrop-filter:blur(6px);
   padding:12px 0 10px;margin-bottom:8px;border-bottom:1px solid transparent}
@@ -30,7 +34,7 @@ input[type=search]{flex:1 1 260px;min-width:220px;padding:10px 14px;border:1px s
 .chips{display:flex;flex-wrap:wrap;gap:8px}
 .chip{border:1px solid var(--line);background:#fff;color:var(--sub);border-radius:999px;
   padding:6px 14px;font-size:13px;cursor:pointer;user-select:none;transition:.15s}
-.chip:hover{border-color:#bcd0dd}
+.chip:hover{border-color:#b9d4c4}
 .chip.on{background:var(--brand);border-color:var(--brand);color:#fff}
 select{padding:8px 12px;border:1px solid var(--line);border-radius:10px;background:#fff;font-size:13px;color:var(--ink)}
 .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:16px;margin-top:14px}
@@ -49,7 +53,7 @@ h3{margin:0;font-size:17px;line-height:1.5}
 .sec h4{margin:0 0 4px;font-size:12px;color:var(--sub);font-weight:600;letter-spacing:.5px}
 ul{margin:0;padding-left:18px}
 li{margin:2px 0;font-size:13.5px}
-.contact{background:#fbfcfd;border:1px dashed #cddbe6;border-radius:10px;padding:10px 12px;font-size:13px}
+.contact{background:#fafcfa;border:1px dashed #c8ddd0;border-radius:10px;padding:10px 12px;font-size:13px}
 .contact a{color:var(--brand);word-break:break-all}
 .hint{font-size:12px;color:var(--warn)}
 .empty{display:none;text-align:center;color:var(--sub);padding:48px 0;font-size:14px}
@@ -66,8 +70,13 @@ footer p{margin:6px 0}
 <div class="wrap">
 
 <header class="hero">
-  <h1>石門中學香港校友會 · 群內招聘資訊彙編</h1>
-  <div class="sub">整理自「5. 石門中學香港校友會大家庭」微信群公開招募訊息 · 覆蓋 2025-09-11 至 2026-09-30</div>
+  <div class="brandrow">
+    <img class="logo" src="logo.png" alt="石門中學香港校友會會徽">
+    <div>
+      <h1>石門中學香港校友會 <span class="hd">· 群內招聘資訊彙編</span></h1>
+      <div class="sub">整理自「5. 石門中學香港校友會大家庭」微信群公開招募訊息 · 覆蓋 2025-09-11 至 2026-09-30</div>
+    </div>
+  </div>
   <div class="stats">
     <div class="stat">職位總數 <b id="s-total">0</b></div>
     <div class="stat">最近更新 <b id="s-latest">—</b></div>
