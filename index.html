@@ -74,6 +74,31 @@
   .chk-lbl{font-size:12.5px;color:var(--sub);margin-left:5px;cursor:pointer;user-select:none}
   .memo-inp{width:100%;min-width:150px;border:1px solid var(--line);border-radius:8px;padding:4px 8px;
     font-size:12.5px;font-family:inherit;color:var(--ink);background:#fff}
+
+    /* ── 死線倒數卡（2026-10-02） ── */
+    .dlcard{border-left:4px solid var(--red)!important}
+    .dlrow{display:flex;align-items:center;gap:10px;padding:7px 10px;border-radius:8px;
+           margin:0 0 5px;background:var(--gray-bg);font-size:13.5px;line-height:1.45}
+    .dlrow.d-urg{background:var(--red-bg);border:1px solid #f5c6c6}
+    .dlrow.d-soon{background:var(--amber-bg);border:1px solid #f0dcb0}
+    .dlrow.d-past{opacity:.5}
+    .dlday{flex:0 0 62px;font-weight:700;text-align:center;font-size:13px}
+    .d-urg .dlday{color:var(--red)}
+    .d-soon .dlday{color:var(--amber)}
+    .dlday small{display:block;font-weight:400;font-size:11px;color:var(--sub)}
+    .dlbody{flex:1;min-width:0}
+    .dlbody b{font-size:13.5px}
+    .dlbody span{color:var(--sub);font-size:12.5px}
+    .dltag{flex:0 0 auto;font-size:11px;padding:2px 7px;border-radius:20px;
+           background:var(--card);border:1px solid var(--line);color:var(--sub)}
+    .d-urg .dltag{background:var(--red);color:#fff;border-color:var(--red)}
+    .d-soon .dltag{background:var(--amber);color:#fff;border-color:var(--amber)}
+    .dlbadge{display:inline-block;margin-top:3px;font-size:11px;padding:1px 7px;
+             border-radius:20px;background:var(--gray-bg);color:var(--sub)}
+    .dlbadge.b-urg{background:var(--red);color:#fff}
+    .dlbadge.b-soon{background:var(--amber);color:#fff}
+    .dlempty{padding:8px 10px;font-size:13px;color:var(--sub)}
+
   .memo-inp:focus{outline:none;border-color:var(--brand);box-shadow:0 0 0 2px var(--brand-bg)}
   .memo-inp:disabled{background:#f4f5f7;color:#a9b0be}
   .memo-inp::placeholder{color:#b0b6c2}
@@ -101,7 +126,12 @@
   </div>
 
   <div class="card" style="border-color:var(--amber)" data-page-node-id="FTT3YIdjCzwYdq7K5HscyR">
-    <h2 data-page-node-id="FTS9X2MODoSzVAnem0TJTF"><span class="no" style="background:var(--amber-bg);color:var(--amber)" data-page-node-id="H6WbouTFC35BTiYEFWI2lM">★</span>給 2025 年 1 月出生寶寶：現在能報名嗎？</h2>
+        <div class="card dlcard" id="dlcard">
+      <h2><span class="no" style="background:var(--red-bg);color:var(--red)">⏰</span>死線倒數（未來 60 天）</h2>
+      <div id="dlbox"><div class="dlempty">載入中…</div></div>
+      <p class="note" id="dlnote" style="margin:6px 0 0"></p>
+    </div>
+<h2 data-page-node-id="FTS9X2MODoSzVAnem0TJTF"><span class="no" style="background:var(--amber-bg);color:var(--amber)" data-page-node-id="H6WbouTFC35BTiYEFWI2lM">★</span>給 2025 年 1 月出生寶寶：現在能報名嗎？</h2>
     <p style="margin:0 0 4px" data-page-node-id="mWWuq5nHFbUMWvIlToS3nq"><b data-page-node-id="VzRBpoMCWB4dtrtQkquKyt">結論：截至 2026-10-02，已有 <b style="color:var(--green)" data-page-node-id="4RECoY35HRNKmaHEyLHd0C">11 所</b> 開放 N 班／PN 班報名：約克（全年滾動）、德萃（8/10 起滾動）、啟思（第一輪至 10/31）、維多利亞 VEO（9/14 開放，12/14 17:00 截止）、<b style="color:var(--green)">迦南（官網確認 27/28 PN 已開放）</b>；以及靈糧堂秀德（9/4 起）、明慧太子、京斯敦、耀中、保良局蔡繼有、寶山等全年／滾動收生校。<b style="color:var(--red)">St. Catherine's 紅磡 PN 已於 9/29 17:00 截止</b>；<b style="color:var(--red)">蘇浙 KCS 兩歲班 N1 報名日只有 9/5 一天，已錯過</b>。</b></p>
     <ul style="margin:6px 0 0" data-page-node-id="zDlNp96mzrNPS9GftOpKVY">
       <li data-page-node-id="FCcXjItI1byivD4JObQNS6"><b data-page-node-id="1lXNfuRPQGt65gUB6680Ao">已開放（約克）</b> —— 全年接受報名、出生即可網上申請（<a href="https://www.york.edu.hk" target="_blank" rel="noopener" data-page-node-id="zyGqNwn2Q7SDdUiZ2wNT46">york.edu.hk 報名</a>）。</li>
@@ -156,7 +186,7 @@
           <td data-page-node-id="z8lVj4Olxy3ki664z4LW2K"><span class="tag t-green" data-page-node-id="xKBVTgBJhRCCYBjhhqdHXX">N → K1 · 傳統名校</span></td>
           <td data-page-node-id="S2wVcrCN1jEjCPNBXcWjOV"><b style="color:var(--red)">紅磡（海濱南岸）PN：9/18 10:00 – 9/29 17:00，已於 2026-09-29 17:00 截止</b>，適齡 <b>2024/10/1–2025/8/31</b> 出生（2025-01 寶寶符合），HK0 僅網申。九龍塘 K1 8/28–9/8 已截止、11/26 放榜。下一步：11 月初留意「拍攝短片面試」電郵。來源：2026-09-15 家長群截圖 ＋ hkstedu／gostudy 二手彙整；官網受 Cloudflare 保護未能直接覆核，遞交前請以官網為準。</td>
         </tr>
-        <tr data-page-node-id="2kECNewV4RGM4qKAfIuosp">
+        <tr data-page-node-id="2kECNewV4RGM4qKAfIuosp" data-open="2026-07-04" data-dl="2026-09-25">
           <td class="school" data-page-node-id="9LunkFUUdE7xrKRX07iKV3">崇真小學暨幼稚園<br data-page-node-id="BzA8vghd2MRCtvLGW2Hvqt"><span class="sub" data-page-node-id="zmEbwxJGuaNk8qzuSKXHFn">深水埗 · 一條龍</span></td>
           <td data-page-node-id="ov6BT1peKvBBr3AApMdm69"><span class="tag t-amber" data-page-node-id="0HYiysD9YehJsdbUJ7Ak9o">2 歲班待確認</span></td>
           <td data-page-node-id="aFcaGRCEHtWya7tAFdPwbR"><b data-page-node-id="6aE0YjcpQynedEC8fyPYoj">2026-07-04</b>（幼兒班 K1）</td>
@@ -180,7 +210,7 @@
           <td data-page-node-id="8heoToOAMMAW2GuUhip8q7"><span class="tag t-green" data-page-node-id="DFkqG0Daz9Ce6meNBmJGsR">PN → K1 直升</span></td>
           <td data-page-node-id="tWBUzqoWR9FNaEIfNZq5c2">官網確認 27/28 PN 已開放（九龍塘、窩打老道、黃埔、匯景、小西灣、海濱、富榮等分校）；出生須 2025-12-31 或之前（2025-01 寶寶符合）；HK$40 只接受網申、全部申請均安排面見（約 0.5–1 小時）。報名期 9/14–10/19 為二手彙整（gostudy），官網未列截止日，建議盡早遞交。<b>開放日須於官網登記</b>（九龍塘 10/3、10/17）。全年學費約 HK$69,905（分 11 期）。<a href="https://www.cannan.edu.hk/admission" target="_blank" rel="noopener">cannan.edu.hk 網上申請</a></td>
         </tr>
-        <tr data-page-node-id="vrbBbJ5eCCYVgTfOWsdpUz">
+        <tr data-page-node-id="vrbBbJ5eCCYVgTfOWsdpUz" data-open="2027-01-22" data-dl="2027-01-25">
           <td class="school" data-page-node-id="dCIQ7AWFLnP3nYsHvXVFE9">民生書院幼稚園 Munsang<br data-page-node-id="1jAFcGLTlvOstmCKEfubo8"><span class="sub" data-page-node-id="gMdK7jqhkkHSCrEvXmZOJu">九龍城 · 一條龍</span></td>
           <td data-page-node-id="SKEMAt24uPmTeEeHBS62do"><span class="tag t-green" data-page-node-id="92GtRyM6rfPJzX3ZHijqtG">有（Nursery，2025 新開）</span></td>
           <td data-page-node-id="3aUnMEaRLUXK1hPQIoU97U"><b>2027-01-22 至 01-25</b>（10:00–16:00 網上）</td>
@@ -188,7 +218,7 @@
           <td data-page-node-id="EoHIF00aIMtqoCvjAdC9qL"><span class="tag t-green" data-page-node-id="DrH3JKm5raO4EIKEXQrNpb">一條龍（≥85%）</span></td>
           <td data-page-node-id="HbikPc4Aq1WpJAcnKfV1bu"><span class="tag t-amber">2027 年 1 月才報</span>；官網已公布 27/28 Nursery 時間表：網上報名 <b>2027/1/22–25（每日 10:00–16:00）</b>，適齡 <b>2024/11/1–2025/8/31</b> 出生（2025-01 寶寶符合）；面試時間公布 2/25、面試 3/6 或 3/13、結果 4/10、註冊 4/17。僅線上報名、<b>須 1 小時內完成填報</b>（超時作廢）、只可用桌面電腦，報名費 HK$40。<br><a href="https://nursery.munsang.edu.hk/index.php?pid=np-101" target="_blank" rel="noopener">nursery.munsang.edu.hk 招生時間表</a></td>
         </tr>
-        <tr data-page-node-id="3J2j0gZ7YAN3wPem6RUCFq">
+        <tr data-page-node-id="3J2j0gZ7YAN3wPem6RUCFq" data-events="2026-10-31:8 校舍開放日">
           <td class="school" data-page-node-id="oTY43ChX5nzWQjb1iwdanQ">學之園 Learning Habitat<br data-page-node-id="ZAb4kq8zg0Z8xJaBPVqawG"><span class="sub" data-page-node-id="lbFYBoH3p2L7cO46cJeae9">全港 8 間分校</span></td>
           <td data-page-node-id="8KTRpfwaMBNz0exPTTlkhn"><span class="tag t-amber">PN 12 月公布</span><br><span class="sub">10/31 開放日 · 無需報名</span></td>
           <td data-page-node-id="X3tu26CTlYoYa11nf6GHih">PN 收 2024/8/15–2025/12/31 出生（2025-01 寶寶符合），報名期 <b>2026 年 12 月公布</b>（往年約 1/2–2/13 收表）；K1 8/1–10/16（不適用 2025-01 寶寶）。<b>8 校舍開放日 2026-10-31（六）09:00–12:00 / 13:00–16:00，無需報名。</b></td>
@@ -196,7 +226,7 @@
           <td data-page-node-id="aA09u0qQQG9bO8LF1MV91j"><span class="tag t-green" data-page-node-id="gOQvtEXbX7A5cFcB0WwNVx">PN → K1 · 升三私一直最強</span></td>
           <td data-page-node-id="MYMbdu2bmNu0E1XX6xOsYt">官方明示「PN 申請時段將於 2026 年 12 月公布」（非牟利機構官方頁面），<b data-page-node-id="UBuhbgN7NlinBtWGQDuBRF">適合 2024/8/15–2025/12/31 出生</b>，現只能先登記意向；K1 已開放（8/1–10/16）。<br data-page-node-id="5iL2KaUz70SdNCxze0LD23"><a href="https://www.learninghabitat.org/zh-hk/admission/online-application" target="_blank" rel="noopener" data-page-node-id="Fy2XwmnLaV49esCFX9TkFN">網上申請系統</a></td>
         </tr>
-        <tr data-page-node-id="qxq06NCbuj6ERKxA9GKGHj">
+        <tr data-page-node-id="qxq06NCbuj6ERKxA9GKGHj" data-open="2027-01-06" data-dl="2027-01-13">
           <td class="school" data-page-node-id="AO9ezCtC93sN4VgRLwnYPW">劍鳴幼稚園 Keen Mind<br data-page-node-id="aYuJDswoh1iq5DceICujus"><span class="sub" data-page-node-id="B7oJoneoF3KzCh5fgO3Hvy">九龍塘 · 金巴倫道 13 號</span></td>
           <td data-page-node-id="JRl4aSq73GYIu1gJso2iuk"><span class="tag t-green" data-page-node-id="FRWinu2aLwFlseHEG0RJzw">有（N / PN）</span></td>
           <td data-page-node-id="rLdrrmMPNfGOrxWJHrPcN3">K1：<b data-page-node-id="HafyaVbaShj7COCw9Nqf0B">2026-09-02 至 09-09</b><br data-page-node-id="dmEmLMGvB0QwjGybL7Ne13">PN：<b data-page-node-id="8AlAyfHXzO59ajoAEJsUYq">2027-01-06 至 01-13</b></td>
@@ -269,37 +299,37 @@
           <td data-page-node-id="AXOYPPhZJnEehrGFSWWpBp">滾動 · 出生即可申請</td>
           <td data-page-node-id="msl2r2WzQLUANLiE1KNI0E"><a href="https://www.york.edu.hk" target="_blank" rel="noopener" data-page-node-id="fDa87Awsn3yrV6hFKihNtS">york.edu.hk 報名</a></td>
         </tr>
-        <tr data-page-node-id="BTsigk2nq7VPJ69GIGvZpc">
+        <tr data-page-node-id="BTsigk2nq7VPJ69GIGvZpc" data-open="2026-08-10" data-events="2026-10-03:紅磡開放日">
           <td class="school" data-page-node-id="mcg5fiZUMhWQxZKaEgxyin">德萃 St. Hilary's</td>
           <td data-page-node-id="ivTubQtpge4G2ICpxifWMI"><span class="tag t-green">已開放 · 滾動（須滿 2 歲）</span><br><span class="sub">面試 10/17 馬鞍山／10/24 紅磡</span></td>
           <td data-page-node-id="s38w3Y75sXf52mgQbAFSmz">2026-08-10 起滾動收表；<b>10/3（六）紅磡校舍開放日</b>、<b>首輪面試 10/17（六）馬鞍山校區 或 10/24（六）紅磡校區</b>；9/30 前提交者已於 10 月初收到面試邀請。寶寶 2027-01 滿 2 歲即可入學。</td>
           <td data-page-node-id="NkwwvKqaBllUZWmKmXAgAY"><a href="https://sas.hktedu.com/SHKG/2027" target="_blank" rel="noopener">sas.hktedu.com/SHKG/2027</a><br><a href="https://kindergarten.sthilarys.edu.hk/?page_id=943" target="_blank" rel="noopener">幼稚園部收生頁</a></td>
         </tr>
-        <tr data-page-node-id="j7mhZxhLXOAwcGWNMnB40U">
+        <tr data-page-node-id="j7mhZxhLXOAwcGWNMnB40U" data-open="2026-07-22" data-dl="2026-10-31">
           <td class="school" data-page-node-id="xaV7aHHURlBgVBSJRwCqPl">啟思 Creative（九龍塘正校＋匯景）</td>
           <td data-page-node-id="PH5LRklzfdq6ldYyTOgICO"><span class="tag t-green">現正接受報名</span></td>
           <td data-page-node-id="ZJdb1qfW347JKUXcbk7WgC">第一輪 <b>7/22–10/31</b>（11/1 起第二輪）；<b>PN 面試 2026-10-01 至 10-31（本月進行中，電郵通知）</b>；PN 放榜 11/30；K1 面試 11/1–11/30、放榜 12/11、註冊 2027/1/7–9。</td>
           <td data-page-node-id="g4keqPii8GM5PvQBxBOEWE"><a href="http://www.creative.edu.hk/admissions/" target="_blank" rel="noopener">creative.edu.hk/admissions</a><br><a href="https://creativeadmission.eclasscloud.com/admission.html#schools" target="_blank" rel="noopener">啟思網上報名系統</a></td>
         </tr>
-        <tr data-page-node-id="Ds1KZgPReIoBM9WhehaMdd">
+        <tr data-page-node-id="Ds1KZgPReIoBM9WhehaMdd" data-open="2026-09-18" data-dl="2026-09-29">
           <td class="school" data-page-node-id="EfuHAIZ3AlaV9j2v6fqQ1X">St. Catherine's 紅磡校舍 PN</td>
           <td data-page-node-id="Ocr1F0GvcJ8HziDWmRrc15"><span class="tag t-gray">已截止</span><br><span class="sub">9/29 17:00 已關閘</span></td>
           <td data-page-node-id="6DibYPeXXKrc2rfbfveEJd"><b>9/18 10:00 – 9/29 17:00，已於 9/29 17:00 關閉</b>；適齡 2024/10/1–2025/8/31（2025-01 寶寶符合）；HK$40 僅網申。<b>11 月初留意「拍攝短片面試」電郵</b>，結果待公布。PN 學費約 HK$94,303／11 期（每月 HK$8,573）。本輪已截止，只能等下一輪。</td>
           <td data-page-node-id="KGxA2UAbupUp0NMu8Gu2J0"><a href="https://admission.ekinder.com.hk/stcikghp" target="_blank" rel="noopener">admission.ekinder.com.hk（海濱南岸 PN）</a><br><a href="https://www.stcatherines.edu.hk/?page_id=280" target="_blank" rel="noopener">stcatherines.edu.hk</a></td>
         </tr>
-        <tr data-page-node-id="RWN2XVPfJEPpmPF9kHIWX7">
+        <tr data-page-node-id="RWN2XVPfJEPpmPF9kHIWX7" data-open="2026-08-28" data-dl="2026-09-08">
           <td class="school" data-page-node-id="46bnMMncbbuR7b7pgOBipN">St. Catherine's 九龍塘 K1（不適用）</td>
           <td data-page-node-id="beZxBo4aswZFP6tE1Zuh1R"><span class="tag t-gray" data-page-node-id="f9k82DuFp0SCHX4EHJxNMX">K1 8/28–9/8 已截止</span></td>
           <td data-page-node-id="5oTpGU2aYfVQzw53EedPvc">2026-11-26 放榜</td>
           <td data-page-node-id="MTzo9gEuQ176Gb1RUrVl47"><a href="https://www.stcatherines.edu.hk" target="_blank" rel="noopener" data-page-node-id="L0HhdbbQUVugGX6CatQKEV">stcatherines.edu.hk</a></td>
         </tr>
-        <tr data-page-node-id="0DDUJCvX6FCWik8HpjckD8">
+        <tr data-page-node-id="0DDUJCvX6FCWik8HpjckD8" data-open="2026-09-14" data-dl="2026-12-14" data-events="2026-10-03:黃埔入學講座">
           <td class="school" data-page-node-id="bKZ2ZNZD1mduoAprInftpC">維多利亞 VEO</td>
           <td data-page-node-id="hjyrja1kMrvtJ3RvQzK4GT"><span class="tag t-green" data-page-node-id="hHJFULpKQVBImB4LQGTeqB">現正接受報名</span></td>
           <td data-page-node-id="bxN91a30Gg6ai8XDahQvwu">9/14 10:00 已開放 → <b>12/14 17:00 截止</b>；PN 收 2024/9–2025/10 出生（2025-01 寶寶符合，8 校舍全收）；面試 2027/1/8–9、二輪 1/18–29（有兄姊在讀可免二輪）、<b>放榜 3/5</b>。最多 6 個校舍志願、每份 HK$40。K1 窗口 9/7 10:00–10/26 17:00（不適用 2025-01 寶寶）。</td>
           <td data-page-node-id="S66BVtDbE6xJBZIRrGZf6J"><a href="https://veo-admissions.victoria.edu.hk/zh" target="_blank" rel="noopener">veo-admissions（PN/K1）</a><br><a href="https://www.victoria.edu.hk/zh-hk/application-procedure/" target="_blank" rel="noopener">victoria.edu.hk 申請程序</a></td>
         </tr>
-        <tr data-page-node-id="uAPHYpKnDgroKr1amRzm2Q">
+        <tr data-page-node-id="uAPHYpKnDgroKr1amRzm2Q" data-open="2026-09-14" data-dl="2026-10-19" data-events="2026-10-03:九龍塘開放日,2026-10-17:九龍塘開放日">
           <td class="school" data-page-node-id="VuOyI94QqqF0cXRWQ8co2o">迦南幼稚園 Cannan（含金巴倫迦南）</td>
           <td data-page-node-id="F8fDlbr3PY9Ph2SZRAPNcM"><span class="tag t-green">現正接受報名</span><br><span class="sub">10/19 截止 · 剩 17 天</span></td>
           <td data-page-node-id="yEniQzZfZSJgDMxTeZ0nQG">官網 9/14 已開放 27/28 PN，報名期 <b>9/14–10/19</b>（二手彙整，官網未列截止日）；出生須 2025-12-31 或之前（2025-01 寶寶符合）；HK$40 只接受網申、全部申請均安排面見（約 0.5–1 小時）。九龍塘（金巴倫道）分校開放日 <b>10/3、10/17</b>。</td>
@@ -335,13 +365,13 @@
           <td data-page-node-id="m2V9qJ9jzt2ebmyanKig3h">27/28 K1 待官方公布</td>
           <td data-page-node-id="rblkomAAkHTBhRJSwsvKMj"><a href="https://www.raimondi.edu.hk" target="_blank" rel="noopener">raimondi.edu.hk（中學部）</a><br><span class="sub">幼稚園部 27/28 仍未公布，建議致電查詢</span></td>
         </tr>
-        <tr data-page-node-id="Rpr02SfObfP8qji9nKhLtD">
+        <tr data-page-node-id="Rpr02SfObfP8qji9nKhLtD" data-open="2026-09-05" data-dl="2026-09-05">
           <td class="school" data-page-node-id="vmJO64C5dng0IDsNXVZHyV">蘇浙小學校（北角）</td>
           <td data-page-node-id="fdv4kWh4ne2R1xvWO37qsi"><span class="tag t-gray" data-page-node-id="XiUQMAe6bqXbiHN2deiHW7">K1 9/11 已截止</span><br data-page-node-id="nsXRKhx58xhwdNbHbon7s8"><span class="tag t-gray" data-page-node-id="wJZqAUOEMzGaMXH3TzNasO">N1 9/5 已截止</span></td>
           <td data-page-node-id="NuR7zpcky47stcE2vhkkRR"><b>本週重大發現：官網 2026-08-28 已公布 27/28 兩歲班（N1）申請須知</b>——報名表 8/28 起可下載，<b>報名日只有 2026-09-05（六）09:00–12:00 一天</b>，須親臨北角清華街 30 號學校禮堂遞交，報名費 HK$40 現金不設找贖、<b>不接受郵寄</b>；面試通知 10 月中旬、面試 10 月下旬。<b>已錯過</b>，建議致電 2578 0402 問候補。</td>
           <td data-page-node-id="Qtaj9PF7hbbuO2FDjjIbvf"><a href="https://www.kcs.edu.hk" target="_blank" rel="noopener" data-page-node-id="VHxxUBxXx61NIZaxkDIJVb">kcs.edu.hk</a><br><a href="https://www.kcs.edu.hk/nursery/pdf/2026-2027/%E6%96%B0%E7%94%9F%E5%A0%B1%E5%90%8D%E9%80%9A%E7%9F%A5.pdf" target="_blank" rel="noopener">N1 申請須知 PDF</a></td>
         </tr>
-        <tr data-page-node-id="HFkofHstQgHYuns56pBbfA">
+        <tr data-page-node-id="HFkofHstQgHYuns56pBbfA" data-open="2027-03-01" data-dl="2027-03-05">
           <td class="school" data-page-node-id="d4DuB8qHlip6saVB2CYBOL">聖保祿幼兒園 SPN（銅鑼灣）</td>
           <td data-page-node-id="1DDfJfGw0DrzIEx77dHCcL"><span class="tag t-amber" data-page-node-id="5jRxAmsYKDogFrRUhgzlW2">明年 3 月才開放</span></td>
           <td data-page-node-id="240KFwlUjjkNF6K1leSJtf">N1：<b data-page-node-id="5jJnBhwnc0dj24wvPq7CWp">2027-03-01 至 03-05</b></td>
@@ -365,7 +395,7 @@
           <td>兒童滿 12 個月即可申請；按年齡、輪候次序及學額安排，建議盡早入隊。全年學費約 HK$36,468（分 12 期）。</td>
           <td><a href="https://knsmappform.poleungkuk.org.hk/ckykgn/tc/step-1" target="_blank" rel="noopener">CKY 網上申請</a></td>
         </tr>
-        <tr>
+        <tr data-open="2026-09-04">
           <td class="school">靈糧堂秀德（幼兒園）<span class="sub">截圖清單新增</span></td>
           <td><span class="tag t-green">已開放 · 9/4 起</span></td>
           <td>2027/28 N 班 <b>2026-09-04（五）上午 10:00 起</b>接受申請；全年學費約 HK$47,020（分 10 期）。荔枝角道 873 號（一號·西九龍）西九龍薈 1 樓。</td>
@@ -377,7 +407,7 @@
           <td>設 2–3 歲英粵預備上午班；<b>現正接受報名</b>（每月學費 HK$7,060 起），太子分校。</td>
           <td><a href="https://pe-mingwai.eclass.hk/kis/admission_form/" target="_blank" rel="noopener">明慧太子網上報名表</a></td>
         </tr>
-        <tr>
+        <tr data-dl="2026-10-31">
           <td class="school">啟思幼稚園（帝堡城）<span class="sub">沙田 · 截圖清單新增</span></td>
           <td><span class="tag t-amber">同啟思體系</span></td>
           <td>幼兒須滿 2 歲才能正式入讀 N 班；<b>現正接受報名至 10 月</b>（跟啟思體系的 7/22–10/31 首輪），<b>結果 2026-11-30 前公布</b>。全年學費約 HK$38,496。</td>
@@ -764,6 +794,87 @@
     }
     applyR();
   }
+})();
+
+/* ══════ 死線倒數（2026-10-02 新增） ══════ */
+(function(){
+  var box = document.getElementById('dlbox');
+  var note = document.getElementById('dlnote');
+  if(!box) return;
+  var tbl = document.querySelectorAll('table')[1];
+  if(!tbl) return;
+  var rows = Array.prototype.slice.call(tbl.querySelectorAll('tbody tr'));
+
+  var today = new Date(); today.setHours(0,0,0,0);
+  function dnum(d){ var t = new Date(d + 'T00:00:00'); return Math.round((t - today) / 86400000); }
+  function fmt(d){ var p = d.split('-'); return (+p[1]) + '/' + (+p[2]); }
+  function cls(n){
+    if(n < 0) return 'd-past';
+    if(n <= 7) return 'd-urg';
+    if(n <= 21) return 'd-soon';
+    return '';
+  }
+
+  var items = [];
+  rows.forEach(function(tr){
+    var nm = tr.getAttribute('data-key') ||
+             (tr.querySelector('.school') || tr.children[0]).textContent.trim();
+    function push(d, label, kind){
+      if(!d) return;
+      var n = dnum(d);
+      if(n < -2 || n > 60) return;              /* 只看未來 60 天 + 剛過 2 天內 */
+      items.push({ n: nm, d: d, label: label, kind: kind, days: n });
+    }
+    push(tr.getAttribute('data-dl'),   '報名截止', 'dl');
+    push(tr.getAttribute('data-open'),  '開放報名', 'op');
+    (tr.getAttribute('data-events') || '').split(',').forEach(function(e){
+      if(!e) return;
+      var q = e.split(':');
+      push(q[0], q[1] || '活動', 'ev');
+    });
+  });
+  items.sort(function(a,b){ return a.days - b.days; });
+
+  /* 表二每行的「剩 N 天」徽章 */
+  rows.forEach(function(tr){
+    var dl = tr.getAttribute('data-dl');
+    if(!dl) return;
+    var n = dnum(dl);
+    var cell = tr.children[1];
+    if(!cell) return;
+    var old = cell.querySelector('.dlbadge'); if(old) old.remove();
+    var b = document.createElement('span');
+    b.className = 'dlbadge' + (n < 0 ? '' : n <= 7 ? ' b-urg' : n <= 21 ? ' b-soon' : '');
+    b.textContent = n < 0 ? ('已截止 ' + (-n) + ' 天') : n === 0 ? '今天截止' : ('剩 ' + n + ' 天');
+    cell.appendChild(b);
+  });
+
+  if(!items.length){
+    box.innerHTML = '<div class="dlempty">未來 60 天沒有報名截止／開放日。'
+                  + '有截止日的學校，每週更新時會自動計入。</div>';
+    note.textContent = '';
+    return;
+  }
+
+  var html = '';
+  items.forEach(function(x){
+    var c = x.kind === 'dl' ? cls(x.days) : (x.days < 0 ? 'd-past' : x.days <= 7 ? 'd-soon' : '');
+    var dayTxt = x.days < 0 ? ('過了 ' + (-x.days) + ' 天') : x.days === 0 ? '今天' : (x.days + ' 天');
+    html += '<div class="dlrow ' + c + '">'
+          +   '<div class="dlday">' + dayTxt + '<small>' + fmt(x.d) + '</small></div>'
+          +   '<div class="dlbody"><b>' + x.n + '</b><br><span>' + x.label + '</span></div>'
+          +   '<div class="dltag">' + (x.kind === 'dl' ? '截止' : x.kind === 'op' ? '開放' : '活動') + '</div>'
+          + '</div>';
+  });
+  box.innerHTML = html;
+
+  var urg = items.filter(function(x){ return x.kind === 'dl' && x.days >= 0 && x.days <= 7; });
+  var soon = items.filter(function(x){ return x.kind === 'dl' && x.days > 7 && x.days <= 21; });
+  var msg = '未來 60 天共 ' + items.length + ' 個節點';
+  if(urg.length) msg += '；<b style="color:var(--red)">' + urg.length + ' 個 7 天內截止</b>';
+  if(soon.length) msg += '；' + soon.length + ' 個 21 天內截止';
+  msg += '。全年滾動收生（約克、京斯敦、耀中、保良局蔡繼有、明慧太子、寶山、靈糧堂秀德）無截止日，隨時可交。';
+  note.innerHTML = msg;
 })();
 </script>
 
