@@ -74,7 +74,7 @@ footer p{margin:6px 0}
     <img class="logo" src="logo.png" alt="石門中學香港校友會會徽">
     <div>
       <h1>石門中學香港校友會 <span class="hd">· 群內招聘資訊彙編</span></h1>
-      <div class="sub">整理自「5. 石門中學香港校友會大家庭」微信群公開招募訊息 · 覆蓋 2025-09-11 至 2026-09-30</div>
+      <div class="sub">整理自「5. 石門中學香港校友會大家庭」微信群公開招募訊息 · 覆蓋 2025-09-11 至 2026-10-02</div>
     </div>
   </div>
   <div class="stats">
@@ -109,6 +109,13 @@ footer p{margin:6px 0}
 
 <script>
 const JOBS = [
+{
+ date:"2026-09-30", cat:"金融 · 資產管理", type:"全職",
+ title:"Associate / Senior Associate — Accounting & Administration", co:"大型基金公司（Hysan Place 希慎廣場全層，未具名）", loc:"香港 銅鑼灣 希慎廣場",
+ duties:["原訊息以 PDF 附件形式發出（檔名「D Associate or Senior Associate - Accounting & Administration.pdf」），詳細職責與要求請參閱群內附件"],
+ reqs:["原訊息正文未列明要求，詳見附件 PDF"],
+ contact:"有興趣者請私聊校友會人力資源部（HR of alumna），由人力資源部代為轉介"
+},
 {
  date:"2026-09-30", cat:"金融 · 資產管理", type:"全職",
  title:"銷售（資產管理）", co:"校友企業／資產管理公司（未具名）", loc:"香港",
@@ -299,7 +306,7 @@ document.getElementById('s-total').textContent=JOBS.length;
 document.getElementById('s-latest').textContent=JOBS.map(j=>j.date).sort().pop();
 const mix={};JOBS.forEach(j=>mix[j.type]=(mix[j.type]||0)+1);
 document.getElementById('s-mix').textContent=Object.entries(mix).map(([k,v])=>k+' '+v).join(' · ');
-document.getElementById('stamp').textContent='最後整理時間：2026-09-30';
+document.getElementById('stamp').textContent='最後整理時間：2026-10-02';
 
 cats.forEach(c=>{
   const b=document.createElement('div');
