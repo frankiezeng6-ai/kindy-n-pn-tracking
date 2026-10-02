@@ -1,0 +1,32 @@
+{
+  "name": "幼稚園 N 班報名倒計時",
+  "short_name": "N班倒計時",
+  "description": "2027/28 學年幼稚園 N 班（2 歲班／PN）報名死線倒計時",
+  "start_url": "./countdown.html",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#f5f6f8",
+  "theme_color": "#d64545",
+  "lang": "zh-Hant",
+  "icons": [
+    {
+      "src": "./icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "./icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "./icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
+    }
+  ]
+}
