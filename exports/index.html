@@ -1,0 +1,454 @@
+<!DOCTYPE html>
+<html lang="zh-HK">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>幼稚園 N 班申請記錄比對表 · 2027/28</title>
+<style>
+  :root{
+    --bg:#f6f7f9; --card:#fff; --ink:#1a1d24; --sub:#5b6270; --line:#e6e8ee;
+    --ok:#2f7a4d; --ok-bg:#e8f4ec; --warn:#9a6b00; --warn-bg:#fdf3d9;
+    --new:#1f5b96; --new-bg:#e6f0fa; --none:#5b6270; --none-bg:#f0f1f4;
+    --late:#a8471f; --late-bg:#fceee6; --na:#6b7280; --na-bg:#e9eaee;
+    --brand:#2e5e4e;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--bg);color:var(--ink);
+    font-family:"PingFang HK","Microsoft JhengHei","Microsoft YaHei",-apple-system,"Segoe UI",sans-serif;
+    font-size:14px;line-height:1.6}
+  .wrap{max-width:1400px;margin:0 auto;padding:28px 18px 60px}
+  header h1{margin:0 0 6px;font-size:22px;letter-spacing:.5px}
+  header .meta{color:var(--sub);font-size:13px}
+  header .meta b{color:var(--brand)}
+  .stats{display:flex;flex-wrap:wrap;gap:10px;margin:18px 0 14px}
+  .stat{background:var(--card);border:1px solid var(--line);border-radius:8px;
+    padding:10px 14px;min-width:104px}
+  .stat .n{font-size:20px;font-weight:700;line-height:1.2}
+  .stat .l{font-size:12px;color:var(--sub)}
+  .toolbar{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:0 0 12px}
+  .chip{border:1px solid var(--line);background:var(--card);border-radius:999px;
+    padding:5px 13px;font-size:13px;cursor:pointer;color:var(--sub)}
+  .chip:hover{border-color:#c9cedb}
+  .chip.on{background:var(--brand);border-color:var(--brand);color:#fff;font-weight:600}
+  input[type=search]{flex:1;min-width:180px;max-width:300px;padding:7px 12px;font-size:13px;
+    border:1px solid var(--line);border-radius:999px;background:var(--card);outline:none}
+  input[type=search]:focus{border-color:var(--brand)}
+  .card{background:var(--card);border:1px solid var(--line);border-radius:10px;overflow:hidden}
+  .scroll{overflow-x:auto}
+  table{border-collapse:collapse;width:100%;min-width:1180px}
+  th,td{border-bottom:1px solid var(--line);padding:9px 11px;vertical-align:top;text-align:left;font-size:13px}
+  th{background:#fafbfc;color:var(--sub);font-weight:600;white-space:nowrap;position:sticky;top:0;z-index:1}
+  tbody tr:hover{background:#fafbfd}
+  td.c{text-align:center;white-space:nowrap}
+  td.school{font-weight:600;min-width:180px}
+  td.num{font-family:ui-monospace,Consolas,monospace;font-size:12.5px;white-space:nowrap}
+  td.url{max-width:230px;word-break:break-all;font-size:12px}
+  td.url a{color:#2f6fdb;text-decoration:none}
+  td.url a:hover{text-decoration:underline}
+  td.src{font-family:ui-monospace,Consolas,monospace;font-size:12px}
+  td.memo{color:var(--sub);min-width:250px}
+  .pill{display:inline-block;padding:2px 9px;border-radius:999px;font-size:12px;font-weight:600;white-space:nowrap}
+  .s-ok{background:var(--ok-bg);color:var(--ok)}
+  .s-warn{background:var(--warn-bg);color:var(--warn)}
+  .s-new{background:var(--new-bg);color:var(--new)}
+  .s-none{background:var(--none-bg);color:var(--none)}
+  .s-late{background:var(--late-bg);color:var(--late)}
+  .s-na{background:var(--na-bg);color:var(--na)}
+  .empty{display:none;padding:26px;text-align:center;color:var(--sub)}
+  section.notes{margin-top:26px;background:var(--card);border:1px solid var(--line);
+    border-radius:10px;padding:18px 20px}
+  section.notes h2{margin:0 0 12px;font-size:16px}
+  .note-row{display:flex;gap:12px;padding:5px 0;border-bottom:1px dashed #eef0f4;font-size:13px}
+  .note-row:last-child{border-bottom:none}
+  .note-k{flex:0 0 96px;color:var(--sub);font-weight:600}
+  .note-v{flex:1}
+  footer{margin-top:20px;color:var(--sub);font-size:12.5px;display:flex;flex-wrap:wrap;gap:14px;align-items:center}
+  footer a{color:#2f6fdb}
+  @media print{.toolbar,footer{display:none} .card{border:none} th{position:static}}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <h1>幼稚園 N 班申請記錄比對表 · 2027/28 學年</h1>
+    <div class="meta">更新時間： <b>2026-10-09</b>｜基準：追蹤表 16 間目標校 ＋ 報名憑證核對｜已移除申請人個人敏感資料</div>
+  </header>
+
+  <div class="stats">
+    <div class="stat"><div class="n">22</div><div class="l">記錄總數</div></div>
+    <div class="stat"><div class="n" style="color:var(--ok)">6</div><div class="l">已報名 · 一致</div></div>
+    <div class="stat"><div class="n" style="color:var(--warn)">3</div><div class="l">已報名 · 信息不一致</div></div>
+    <div class="stat"><div class="n" style="color:var(--new)">2</div><div class="l">已報名 · 模板未收錄</div></div>
+    <div class="stat"><div class="n" style="color:var(--none)">8</div><div class="l">未報名</div></div>
+    <div class="stat"><div class="n" style="color:var(--na)">3</div><div class="l">不適用</div></div>
+  </div>
+
+  <div class="toolbar">
+    <button class="chip on" data-f="all">全部</button>
+    <button class="chip" data-f="s-ok">已報名 · 一致</button>
+    <button class="chip" data-f="s-warn">信息不一致</button>
+    <button class="chip" data-f="s-new">模板未收錄</button>
+    <button class="chip" data-f="s-none">未報名</button>
+    <button class="chip" data-f="s-late">已截止</button>
+    <button class="chip" data-f="s-na">不適用</button>
+    <input type="search" id="q" placeholder="搜尋學校、編號、備註…">
+  </div>
+
+  <div class="card">
+    <div class="scroll">
+      <table id="t">
+        <thead><tr>
+          <th>學校</th><th>報名開放時間</th><th>申請編號</th><th>報名完成時間</th>
+          <th>第一輪面試</th><th>第二輪面試</th><th>地址</th><th>網址</th>
+          <th>匹配狀態</th><th>來源</th><th>備註</th>
+        </tr></thead>
+        <tbody>
+      <tr data-status="s-ok">
+        <td class="school">迦南幼稚園（九龍塘）Cannan Kowloon Tong</td>
+        <td>2026-09-14 至 2026-10-19</td>
+        <td class="num">Y202700755</td>
+        <td class="c">2026-09-21</td>
+        <td>—</td>
+        <td class="c">—</td>
+        <td>九龍塘金巴倫道9號</td>
+        <td class="url"><a href="https://www.cannan.edu.hk/campuses" target="_blank" rel="noopener">https://www.cannan.edu.hk/campuses</a></td>
+        <td class="c"><span class="pill s-ok">已報名 · 一致</span></td>
+        <td class="c src">A+B+C</td>
+        <td class="memo">PDF 確認頁編號 Y202700755，與模板一致；另選富榮花園/黃埔花園/窩打老道分校為候補意願。</td>
+      </tr>
+      <tr data-status="s-warn">
+        <td class="school">維多利亞教育機構 VEO</td>
+        <td>2026-09-14 至 2026-12-14</td>
+        <td class="num">2027001793</td>
+        <td class="c">2026-09-21</td>
+        <td>—</td>
+        <td class="c">—</td>
+        <td>11 間分校統一招生（志願：君匯港/何文田/海之戀）</td>
+        <td class="url"><a href="https://www.victoria.edu.hk" target="_blank" rel="noopener">https://www.victoria.edu.hk</a></td>
+        <td class="c"><span class="pill s-warn">已報名 · 信息不一致</span></td>
+        <td class="c src">A+B+C</td>
+        <td class="memo">模板申請編號標 NA，PDF 確認頁實為 2027001793；已報 6 個志願（上午/下午國際小組班）。</td>
+      </tr>
+      <tr data-status="s-ok">
+        <td class="school">國際英文幼稚園 St. Catherine&#x27;s（紅磡海濱南岸）</td>
+        <td>2026-09-18 至 2026-09-29</td>
+        <td class="num">PN272786</td>
+        <td class="c">2026-10-02</td>
+        <td>2026-11 初電郵通知拍攝錄像（11/6 前未收通知須聯絡）</td>
+        <td class="c">—</td>
+        <td>九龍紅磡愛景街8號海濱南岸</td>
+        <td class="url"><a href="https://www.stcatherines.edu.hk" target="_blank" rel="noopener">https://www.stcatherines.edu.hk</a></td>
+        <td class="c"><span class="pill s-ok">已報名 · 一致</span></td>
+        <td class="c src">A+B+C</td>
+        <td class="memo">報名費 HK$40 收據齊；就讀 Pebbles Academy 幼兒預備班申請者免交錄像直接面見。</td>
+      </tr>
+      <tr data-status="s-ok">
+        <td class="school">啟思幼稚園幼兒園 Creative（九龍塘正校）</td>
+        <td>2026-07-22 至 2026-10-31（第一輪）</td>
+        <td class="num">CK2027-DN-01-00862</td>
+        <td class="c">2026-10-05</td>
+        <td>2026-11-04（模板兩列分別記 15:00 / 14:30，時間待核）</td>
+        <td class="c">—</td>
+        <td>九龍塘律倫街6號</td>
+        <td class="url"><a href="https://creative.edu.hk/2728admissions/" target="_blank" rel="noopener">https://creative.edu.hk/2728admissions/</a></td>
+        <td class="c"><span class="pill s-ok">已報名 · 一致</span></td>
+        <td class="c src">A+B+C</td>
+        <td class="memo">模板有兩列 Creative 重複（面試 15:00 vs 14:30）；電郵稱 11/1 前未收面見通知致電 2336 1139。</td>
+      </tr>
+      <tr data-status="s-warn">
+        <td class="school">德萃幼稚園 St. Hilary&#x27;s</td>
+        <td>2026-08-10 起滾動（系統截止 2026-12-31）</td>
+        <td class="num">8610198497</td>
+        <td class="c">2026-09-07（PDF 付款時間 10:35）</td>
+        <td>2026-10-24 10:30（模板）</td>
+        <td class="c">—</td>
+        <td>紅磡（系統 sas.hktedu.com/SHKG）</td>
+        <td class="url"><a href="https://kindergarten.sthilarys.edu.hk" target="_blank" rel="noopener">https://kindergarten.sthilarys.edu.hk</a></td>
+        <td class="c"><span class="pill s-warn">已報名 · 信息不一致</span></td>
+        <td class="c src">A+B+C</td>
+        <td class="memo">模板報名完成時間 2026-09-23 與 PDF 付款日 2026-09-07 不符；報名費 HK$40 已付。分校以系統記錄為準。</td>
+      </tr>
+      <tr data-status="s-warn">
+        <td class="school">京斯頓國際幼稚園 Kingston</td>
+        <td>Rolling Admissions</td>
+        <td class="num">000000877</td>
+        <td class="c">2026-10-05</td>
+        <td>—</td>
+        <td class="c">—</td>
+        <td>九龍城（KIK/KCC）</td>
+        <td class="url"><a href="https://www.kingston.edu.hk" target="_blank" rel="noopener">https://www.kingston.edu.hk</a></td>
+        <td class="c"><span class="pill s-warn">已報名 · 信息不一致</span></td>
+        <td class="c src">A+B+C</td>
+        <td class="memo">模板申請編號標 NA，系統確認頁實為 000000877；入讀 2027-2028 2-Year-Old，2027-09-01 開學。</td>
+      </tr>
+      <tr data-status="s-ok">
+        <td class="school">ABC Pathways（紅磡）</td>
+        <td>Rolling Admissions</td>
+        <td class="num">27000108</td>
+        <td class="c">2026-10-05</td>
+        <td>—</td>
+        <td class="c">—</td>
+        <td>九龍紅磡蕪湖街121號城中匯地下</td>
+        <td class="url"><a href="https://www.abcpathways.edu.hk" target="_blank" rel="noopener">https://www.abcpathways.edu.hk</a></td>
+        <td class="c"><span class="pill s-ok">已報名 · 一致</span></td>
+        <td class="c src">A+B+C</td>
+        <td class="memo">確認頁編號 27000108 與模板一致。</td>
+      </tr>
+      <tr data-status="s-ok">
+        <td class="school">明慧國際幼稚園（太子）</td>
+        <td>Rolling Admissions</td>
+        <td class="num">PE27E10432</td>
+        <td class="c">2026-10-05</td>
+        <td>簡介會 2026-10-10 09:00–09:30</td>
+        <td class="c">—</td>
+        <td>九龍太子道西187號1樓</td>
+        <td class="url"><a href="https://www.mingwai.edu.hk" target="_blank" rel="noopener">https://www.mingwai.edu.hk</a></td>
+        <td class="c"><span class="pill s-ok">已報名 · 一致</span></td>
+        <td class="c src">A+B+C</td>
+        <td class="memo">報名日期 05-10-2026 與模板一致；eClass 系統顯示 Admission is Completed。</td>
+      </tr>
+      <tr data-status="s-ok">
+        <td class="school">靈糧堂秀德幼稚園</td>
+        <td>2026-09-04 起</td>
+        <td class="num">SK27-00433</td>
+        <td class="c">2026-10-05</td>
+        <td>2026-11-20/21（模板）；校方於面見前 2 星期電郵通知</td>
+        <td class="c">—</td>
+        <td>九龍荔枝角道875號</td>
+        <td class="url"><a href="https://www.lingliang.org.hk/admission" target="_blank" rel="noopener">https://www.lingliang.org.hk/admission</a></td>
+        <td class="c"><span class="pill s-ok">已報名 · 一致</span></td>
+        <td class="c src">A+B+C</td>
+        <td class="memo">確認電郵 2026-10-05 發出。</td>
+      </tr>
+      <tr data-status="s-new">
+        <td class="school">保良局蔡繼有幼稚園暨幼兒園</td>
+        <td>2026-10-05 提交</td>
+        <td class="num">202610-623518-W</td>
+        <td class="c">2026-10-05</td>
+        <td>—</td>
+        <td class="c">—</td>
+        <td>保良局社會服務部統一系統</td>
+        <td class="url"><a href="https://knsmapform.poleungkuk.org.hk" target="_blank" rel="noopener">https://knsmapform.poleungkuk.org.hk</a></td>
+        <td class="c"><span class="pill s-new">已報名 · 模板未收錄</span></td>
+        <td class="c src">C</td>
+        <td class="memo">zip 憑證有申請，模板截圖可見範圍無此校；經保良局「幼稚園暨幼兒園入園申請表」提交。</td>
+      </tr>
+      <tr data-status="s-new">
+        <td class="school">Pebbles Academy（St. Catherine&#x27;s 旗下 playgroup）</td>
+        <td>2026-08-14 提交</td>
+        <td class="num">17049571</td>
+        <td class="c">2026-08-14</td>
+        <td>課程 B：2026-09-29 至 2026-12-12</td>
+        <td class="c">—</td>
+        <td>—</td>
+        <td class="url"><a href="https://www.pebbles-hk.com" target="_blank" rel="noopener">https://www.pebbles-hk.com</a></td>
+        <td class="c"><span class="pill s-new">已報名 · 模板未收錄</span></td>
+        <td class="c src">C</td>
+        <td class="memo">playgroup 課程申請（非 PN 學位）；完成 Pebbles 課程之 PN 申請者免交錄像直接面見。</td>
+      </tr>
+      <tr data-status="s-none">
+        <td class="school">約克英文小學暨幼稚園 York</td>
+        <td>全年接受報名（滾動）</td>
+        <td class="num">—</td>
+        <td class="c">—</td>
+        <td>—</td>
+        <td class="c">—</td>
+        <td>九龍塘金巴倫道51號</td>
+        <td class="url"><a href="https://www.york.edu.hk" target="_blank" rel="noopener">https://www.york.edu.hk</a></td>
+        <td class="c"><span class="pill s-none">未報名</span></td>
+        <td class="c src">A</td>
+        <td class="memo">未見報名憑證；屬滾動招生，可隨時補報。</td>
+      </tr>
+      <tr data-status="s-none">
+        <td class="school">崇真小學暨幼稚園（深水埗）</td>
+        <td>2 歲班待確認（K1 2026-07-04 至 09-25）</td>
+        <td class="num">—</td>
+        <td class="c">—</td>
+        <td>—</td>
+        <td class="c">—</td>
+        <td>深水埗</td>
+        <td class="url"><a href="https://www.tszching.edu.hk" target="_blank" rel="noopener">https://www.tszching.edu.hk</a></td>
+        <td class="c"><span class="pill s-none">未報名</span></td>
+        <td class="c src">A</td>
+        <td class="memo">27/28 僅見 K1 招生；2 歲班未見公布。</td>
+      </tr>
+      <tr data-status="s-none">
+        <td class="school">民生書院幼稚園 Munsang</td>
+        <td>2027-01-22 至 2027-01-25（未開放）</td>
+        <td class="num">—</td>
+        <td class="c">—</td>
+        <td>—</td>
+        <td class="c">—</td>
+        <td>九龍城東寶庭道8號</td>
+        <td class="url"><a href="https://nursery.munsang.edu.hk" target="_blank" rel="noopener">https://nursery.munsang.edu.hk</a></td>
+        <td class="c"><span class="pill s-none">未報名（尚未開放）</span></td>
+        <td class="c src">A</td>
+        <td class="memo">窗口僅 4 天，建議臨近時逐日盯。</td>
+      </tr>
+      <tr data-status="s-none">
+        <td class="school">學之園 Learning Habitat</td>
+        <td>PN 待公布（收 2024/8/15–2025/12/31 出生）</td>
+        <td class="num">—</td>
+        <td class="c">—</td>
+        <td>—</td>
+        <td class="c">—</td>
+        <td>全港 8 間分校</td>
+        <td class="url"><a href="https://www.lhkg.edu.hk" target="_blank" rel="noopener">https://www.lhkg.edu.hk</a></td>
+        <td class="c"><span class="pill s-none">未報名</span></td>
+        <td class="c src">A</td>
+        <td class="memo">PN 日期尚未公布。</td>
+      </tr>
+      <tr data-status="s-none">
+        <td class="school">劍鳴幼稚園 Keen Mind</td>
+        <td>PN：2027-01-06 至 2027-01-13（未開放）</td>
+        <td class="num">—</td>
+        <td class="c">—</td>
+        <td>—</td>
+        <td class="c">—</td>
+        <td>九龍塘金巴倫道13號</td>
+        <td class="url"><a href="https://www.keenmind.com.hk" target="_blank" rel="noopener">https://www.keenmind.com.hk</a></td>
+        <td class="c"><span class="pill s-none">未報名（尚未開放）</span></td>
+        <td class="c src">A</td>
+        <td class="memo">接見 2027 年 3 月。</td>
+      </tr>
+      <tr data-status="s-none">
+        <td class="school">金巴倫迦南（金迦）</td>
+        <td>2026-09-14 至 2026-10-19</td>
+        <td class="num">—</td>
+        <td class="c">—</td>
+        <td>—</td>
+        <td class="c">—</td>
+        <td>九龍塘金巴倫道</td>
+        <td class="url"><a href="https://www.cannan.edu.hk" target="_blank" rel="noopener">https://www.cannan.edu.hk</a></td>
+        <td class="c"><span class="pill s-none">未報名</span></td>
+        <td class="c src">A</td>
+        <td class="memo">截止 10/19 臨近，未見憑證；如欲報須盡快。</td>
+      </tr>
+      <tr data-status="s-na">
+        <td class="school">高主教書院幼稚園部 Raimondi</td>
+        <td>—</td>
+        <td class="num">—</td>
+        <td class="c">—</td>
+        <td>—</td>
+        <td class="c">—</td>
+        <td>北角</td>
+        <td class="url"><a href="https://www.raimondi.edu.hk" target="_blank" rel="noopener">https://www.raimondi.edu.hk</a></td>
+        <td class="c"><span class="pill s-na">不適用</span></td>
+        <td class="c src">A</td>
+        <td class="memo">無 N 班，只設 K1–K3。</td>
+      </tr>
+      <tr data-status="s-late">
+        <td class="school">蘇浙小學校 KCS（N1）</td>
+        <td>N1 已於 2026-09-05 截止</td>
+        <td class="num">—</td>
+        <td class="c">—</td>
+        <td>—</td>
+        <td class="c">—</td>
+        <td>北角</td>
+        <td class="url"><a href="https://www.kcs.edu.hk" target="_blank" rel="noopener">https://www.kcs.edu.hk</a></td>
+        <td class="c"><span class="pill s-late">未報名（已截止）</span></td>
+        <td class="c src">A</td>
+        <td class="memo">27/28 N1 窗口已過，無憑證。</td>
+      </tr>
+      <tr data-status="s-none">
+        <td class="school">聖保羅幼兒園 SPN</td>
+        <td>2027-03-01 至 2027-03-05（未開放）</td>
+        <td class="num">—</td>
+        <td class="c">—</td>
+        <td>—</td>
+        <td class="c">—</td>
+        <td>銅鑼灣</td>
+        <td class="url"><a href="https://www.spn.edu.hk" target="_blank" rel="noopener">https://www.spn.edu.hk</a></td>
+        <td class="c"><span class="pill s-none">未報名（尚未開放）</span></td>
+        <td class="c src">A</td>
+        <td class="memo">神校女龍，全日班。</td>
+      </tr>
+      <tr data-status="s-na">
+        <td class="school">根德園 Kentville</td>
+        <td>—</td>
+        <td class="num">—</td>
+        <td class="c">—</td>
+        <td>—</td>
+        <td class="c">—</td>
+        <td>九龍塘</td>
+        <td class="url">—</td>
+        <td class="c"><span class="pill s-na">不適用</span></td>
+        <td class="c src">A</td>
+        <td class="memo">已於 2026-06-30 停辦，僅存檔。</td>
+      </tr>
+      <tr data-status="s-na">
+        <td class="school">基督堂幼稚園 CCKG</td>
+        <td>—</td>
+        <td class="num">—</td>
+        <td class="c">—</td>
+        <td>—</td>
+        <td class="c">—</td>
+        <td>九龍塘</td>
+        <td class="url"><a href="https://www.cckg.edu.hk" target="_blank" rel="noopener">https://www.cckg.edu.hk</a></td>
+        <td class="c"><span class="pill s-na">不適用</span></td>
+        <td class="c src">A</td>
+        <td class="memo">無 N/K1（僅 K2 起）。</td>
+      </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="empty" id="empty">沒有符合條件的記錄</div>
+  </div>
+
+  <section class="notes">
+    <h2>比對規則與數據來源</h2>
+<div class="note-row"><span class="note-k">N 班申請記錄比對表</span><span class="note-v"></span></div>
+<div class="note-row"><span class="note-k">更新時間</span><span class="note-v">2026-10-09</span></div>
+<div class="note-row"><span class="note-k">隱私處理</span><span class="note-v">本表已移除申請人姓名、出生日期等個人敏感資料；申請編號為校方系統流水號，保留作報名憑證對照。</span></div>
+<div class="note-row"><span class="note-k">比對規則</span><span class="note-v"></span></div>
+<div class="note-row"><span class="note-k">1</span><span class="note-v">基準清單＝《幼稚園N班報名時間追蹤.html》表一 16 間追蹤校；憑證有而表內無的學校追加在後（蔡繼有、Pebbles）。</span></div>
+<div class="note-row"><span class="note-k">2</span><span class="note-v">已報名＝N班申請.zip 內有該校報名確認電郵/收據/系統截圖；申請編號與完成時間一律以 PDF 憑證為準。</span></div>
+<div class="note-row"><span class="note-k">3</span><span class="note-v">信息不一致＝模板截圖數值與 PDF 憑證不符（德萃完成時間、Kingston 與 VEO 編號模板標 NA）。</span></div>
+<div class="note-row"><span class="note-k">4</span><span class="note-v">未報名＝zip 內無憑證；備註細分「尚未開放／已截止／滾動可補報」。</span></div>
+<div class="note-row"><span class="note-k">5</span><span class="note-v">匹配狀態以本表生成日所見憑證為準；之後補報或校方更新面試時間時以新憑證覆核。</span></div>
+<div class="note-row"><span class="note-k">數據來源代碼</span><span class="note-v"></span></div>
+<div class="note-row"><span class="note-k">A</span><span class="note-v">追蹤表 HTML《幼稚園N班報名時間追蹤.html》（官網核實報名窗口）</span></div>
+<div class="note-row"><span class="note-k">B</span><span class="note-v">XLS 模板截圖（欄位結構與用戶已填記錄）</span></div>
+<div class="note-row"><span class="note-k">C</span><span class="note-v">N班申請.zip 內 15 份報名憑證（確認電郵、收據、申請表）</span></div>
+<div class="note-row"><span class="note-k">狀態顏色</span><span class="note-v">綠＝已報名且一致；黃＝已報名但有出入；藍＝已報名但模板未收錄；灰＝未報名；橙＝已截止未報；深灰＝不適用</span></div>
+  </section>
+
+  <footer>
+    <span>同一份資料的 Excel 版：</span>
+    <a href="N班申請記錄比對_2026-10-09.xlsx" download>下載 N班申請記錄比對_2026-10-09.xlsx</a>
+    <span>｜來源代碼：A＝追蹤表 HTML（官網核實窗口）、B＝XLS 模板截圖、C＝報名憑證 PDF</span>
+  </footer>
+</div>
+
+<script>
+(function(){
+  var chips = document.querySelectorAll('.chip');
+  var rows = Array.prototype.slice.call(document.querySelectorAll('#t tbody tr'));
+  var q = document.getElementById('q');
+  var empty = document.getElementById('empty');
+  var cur = 'all';
+  function apply(){
+    var kw = (q.value || '').trim().toLowerCase();
+    var shown = 0;
+    rows.forEach(function(tr){
+      var okF = (cur === 'all') || (tr.getAttribute('data-status') === cur);
+      var okK = !kw || tr.textContent.toLowerCase().indexOf(kw) > -1;
+      var show = okF && okK;
+      tr.style.display = show ? '' : 'none';
+      if (show) shown++;
+    });
+    empty.style.display = shown ? 'none' : 'block';
+  }
+  chips.forEach(function(c){
+    c.addEventListener('click', function(){
+      chips.forEach(function(x){ x.classList.remove('on'); });
+      c.classList.add('on');
+      cur = c.getAttribute('data-f');
+      apply();
+    });
+  });
+  q.addEventListener('input', apply);
+})();
+</script>
+</body>
+</html>
