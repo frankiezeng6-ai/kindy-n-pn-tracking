@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>兒童發育評估報告（代號 H）· 2026-09</title>
+<style>
+  :root{
+    --ink:#1f2328; --ink-2:#4a5259; --ink-3:#6b7480;
+    --line:#e3e6ea; --line-2:#eef1f4;
+    --bg:#fbfaf7; --paper:#ffffff;
+    --ok:#2f7d5d; --ok-bg:#eef7f1;
+    --warn:#a86a12; --warn-bg:#fdf6e7;
+    --info:#3a5f96; --info-bg:#eef3fa;
+    --radius:10px;
+  }
+  *{box-sizing:border-box}
+  html{-webkit-text-size-adjust:100%}
+  body{
+    margin:0; background:var(--bg); color:var(--ink);
+    font-family:"Noto Serif TC","Songti TC","Source Han Serif TC",Georgia,"PingFang HK","PingFang SC","Microsoft JhengHei","Microsoft YaHei",serif;
+    font-size:16px; line-height:1.85; letter-spacing:.01em;
+  }
+  .wrap{max-width:900px; margin:0 auto; padding:48px 28px 96px}
+  header.doc{border-bottom:2px solid var(--ink); padding-bottom:22px; margin-bottom:34px}
+  .kicker{font-size:12.5px; letter-spacing:.22em; color:var(--ink-3); text-transform:uppercase; margin-bottom:12px; font-family:system-ui,-apple-system,"Segoe UI",sans-serif}
+  h1{font-size:30px; line-height:1.35; margin:0 0 14px; font-weight:700; letter-spacing:.02em}
+  .subtitle{color:var(--ink-2); font-size:15px; margin:0}
+  .anon{
+    margin-top:22px; padding:13px 16px; background:var(--info-bg); border-left:3px solid var(--info);
+    border-radius:0 6px 6px 0; font-size:13.5px; color:#2c4a76; line-height:1.7;
+    font-family:system-ui,-apple-system,"Segoe UI",sans-serif;
+  }
+  .facts{
+    display:grid; grid-template-columns:repeat(auto-fit,minmax(180px,1fr)); gap:1px;
+    background:var(--line); border:1px solid var(--line); border-radius:var(--radius);
+    overflow:hidden; margin:28px 0 40px;
+  }
+  .fact{background:var(--paper); padding:14px 16px}
+  .fact dt{font-size:11.5px; letter-spacing:.1em; color:var(--ink-3); margin:0 0 5px; font-family:system-ui,-apple-system,"Segoe UI",sans-serif}
+  .fact dd{margin:0; font-size:14.5px; color:var(--ink)}
+  h2{
+    font-size:20px; margin:52px 0 18px; padding-bottom:9px; border-bottom:1px solid var(--line);
+    font-weight:700; letter-spacing:.02em;
+  }
+  h2 .num{color:var(--ink-3); font-size:15px; margin-right:10px; font-family:system-ui,sans-serif}
+  h3{font-size:16.5px; margin:30px 0 10px; font-weight:700}
+  p{margin:0 0 14px}
+  ul,ol{margin:0 0 16px; padding-left:1.35em}
+  li{margin-bottom:7px}
+  strong{font-weight:700}
+  .badge{
+    display:inline-block; font-size:12px; padding:2px 9px; border-radius:20px;
+    font-family:system-ui,-apple-system,"Segoe UI",sans-serif; font-weight:600; letter-spacing:.04em;
+    vertical-align:2px; margin-left:8px; white-space:nowrap;
+  }
+  .b-ok{background:var(--ok-bg); color:var(--ok)}
+  .b-warn{background:var(--warn-bg); color:var(--warn)}
+  .card{
+    background:var(--paper); border:1px solid var(--line); border-radius:var(--radius);
+    padding:20px 22px; margin:0 0 18px;
+  }
+  .card.note{background:#fcfcfa}
+  .role{font-size:12.5px; color:var(--ink-3); font-family:system-ui,-apple-system,"Segoe UI",sans-serif; letter-spacing:.06em; margin-bottom:8px}
+  table{width:100%; border-collapse:collapse; margin:18px 0 24px; font-size:14.5px; background:var(--paper)}
+  th,td{text-align:left; padding:11px 13px; border-bottom:1px solid var(--line)}
+  th{background:#f6f7f8; font-size:12.5px; letter-spacing:.06em; color:var(--ink-2); font-weight:600; font-family:system-ui,-apple-system,"Segoe UI",sans-serif}
+  tbody tr:last-child td{border-bottom:none}
+  .tag{font-size:12.5px; font-family:system-ui,sans-serif; font-weight:600}
+  .t-ok{color:var(--ok)} .t-warn{color:var(--warn)}
+  .callout{
+    background:var(--warn-bg); border:1px solid #f0dfba; border-radius:var(--radius);
+    padding:18px 22px; margin:22px 0;
+  }
+  .callout h3{margin-top:0}
+  .callout.blue{background:var(--info-bg); border-color:#d3e0f2}
+  .callout.green{background:var(--ok-bg); border-color:#d2e8dc}
+  .qa{counter-reset:q; list-style:none; padding:0}
+  .qa li{counter-increment:q; padding-left:34px; position:relative; margin-bottom:11px}
+  .qa li::before{
+    content:counter(q); position:absolute; left:0; top:2px; width:21px; height:21px;
+    background:var(--ink); color:#fff; border-radius:50%; font-size:12px; text-align:center;
+    line-height:21px; font-family:system-ui,sans-serif; font-weight:600;
+  }
+  footer.doc{
+    margin-top:64px; padding-top:20px; border-top:1px solid var(--line);
+    font-size:12.5px; color:var(--ink-3); line-height:1.75;
+    font-family:system-ui,-apple-system,"Segoe UI",sans-serif;
+  }
+  .no-print{}
+  @media print{
+    :root{--bg:#fff}
+    body{font-size:11.5pt; line-height:1.6}
+    .wrap{max-width:none; padding:0}
+    .no-print{display:none}
+    h2{page-break-after:avoid; margin-top:26px}
+    .card,table,.callout{page-break-inside:avoid}
+    a{color:var(--ink); text-decoration:none}
+  }
+  @media (max-width:600px){
+    .wrap{padding:28px 16px 64px}
+    h1{font-size:23px}
+    body{font-size:15px}
+    .badge{display:block; margin:6px 0 0; width:fit-content}
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header class="doc">
+  <div class="kicker">Multi-disciplinary Developmental Review · 匿名化版本</div>
+  <h1>兒童發育評估報告<br><span style="font-size:20px; font-weight:400; color:var(--ink-2)">多學科會診紀要 · 代號 H</span></h1>
+  <p class="subtitle">評估期 2026 年 9 月 1 日 – 9 月 30 日 ｜ 依據：校內《嬰幼兒培育報告（13–24 月）》＋ 9 月學習進度表</p>
+  <div class="anon">
+    <strong>匿名化聲明：</strong>本頁所有小朋友姓名已統一置換為代號 <strong>「H」</strong>，不出現任何真實姓名、個人識別資料或原始文件影像。原始報告僅作家庭內部存檔。
+  </div>
+</header>
+
+<dl class="facts">
+  <div class="fact"><dt>代號</dt><dd>H</dd></div>
+  <div class="fact"><dt>評估時月齡</dt><dd>1 歲 8 個月（約 20 個月）</dd></div>
+  <div class="fact"><dt>就讀階段</dt><dd>嬰幼兒培育班（13–24 月組別）</dd></div>
+  <div class="fact"><dt>觀察情境</dt><dd>團體課堂，開學首月適應期</dd></div>
+</dl>
+
+<h2><span class="num">01</span>評估前提</h2>
+<div class="callout">
+  <p style="margin:0">本報告為<strong>開學首月</strong>的校內觀察，小朋友仍處分離與環境適應期；所有觀察均在團體課堂情境完成。<strong>「尚待發展」屬校內教學觀察措辭，不等於臨床遲緩。</strong>以下解讀已就觀察情境與適應期因素作出折扣處理。</p>
+</div>
+
+<h2><span class="num">02</span>五大領域逐一對照</h2>
+
+<div class="card">
+  <div class="role">◆ 兒科 / 物理治療視角</div>
+  <h3>大運動<span class="badge b-ok">符合月齡</span></h3>
+  <ul>
+    <li>站立時單手拋小球向下 —— <strong>能做到</strong>；平衡木上行走 —— <strong>協助下能做到</strong>。</li>
+    <li>對照：約 20 個月典型表現為走得穩、開始跑、扶欄上樓梯；<strong>獨立走平衡木通常屬約 24–30 個月能力</strong>。協助下可完成，說明前庭覺與核心力量儲備良好。</li>
+    <li>判斷：在典型區間內，偏穩。<strong>無需特別關注。</strong></li>
+  </ul>
+</div>
+
+<div class="card">
+  <div class="role">◆ 作業治療（OT）視角</div>
+  <h3>精細動作<span class="badge b-ok">符合月齡</span></h3>
+  <ul>
+    <li>前三指拿取「手抓板」拼板、把物件從一個盒子抓取至另一盒子 —— 兩項均<strong>能做到</strong>。</li>
+    <li>對照：約 20 個月要求出現鉗指抓握、塗鴉、疊 4–6 塊積木。前三指鉗取是書寫前備的關鍵動作，本個案完成質量好。</li>
+    <li>判斷：在典型區間內，表現扎實。<strong>無需特別關注。</strong></li>
+  </ul>
+</div>
+
+<div class="card" style="border-color:#f0dfba; background:#fffdf7">
+  <div class="role">◆ 言語治療師（ST）視角</div>
+  <h3>語言<span class="badge b-warn">表達項為主要監測點</span></h3>
+  <ul>
+    <li><strong>接收（聆聽）</strong>：能聆聽故事 —— 能做到；跟從日常簡單指令（坐、收拾、排隊）—— 協助下能做到。接收語言基本在線。</li>
+    <li><strong>表達</strong>：兩項均為「尚待發展」—— ① 在提示下說出社交用語（早晨、謝謝、再見）；② 在協助下對工作人員作簡單稱呼（園長、主任、老師、姐姐）。</li>
+    <li>對照：約 20 個月典型應有 <strong>10–20 個以上自發單詞</strong>並開始模仿新詞；約 24 個月應有約 50 個詞彙及雙詞組合（如「媽媽抱」）。</li>
+    <li><strong>判讀</strong>：單憑校內「尚待發展」不足以判定遲緩 —— 新環境、面對不熟識的成人，此月齡不肯開口十分常見。<strong>關鍵在家表現：</strong>若家中已有十餘個單詞、會用指物＋發聲表達需求，屬情境性沉默，繼續觀察即可；若家中同樣詞彙稀少（少於 10 個），則進入需密切觀察區間。</li>
+  </ul>
+</div>
+
+<div class="card">
+  <div class="role">◆ 兒童心理學家視角</div>
+  <h3>認知<span class="badge b-ok">符合月齡</span></h3>
+  <ul>
+    <li>探索不同水果的形狀和質感、探索中秋節食品的氣味及質感 —— 均<strong>能做到</strong>。</li>
+    <li>在提示下依序完成日常程序 —— <strong>能做到</strong>，提示工作記憶與執行功能萌芽良好。</li>
+    <li>判斷：感官整合、因果探索、程序性記憶均在軌。<strong>無需特別關注。</strong></li>
+  </ul>
+</div>
+
+<div class="card">
+  <div class="role">◆ 兒童心理學家 / 發育行為兒科視角</div>
+  <h3>社交情緒<span class="badge b-ok">符合發育階段</span></h3>
+  <ul>
+    <li>能自發性地玩耍 —— <strong>能做到</strong>，是遊戲動機與內在驅力的重要正面信號。</li>
+    <li>「願意與同伴一同參與活動」尚待發展 —— <strong>約 20 個月本就處於平行遊戲期</strong>（各玩各的、互相觀察），真正的合作遊戲約 2.5–3 歲才出現。此項屬階段特徵，不視為問題。</li>
+    <li>生活自理三項（粗略自行洗手、跟隨活動轉換、活動後把玩具放回原位）均為協助下能做到 —— 首月即有規則意識萌芽，正常偏穩。</li>
+  </ul>
+</div>
+
+<h2><span class="num">03</span>團隊綜合結論</h2>
+<table>
+  <thead>
+    <tr><th>維度</th><th>判定</th><th>風險</th></tr>
+  </thead>
+  <tbody>
+    <tr><td>大運動</td><td>符合月齡</td><td class="tag t-ok">低</td></tr>
+    <tr><td>精細動作</td><td>符合月齡，完成質量好</td><td class="tag t-ok">低</td></tr>
+    <tr><td>語言（接收）</td><td>基本符合</td><td class="tag t-ok">低</td></tr>
+    <tr><td><strong>語言（表達）</strong></td><td><strong>家中情境未明，設監測點</strong></td><td class="tag t-warn">中</td></tr>
+    <tr><td>認知</td><td>符合月齡</td><td class="tag t-ok">低</td></tr>
+    <tr><td>社交情緒</td><td>符合發育階段</td><td class="tag t-ok">低</td></tr>
+  </tbody>
+</table>
+
+<div class="callout green">
+  <h3 style="font-size:16px">總評</h3>
+  <p style="margin:0">發育輪廓均衡，<strong>無明顯遲緩證據</strong>；唯一需要主動追蹤的是<strong>表達性語言</strong>。<br>
+  當前證據強度<strong>不足以支持轉介臨床檢查</strong>，貿然轉介反而製造焦慮。建議採用「家庭觀察 ＋ 節點複查」策略。</p>
+</div>
+
+<h2><span class="num">04</span>複查觸發線</h2>
+<p>下列任一情況出現，即啟動下一步行動：</p>
+<ol>
+  <li><strong>約 24 個月（2027 年 1 月）</strong>時，家中自發詞彙仍少於 50 個，或完全沒有雙詞組合 → 轉介言語治療評估。（可經衞生署母嬰健康院轉介，免費但輪候較長；私家言語治療評估一般需預約，費用約 HK$1,500–3,000，較快。）</li>
+  <li>任何月齡出現<strong>已會說的詞倒退消失</strong>、或叫名字長期無反應 → 立即做 M-CHAT-R 篩查（適用 16–30 個月）並約見發育行為兒科。</li>
+  <li>下期校內報告表達項<strong>原地不動</strong>（仍為尚待發展且評語無進展描述）→ 主動向班主任索取具體觀察記錄。</li>
+</ol>
+
+<h2><span class="num">05</span>待補充的關鍵資料</h2>
+<p>以下資訊會顯著提升下一次評估的準確度：</p>
+<ol class="qa">
+  <li><strong>家中實際詞彙量</strong>：現時大約會說哪幾個詞？會用「指物＋發聲」表達需要嗎？（這是區分「情境性沉默」與「真實遲緩」的分水嶺）</li>
+  <li><strong>語言環境</strong>：家中粤語／普通話／家務助理英語各佔多少？（多語環境下表達詞彙爆發常晚 1–3 個月，屬正常變異，但需納入判讀）</li>
+  <li><strong>出生史</strong>：足月還是早產？早產需按矯正月齡重新對照里程碑。</li>
+  <li><strong>聽力</strong>：新生兒聽力篩查結果？有無反覆中耳炎？（表達落後首要是排除聽力因素）</li>
+  <li><strong>社交信號</strong>：在家叫名字會回頭嗎？會拿東西給你看（分享展示）嗎？會玩「煮飯仔」類假想遊戲嗎？</li>
+  <li><strong>性別</strong>（用於對照常模；原始文件此欄未提供）。</li>
+</ol>
+
+<h2><span class="num">06</span>家庭可做的三件事（本月）</h2>
+<ul>
+  <li><strong>平行談話</strong>：把正在做的事說出來（「媽媽倒水，倒水喺杯度」），不要求孩子回應，只提供語言輸入。落進日常瑣事，零額外時間。</li>
+  <li><strong>擴展句子</strong>：孩子發出任何聲音或單詞（例如「波」），大人接成完整短句回應（「係呀，紅色嘅波」），不糾正、不施壓。</li>
+  <li><strong>命名式共讀</strong>：每天固定 5–10 分鐘翻繪本，指圖命名、等他反應，不追求讀完。選硬頁書（board book）以耐撕咬。</li>
+</ul>
+
+<footer class="doc">
+  <p style="margin:0 0 8px"><strong>邊界提醒：</strong>本報告為家庭觀察參考，<strong>不構成醫學診斷</strong>。任何發育疑慮的正式診斷與處理，須由醫生／發育行為兒科或言語治療師作臨床評估。</p>
+  <p style="margin:0 0 8px">本頁所有姓名已匿名化，統一以代號「H」表示。</p>
+  <p style="margin:0">版本：2026-10-09 ｜ 匿名化公開版 ｜ 原始文件（含身份資料）不隨本頁發布</p>
+</footer>
+
+</div>
+</body>
+</html>
