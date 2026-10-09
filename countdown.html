@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>N 班報名倒計時</title>
+<meta name="theme-color" content="#d64545">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<link rel="manifest" href="./manifest.json">
+<style>
+  :root{--bg:#f5f6f8;--card:#fff;--ink:#1a1d24;--sub:#5b6270;--line:#e6e8ee;
+        --red:#d64545;--red-bg:#fdeeee;--amber:#b7791f;--amber-bg:#fdf6e7;
+        --green:#1f8a5b;--green-bg:#eaf7f0;--gray-bg:#f0f1f4}
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{background:var(--bg);color:var(--ink);
+       font-family:"Microsoft JhengHei","PingFang HK",-apple-system,"Segoe UI",sans-serif;
+       padding:14px;min-height:100vh}
+  .wrap{max-width:400px;margin:0 auto}
+  header{text-align:center;margin-bottom:12px}
+  header h1{font-size:15px;font-weight:700;letter-spacing:.3px}
+  header p{font-size:11.5px;color:var(--sub);margin-top:2px}
+  .hero{background:var(--card);border-radius:14px;padding:18px 14px;text-align:center;
+        border:2px solid var(--line);margin-bottom:10px}
+  .hero.urg{border-color:var(--red);background:var(--red-bg)}
+  .hero.soon{border-color:var(--amber);background:var(--amber-bg)}
+  .hero .k{font-size:11px;color:var(--sub);letter-spacing:2px}
+  .hero .n{font-size:64px;font-weight:800;line-height:1;margin:4px 0 0;
+           font-variant-numeric:tabular-nums}
+  .hero.urg .n{color:var(--red)} .hero.soon .n{color:var(--amber)}
+  .hero .u{font-size:15px;font-weight:700;margin-top:-2px}
+  .hero .s{font-size:14.5px;font-weight:700;margin-top:9px;line-height:1.35}
+  .hero .d{font-size:12.5px;color:var(--sub);margin-top:3px}
+  .hero .tag{display:inline-block;margin-top:8px;font-size:11px;padding:2px 10px;
+             border-radius:20px;background:var(--gray-bg);color:var(--sub)}
+  .hero.urg .tag{background:var(--red);color:#fff}
+  .hero.soon .tag{background:var(--amber);color:#fff}
+  .box{background:var(--card);border-radius:12px;padding:11px 12px;margin-bottom:10px;
+       border:1px solid var(--line)}
+  .box h2{font-size:12px;color:var(--sub);letter-spacing:1px;margin-bottom:7px;
+          display:flex;justify-content:space-between;align-items:center}
+  .clash{background:var(--red-bg);border-color:#f5c6c6}
+  .clash h2{color:var(--red)}
+  .row{display:flex;align-items:baseline;gap:8px;padding:6px 0;
+       border-bottom:1px dashed var(--line);font-size:12.5px}
+  .row:last-child{border-bottom:0}
+  .row .dd{flex:0 0 46px;font-weight:700;font-variant-numeric:tabular-nums}
+  .row.urg .dd{color:var(--red)} .row.soon .dd{color:var(--amber)}
+  .row .dd small{display:block;font-weight:400;font-size:10px;color:var(--sub)}
+  .row .sc{flex:1;min-width:0;line-height:1.35}
+  .row .sc b{font-weight:600}
+  .row .sc span{color:var(--sub);font-size:11px}
+  .row .kd{flex:0 0 auto;font-size:10px;padding:1px 6px;border-radius:20px;
+           background:var(--gray-bg);color:var(--sub)}
+  .row.urg .kd{background:var(--red);color:#fff}
+  .row.soon .kd{background:var(--amber);color:#fff}
+  .empty{font-size:12px;color:var(--sub);padding:4px 0}
+  footer{text-align:center;font-size:10.5px;color:var(--sub);padding:4px 0 10px;line-height:1.6}
+  footer a{color:var(--sub)}
+
+  /* ── 響應式：窄如側邊小組件 → 寬如半屏 ── */
+  @media (max-width:340px){
+    body{padding:8px}
+    .wrap{max-width:100%}
+    .hero{padding:12px 8px}
+    .hero .n{font-size:44px}
+    .hero .s{font-size:13px}
+    .box{padding:8px 9px}
+    .row{font-size:11.5px;gap:6px}
+    .row .dd{flex:0 0 38px}
+    header p,footer{font-size:10px}
+  }
+  @media (min-width:600px){
+    body{padding:16px}
+    .wrap{max-width:640px}
+    .cols{display:grid;grid-template-columns:1fr 1fr;gap:10px;align-items:start}
+    .hero .n{font-size:78px}
+  }
+  .hintbox{background:#eef4fd;border:1px solid #cfe0f8;border-radius:10px;
+           padding:8px 10px;font-size:11px;color:#5b6270;line-height:1.7;margin-bottom:10px}
+  .hintbox b{color:#2f6fdb}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <h1>幼稚園 N 班報名倒計時</h1>
+    <p>2025-01 寶寶 · 2027/28 入學 · 共 14 間追蹤中</p>
+  </header>
+
+  <div class="hintbox">
+    <b>當小組件用：</b>視窗可自由拉大拉小；按 <b>Win + ←</b> 或 <b>Win + →</b> 直接貼到螢幕左／右半邊當側邊欄。
+  </div>
+
+  <div class="hero" id="hero"><div class="k">載入中…</div></div>
+
+  <div class="box clash" id="clashbox" style="display:none">
+    <h2>撞期提醒</h2>
+    <div id="clashbody"></div>
+  </div>
+
+  <div class="cols">
+    <div class="box">
+      <h2><span>未來 60 天</span><span id="cnt"></span></h2>
+      <div id="list"></div>
+    </div>
+
+    <div class="box">
+      <h2>全年滾動（無截止，隨時可交）</h2>
+      <div style="font-size:12px;color:var(--sub);line-height:1.7">約克、京斯敦、耀中、保良局蔡繼有、明慧、寶山、靈糧堂秀德</div>
+    </div>
+  </div>
+
+  <div class="box" id="installTip" style="background:#eef4fd;border-color:#cfe0f8">
+    <h2 style="color:#2f6fdb">裝成獨立小視窗（可調大小、可貼側邊）</h2>
+    <div style="font-size:11.5px;color:#5b6270;line-height:1.75">
+      用 Chrome／Edge 開<b>線上版</b>，按網址列右側的「安裝」圖示（或 ⋮ → 安裝此網站為應用程式），
+      就會變成沒有分頁列的獨立視窗：可自由拉大拉小、<b>Win + ←／→</b> 貼到左右半邊當側邊欄、可釘工作列。<br>
+      <span style="font-size:10.5px">frankiezeng6-ai.github.io/kindy-n-pn-tracking/countdown.html</span>
+    </div>
+  </div>
+
+  <footer>
+    資料更新：2026-10-02 · 剩餘天數每日自動重算<br>
+    <a href="./index.html" target="_blank">開完整追蹤表</a>
+  </footer>
+</div>
+
+<script>
+var EV = [{"school": "崇真小學暨幼稚園", "date": "2026-07-04", "label": "開放報名", "kind": "op", "lvl": "green"}, {"school": "啟思 Creative（九龍塘正校＋匯景）", "date": "2026-07-22", "label": "開放報名", "kind": "op", "lvl": "green"}, {"school": "德萃 St. Hilary's", "date": "2026-08-10", "label": "開放報名", "kind": "op", "lvl": "green"}, {"school": "St. Catherine's 九龍塘 K1（不適用）", "date": "2026-08-28", "label": "開放報名", "kind": "op", "lvl": "gray"}, {"school": "靈糧堂秀德（幼兒園）", "date": "2026-09-04", "label": "開放報名", "kind": "op", "lvl": "green"}, {"school": "蘇浙小學校（北角）", "date": "2026-09-05", "label": "報名截止", "kind": "dl", "lvl": "gray"}, {"school": "蘇浙小學校（北角）", "date": "2026-09-05", "label": "開放報名", "kind": "op", "lvl": "gray"}, {"school": "St. Catherine's 九龍塘 K1（不適用）", "date": "2026-09-08", "label": "報名截止", "kind": "dl", "lvl": "gray"}, {"school": "維多利亞 VEO", "date": "2026-09-14", "label": "開放報名", "kind": "op", "lvl": "green"}, {"school": "迦南幼稚園 Cannan（含金巴倫迦南）", "date": "2026-09-14", "label": "開放報名", "kind": "op", "lvl": "green"}, {"school": "St. Catherine's 紅磡校舍 PN", "date": "2026-09-18", "label": "開放報名", "kind": "op", "lvl": "gray"}, {"school": "崇真小學暨幼稚園", "date": "2026-09-25", "label": "報名截止", "kind": "dl", "lvl": "green"}, {"school": "St. Catherine's 紅磡校舍 PN", "date": "2026-09-29", "label": "報名截止", "kind": "dl", "lvl": "gray"}, {"school": "德萃 St. Hilary's", "date": "2026-10-03", "label": "紅磡開放日", "kind": "ev", "lvl": "green"}, {"school": "維多利亞 VEO", "date": "2026-10-03", "label": "黃埔入學講座", "kind": "ev", "lvl": "green"}, {"school": "迦南幼稚園 Cannan（含金巴倫迦南）", "date": "2026-10-03", "label": "九龍塘開放日", "kind": "ev", "lvl": "green"}, {"school": "迦南幼稚園 Cannan（含金巴倫迦南）", "date": "2026-10-17", "label": "九龍塘開放日", "kind": "ev", "lvl": "green"}, {"school": "迦南幼稚園 Cannan（含金巴倫迦南）", "date": "2026-10-19", "label": "報名截止", "kind": "dl", "lvl": "green"}, {"school": "學之園 Learning Habitat", "date": "2026-10-31", "label": "8 校舍開放日", "kind": "ev", "lvl": "green"}, {"school": "啟思 Creative（九龍塘正校＋匯景）", "date": "2026-10-31", "label": "報名截止", "kind": "dl", "lvl": "green"}, {"school": "啟思幼稚園（帝堡城）", "date": "2026-10-31", "label": "報名截止", "kind": "dl", "lvl": "amber"}, {"school": "維多利亞 VEO", "date": "2026-12-14", "label": "報名截止", "kind": "dl", "lvl": "green"}, {"school": "劍鳴幼稚園 Keen Mind", "date": "2027-01-06", "label": "開放報名", "kind": "op", "lvl": "green"}, {"school": "劍鳴幼稚園 Keen Mind", "date": "2027-01-13", "label": "報名截止", "kind": "dl", "lvl": "green"}, {"school": "民生書院幼稚園 Munsang", "date": "2027-01-22", "label": "開放報名", "kind": "op", "lvl": "green"}, {"school": "民生書院幼稚園 Munsang", "date": "2027-01-25", "label": "報名截止", "kind": "dl", "lvl": "green"}, {"school": "聖保祿幼兒園 SPN（銅鑼灣）", "date": "2027-03-01", "label": "開放報名", "kind": "op", "lvl": "amber"}, {"school": "聖保祿幼兒園 SPN（銅鑼灣）", "date": "2027-03-05", "label": "報名截止", "kind": "dl", "lvl": "amber"}];
+var t = new Date(); t.setHours(0,0,0,0);
+function dn(d){ return Math.round((new Date(d+'T00:00:00') - t)/86400000); }
+function fmt(d){ var p=d.split('-'); return (+p[1])+'/'+(p[2]); }
+var WD=['一','二','三','四','五','六','日'];
+function wd(d){ var p=d.split('-'); return WD[(new Date(+p[0],+p[1]-1,+p[2]).getDay()+6)%7]; }
+
+var fut = EV.filter(function(e){ var n=dn(e.date); return n>=-1 && n<=60; })
+            .sort(function(a,b){ return dn(a.date)-dn(b.date); });
+
+/* 最近一個「截止」 */
+var dls = fut.filter(function(e){ return e.kind==='dl' && dn(e.date)>=0; });
+var hero = document.getElementById('hero');
+if(dls.length){
+  var e = dls[0], n = dn(e.date);
+  hero.className = 'hero' + (n<=7?' urg':n<=21?' soon':'');
+  hero.innerHTML = '<div class="k">最 近 死 線</div>'
+    + '<div class="n">'+n+'</div><div class="u">天</div>'
+    + '<div class="s">'+e.school+'</div>'
+    + '<div class="d">'+e.label+' · '+fmt(e.date)+'（'+wd(e.date)+'）</div>'
+    + '<div class="tag">'+(n<=7?'7 天內 · 盡快交':n<=21?'21 天內':'尚有時間')+'</div>';
+}else{
+  hero.innerHTML = '<div class="k">未 來 60 天</div>'
+    + '<div class="n" style="font-size:34px;line-height:1.3">沒有截止</div>'
+    + '<div class="d">下一次截止還在 60 天之後</div>';
+}
+
+/* 撞期：同一天 >=2 個事件 */
+var byDay = {};
+fut.forEach(function(e){ (byDay[e.date]=byDay[e.date]||[]).push(e); });
+var clashes = Object.keys(byDay).filter(function(d){ return byDay[d].length>=2; })
+                    .sort(function(a,b){ return dn(a)-dn(b); });
+if(clashes.length){
+  document.getElementById('clashbox').style.display='';
+  var h='';
+  clashes.forEach(function(d){
+    var n=dn(d);
+    h += '<div style="font-size:12.5px;font-weight:700;margin:'+(h?'8px':'0')+' 0 3px">'
+       + fmt(d)+'（'+wd(d)+'）· '+(n<0?'已過':n===0?'今天':n+' 天後')+'　'+byDay[d].length+' 場撞期</div>';
+    byDay[d].forEach(function(e){
+      h += '<div style="font-size:12px;color:var(--sub);padding-left:10px">· '+e.school+' — '+e.label+'</div>';
+    });
+  });
+  document.getElementById('clashbody').innerHTML = h;
+}
+
+/* 清單 */
+var box = document.getElementById('list');
+if(!fut.length){ box.innerHTML = '<div class="empty">未來 60 天沒有節點。</div>'; }
+else{
+  var h='';
+  fut.forEach(function(e){
+    var n = dn(e.date);
+    var c = e.kind==='dl' ? (n<0?'':n<=7?'urg':n<=21?'soon':'') : (n<=3?'soon':'');
+    h += '<div class="row '+c+'">'
+       + '<div class="dd">'+(n<0?('+'+(-n)):n===0?'今天':n)+'<small>'+fmt(e.date)+'</small></div>'
+       + '<div class="sc"><b>'+e.school+'</b><br><span>'+e.label+'</span></div>'
+       + '<div class="kd">'+(e.kind==='dl'?'截止':e.kind==='op'?'開放':'活動')+'</div>'
+       + '</div>';
+  });
+  box.innerHTML = h;
+  document.getElementById('cnt').textContent = fut.length + ' 個節點';
+}
+</script>
+</body>
+</html>
