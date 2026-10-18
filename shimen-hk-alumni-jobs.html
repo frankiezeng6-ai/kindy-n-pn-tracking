@@ -74,7 +74,7 @@ footer p{margin:6px 0}
     <img class="logo" src="logo.png" alt="石門中學香港校友會會徽">
     <div>
       <h1>石門中學香港校友會 <span class="hd">· 群內招聘資訊彙編</span></h1>
-      <div class="sub">整理自「5. 石門中學香港校友會大家庭」微信群公開招募訊息 · 覆蓋 2025-09-11 至 2026-10-02</div>
+      <div class="sub">整理自「5. 石門中學香港校友會大家庭」微信群公開招募訊息 · 覆蓋 2025-09-11 至 2026-10-15</div>
     </div>
   </div>
   <div class="stats">
@@ -109,6 +109,13 @@ footer p{margin:6px 0}
 
 <script>
 const JOBS = [
+{
+ date:"2026-10-06", cat:"貿易 · 項目管理", type:"全職",
+ title:"項目經理（2 名）", co:"校友企業（外貿公司及基金會，未具名）", loc:"香港 ＋ 佛山南海松崗（兩地辦公，需經常出差）",
+ duties:["統籌香港與南海松崗兩地外貿及基金會項目的推進，協調內部團隊與外部合作方","對接海外客戶與合作機構，以英語進行日常溝通、談判及文書往來","按項目進度需要往返香港與南海松崗辦公室，並配合出差安排","趕項目時可自行調節工作節奏，或向上級報告後調整"],
+ reqs:["英語聽、說、寫非常流利；有其他熟悉外語更佳","具備一般電腦操作技巧","有上進心、熱愛事業，品行端正，依法依規守紀律","能接受經常出差及兩地辦公；正常上班時間","發布人補充：較適合 21、22 屆石中畢業生，對外貿有熱誠、將來或考慮入籍香港者尤佳"],
+ contact:"向校友會人力資源部部長 Frankie 或 90 屆張穗華投檔；公司急需擴充，可即時約面試"
+},
 {
  date:"2026-09-30", cat:"金融 · 資產管理", type:"全職",
  title:"Associate / Senior Associate — Accounting & Administration", co:"大型基金公司（Hysan Place 希慎廣場全層，未具名）", loc:"香港 銅鑼灣 希慎廣場",
@@ -313,7 +320,7 @@ document.getElementById('s-total').textContent=JOBS.length;
 document.getElementById('s-latest').textContent=JOBS.map(j=>j.date).sort().pop();
 const mix={};JOBS.forEach(j=>mix[j.type]=(mix[j.type]||0)+1);
 document.getElementById('s-mix').textContent=Object.entries(mix).map(([k,v])=>k+' '+v).join(' · ');
-document.getElementById('stamp').textContent='最後整理時間：2026-10-05';
+document.getElementById('stamp').textContent='最後整理時間：2026-10-18';
 
 cats.forEach(c=>{
   const b=document.createElement('div');
