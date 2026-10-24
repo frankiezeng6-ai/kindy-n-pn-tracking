@@ -3,63 +3,66 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>H 的發展評估 · 2026-10 校本報告 × 文獻對照</title>
+<title>H 的發展評估 · 2026-10 校本報告 × 文獻對照（圖像版）</title>
 <style>
-  :root{
-    --ink:#1b1f24; --ink2:#4a5259; --ink3:#77808a;
-    --line:#e4e7ea; --bg:#fbfaf7; --paper:#fff;
-    --ok:#2c7a5b; --okbg:#ecf6f0; --warn:#a2661a; --warnbg:#fdf4e5;
-    --gray:#8b939c; --graybg:#f1f2f4; --accent:#31527d;
-  }
+  :root{--ink:#1b1f24;--ink2:#4a5259;--ink3:#77808a;--line:#e4e7ea;--bg:#fbfaf7;--paper:#fff;
+    --ok:#2c7a5b;--okbg:#ecf6f0;--warn:#c9922f;--warnbg:#fdf4e5;--bad:#b04a3a;
+    --gray:#8b939c;--graybg:#f1f2f4;--accent:#31527d;--gold:#a2661a}
   *{box-sizing:border-box}
   body{margin:0;background:var(--bg);color:var(--ink);
     font-family:"Noto Serif TC","Source Han Serif TC",Georgia,"PingFang HK","Microsoft JhengHei",serif;
-    font-size:15.5px;line-height:1.8;letter-spacing:.01em}
-  .wrap{max-width:920px;margin:0 auto;padding:44px 26px 90px}
-  header{border-bottom:2px solid var(--ink);padding-bottom:20px;margin-bottom:26px}
+    font-size:15.5px;line-height:1.85;letter-spacing:.01em;
+    font-variant-numeric:tabular-nums}
+  .wrap{max-width:900px;margin:0 auto;padding:44px 26px 90px}
+  header{border-bottom:2px solid var(--ink);padding-bottom:20px;margin-bottom:22px}
   .kick{font-size:11.5px;letter-spacing:.2em;color:var(--ink3);text-transform:uppercase;
     font-family:system-ui,sans-serif;margin-bottom:10px}
   h1{font-size:29px;line-height:1.3;margin:0 0 10px;font-weight:700}
   .sub{color:var(--ink2);font-size:14px;margin:0}
-  .anon{margin-top:16px;font-size:12.5px;color:#2c4a76;background:#eef3fa;
+  .anon{margin-top:14px;font-size:12.5px;color:#2c4a76;background:#eef3fa;
     border-left:3px solid var(--accent);padding:10px 14px;border-radius:0 6px 6px 0;
     font-family:system-ui,sans-serif;line-height:1.6}
-  .kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:10px;margin:24px 0 34px}
-  .kpi{background:var(--paper);border:1px solid var(--line);border-radius:10px;padding:14px 14px 12px}
-  .kpi .n{font-size:27px;font-weight:700;line-height:1.1;font-family:system-ui,sans-serif;letter-spacing:-.02em}
-  .kpi .n small{font-size:13px;font-weight:500;color:var(--ink3)}
-  .kpi .l{font-size:11.5px;color:var(--ink3);margin-top:6px;letter-spacing:.04em;font-family:system-ui,sans-serif}
-  h2{font-size:19px;margin:46px 0 14px;padding-bottom:8px;border-bottom:1px solid var(--line);font-weight:700}
-  h2 .num{color:var(--ink3);font-size:14px;margin-right:9px;font-family:system-ui,sans-serif}
-  h3{font-size:15.5px;margin:24px 0 8px}
+  .kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(132px,1fr));gap:10px;margin:22px 0 30px}
+  .kpi{background:var(--paper);border:1px solid var(--line);border-radius:10px;padding:14px 14px 12px;position:relative}
+  .kpi .n{font-size:26px;font-weight:700;line-height:1.1;font-family:system-ui,sans-serif;letter-spacing:-.02em}
+  .kpi .n small{font-size:12.5px;font-weight:500;color:var(--ink3)}
+  .kpi .l{font-size:11.5px;color:var(--ink3);margin-top:6px;letter-spacing:.03em;font-family:system-ui,sans-serif}
+  h2{font-size:19px;margin:48px 0 12px;padding-bottom:8px;border-bottom:1px solid var(--line);font-weight:700}
+  h2 .num{color:var(--gold);font-size:13px;margin-right:10px;font-family:system-ui,sans-serif;letter-spacing:.08em}
+  h3{font-size:15.5px;margin:22px 0 6px}
   p{margin:0 0 12px}
   ul,ol{margin:0 0 14px;padding-left:1.3em}
   li{margin-bottom:6px}
-  .chart{background:var(--paper);border:1px solid var(--line);border-radius:10px;padding:18px 18px 10px;margin:16px 0}
-  .chart .cap{font-size:11.5px;color:var(--ink3);font-family:system-ui,sans-serif;margin-top:6px}
-  figure{margin:0}
-  table{width:100%;border-collapse:collapse;font-size:13.8px;background:var(--paper);margin:14px 0 20px}
+  .chart{background:var(--paper);border:1px solid var(--line);border-radius:12px;
+    padding:18px 18px 12px;margin:16px 0;position:relative;overflow:hidden;
+    box-shadow:0 1px 2px rgba(27,31,36,.04),0 6px 18px rgba(27,31,36,.045)}
+  .chart::before{content:"";position:absolute;left:0;right:0;top:0;height:1px;
+    background:linear-gradient(90deg,transparent,rgba(255,255,255,.9),transparent)}
+  figcaption{font-size:11.5px;color:var(--ink3);font-family:system-ui,sans-serif;margin-top:8px;
+    line-height:1.65;border-top:1px dashed var(--line);padding-top:7px}
+  table{width:100%;border-collapse:collapse;font-size:13.6px;background:var(--paper);margin:14px 0 18px}
   th,td{text-align:left;padding:9px 11px;border-bottom:1px solid var(--line);vertical-align:top}
   th{background:#f6f7f8;font-size:11.5px;color:var(--ink2);letter-spacing:.05em;font-weight:600;
     font-family:system-ui,sans-serif}
   tbody tr:last-child td{border-bottom:none}
   .tag{display:inline-block;font-size:11px;padding:1px 8px;border-radius:20px;font-family:system-ui,sans-serif;
     font-weight:600;white-space:nowrap}
-  .t-ok{background:var(--okbg);color:var(--ok)} .t-warn{background:var(--warnbg);color:var(--warn)}
+  .t-ok{background:var(--okbg);color:var(--ok)} .t-warn{background:var(--warnbg);color:var(--gold)}
   .t-gray{background:var(--graybg);color:var(--gray)}
-  .box{border:1px solid var(--line);background:var(--paper);border-radius:10px;padding:16px 18px;margin:16px 0}
+  .box{border:1px solid var(--line);background:var(--paper);border-radius:10px;padding:15px 18px;margin:15px 0}
   .box.key{background:#fdf9ee;border-color:#f0e0bd}
   .box.blue{background:#f2f6fb;border-color:#d8e3f1}
   .box h3{margin-top:0}
-  .small{font-size:12.5px;color:var(--ink3);font-family:system-ui,sans-serif;line-height:1.7}
-  .refs{font-size:12.8px;color:var(--ink2);line-height:1.75}
-  .refs li{margin-bottom:7px}
+  .small{font-size:12.6px;color:var(--ink3);font-family:system-ui,sans-serif;line-height:1.7}
+  .refs{font-size:12.6px;color:var(--ink2);line-height:1.7}
+  .refs li{margin-bottom:6px}
   .src{font-family:system-ui,sans-serif;font-size:12px;color:var(--accent)}
-  footer{margin-top:52px;padding-top:18px;border-top:1px solid var(--line);font-size:12px;color:var(--ink3);
+  footer{margin-top:50px;padding-top:18px;border-top:1px solid var(--line);font-size:12px;color:var(--ink3);
     font-family:system-ui,sans-serif;line-height:1.75}
-  @media print{body{font-size:11pt;background:#fff}.wrap{padding:0;max-width:none}
+  @media print{body{font-size:10.5pt;background:#fff}.wrap{padding:0;max-width:none}
     h2{page-break-after:avoid}.chart,table,.box{page-break-inside:avoid}}
-  @media(max-width:600px){.wrap{padding:24px 14px 60px}h1{font-size:22px}body{font-size:14.5px}}
+  @media(max-width:600px){.wrap{padding:24px 14px 60px}h1{font-size:22px}body{font-size:14.5px}
+    .chart{padding:12px 10px 8px}}
 </style>
 </head>
 <body>
@@ -67,246 +70,367 @@
 
 <header>
   <div class="kick">Developmental Review · Evidence-Anchored · 2026-10</div>
-  <h1>H 的發展評估<br><span style="font-size:17px;font-weight:400;color:var(--ink2)">校本兩段量尺報告 × 國際文獻對照</span></h1>
-  <p class="sub">評估期 2026 年 10 月 ｜ 報告簽發 2026-10-02 ｜ 文獻檢索日 2026-10-24</p>
+  <h1>H 的發展評估<br><span style="font-size:17px;font-weight:400;color:var(--ink2)">校本兩段量尺 × 128 篇文獻 · 圖像版</span></h1>
+  <p class="sub">評估期 2026 年 10 月 ｜ 報告簽發 2026-10-02 ｜ 文獻檢索與通讀 2026-10-24</p>
   <div class="anon"><strong>匿名化：</strong>全文以代號「H」表示，不含姓名、校名、班別或任何可識別資料。原始文件僅家庭存檔。</div>
 </header>
 
 <div class="kpis">
-  <div class="kpi"><div class="n">21<small> 個月</small></div><div class="l">評估時月齡（男）</div></div>
-  <div class="kpi"><div class="n">19<small>/22</small></div><div class="l">13–18 月量尺：獨立完成</div></div>
-  <div class="kpi"><div class="n">22<small>/40</small></div><div class="l">19–24 月量尺：獨立完成</div></div>
-  <div class="kpi"><div class="n" style="color:var(--ok)">0</div><div class="l">兩個量尺合計 62 項：未達</div></div>
-  <div class="kpi"><div class="n">8<small>/8</small></div><div class="l">認知＋社交情緒：全部獨立</div></div>
+  <div class="kpi"><div class="n">21<small> 月</small></div><div class="l">評估時月齡（男）</div></div>
+  <div class="kpi"><div class="n">62<small> 項</small></div><div class="l">兩段量尺合計項目</div></div>
+  <div class="kpi"><div class="n" style="color:var(--ok)">0</div><div class="l">「完全做不到」項目</div></div>
+  <div class="kpi"><div class="n">41<small>/62</small></div><div class="l">獨立完成</div></div>
+  <div class="kpi"><div class="n">21<small>/62</small></div><div class="l">協助下完成</div></div>
+  <div class="kpi"><div class="n">128<small> 篇</small></div><div class="l">逐條讀過的文獻</div></div>
 </div>
 
 <h2><span class="num">01</span>一頁結論</h2>
 <div class="box key">
-  <p><strong>整體：發育輪廓均衡，無遲緩證據；表達性語言是唯一相對短板，仍在正常區間內。</strong></p>
-  <p style="margin-bottom:6px">關鍵判讀：這份報告用的是<strong>「兩段量尺」</strong>（13–18 月、19–24 月），不是按月齡的精細常模。H 現時 21 個月，正處 19–24 月量尺的<strong>中段</strong>——在這個量尺上出現「協助下做到」是<strong>符合預期</strong>的，不是落後。真正有信息量的是三件事：</p>
-  <ul style="margin-bottom:0">
-    <li>兩個量尺合計 <strong>62 項，未達 0 項</strong>——沒有任何一項「完全做不到」，只有「已會」與「正在長出來」兩態；</li>
-    <li>19–24 月量尺的<strong>認知 4/4、情意與社交 8/8 全部獨立</strong> → 智能與社會性兩條線跑在同齡前面；</li>
-    <li>語言 5 項中<strong>只有 1 項獨立</strong>（跟從簡短指示），動詞、食物名、社交詞彙、雙詞組合<strong>四項全部在協助下出現</strong>——這是唯一沒有「已完全掌握」的領域，但也不是「不會」，而是<strong>需要成人搭橋</strong>。</li>
-  </ul>
+  <p><strong>發育輪廓均衡，無遲緩證據；表達性語言是唯一相對短板，仍在正常區間內。</strong></p>
+  <p style="margin-bottom:0">三句話讀完：① 62 項<strong>零「完全做不到」</strong>，只有「已會」與「正在長出來」兩態；② 認知 4/4、情意與社交 8/8 <strong>全獨立</strong>，智能與社會性跑在同齡前面；③ 語言 5 項<strong>只 1 項獨立</strong>，動詞／食物名／社交詞／雙詞<strong>四項都在協助下出現</strong>——不是「不會」，是<strong>需要成人搭橋</strong>。</p>
 </div>
 
-<h2><span class="num">02</span>兩個量尺的掌握結構</h2>
-<figure class="chart">
-  <svg viewBox="0 0 580 190" width="100%" role="img" aria-label="兩段量尺的獨立／協助／未達比例">
-    <text x="0" y="14" font-size="11.5" fill="#77808a" font-family="system-ui">13–18 月量尺（22 項）</text>
-    <rect x="0" y="22" width="484" height="26" fill="#2c7a5b" rx="3"/>
-    <rect x="484" y="22" width="76" height="26" fill="#c9922f" rx="3"/>
-    <text x="14" y="40" font-size="12" fill="#fff" font-family="system-ui" font-weight="600">獨立 19（86%）</text>
-    <text x="470" y="65" font-size="11" fill="#a2661a" font-family="system-ui" text-anchor="end">協助 3（14%）· 未達 0</text>
+<figure class="chart"><svg viewBox="0 0 580 340" width="100%" role="img" aria-label="六領域到三種狀態的流向">
+<path d="M124,26.0 C269.3,26.0 324.7,26.0 470,26.0 L470,73.9 C324.7,73.9 269.3,70.3 124,70.3 Z" fill="#2c7a5b" opacity="0.40"/>
+<path d="M124,70.3 C269.3,70.3 324.7,183.7 470,183.7 L470,217.9 C324.7,217.9 269.3,101.9 124,101.9 Z" fill="#c9922f" opacity="0.40"/>
+<path d="M124,108.9 C269.3,108.9 324.7,73.9 470,73.9 L470,128.8 C324.7,128.8 269.3,159.5 124,159.5 Z" fill="#2c7a5b" opacity="0.40"/>
+<path d="M124,166.5 C269.3,166.5 324.7,128.8 470,128.8 L470,142.4 C324.7,142.4 269.3,179.2 124,179.2 Z" fill="#2c7a5b" opacity="0.40"/>
+<path d="M124,179.2 C269.3,179.2 324.7,217.9 470,217.9 L470,245.3 C324.7,245.3 269.3,204.5 124,204.5 Z" fill="#c9922f" opacity="0.40"/>
+<path d="M124,211.4 C269.3,211.4 324.7,245.3 470,245.3 L470,279.6 C324.7,279.6 269.3,243.1 124,243.1 Z" fill="#c9922f" opacity="0.40"/>
+<path d="M124,250.1 C269.3,250.1 324.7,142.4 470,142.4 L470,149.3 C324.7,149.3 269.3,256.4 124,256.4 Z" fill="#2c7a5b" opacity="0.40"/>
+<path d="M124,256.4 C269.3,256.4 324.7,279.6 470,279.6 L470,307.0 C324.7,307.0 269.3,281.7 124,281.7 Z" fill="#c9922f" opacity="0.40"/>
+<path d="M124,288.7 C269.3,288.7 324.7,149.3 470,149.3 L470,176.7 C324.7,176.7 269.3,314.0 124,314.0 Z" fill="#2c7a5b" opacity="0.40"/>
+<rect x="108" y="26.0" width="16" height="75.9" rx="3" fill="#31527d" opacity="0.85"/>
+<text x="98" y="68.0" text-anchor="end" font-size="12" fill="#4a5259" font-family="system-ui,-apple-system,Segoe UI,sans-serif">自理<tspan font-size="10" fill="#77808a"> 12 項</tspan></text>
+<rect x="108" y="108.9" width="16" height="50.6" rx="3" fill="#31527d" opacity="0.85"/>
+<text x="98" y="138.2" text-anchor="end" font-size="12" fill="#4a5259" font-family="system-ui,-apple-system,Segoe UI,sans-serif">情意與社交<tspan font-size="10" fill="#77808a"> 8 項</tspan></text>
+<rect x="108" y="166.5" width="16" height="38.0" rx="3" fill="#31527d" opacity="0.85"/>
+<text x="98" y="189.5" text-anchor="end" font-size="12" fill="#4a5259" font-family="system-ui,-apple-system,Segoe UI,sans-serif">精細動作<tspan font-size="10" fill="#77808a"> 6 項</tspan></text>
+<rect x="108" y="211.4" width="16" height="31.6" rx="3" fill="#31527d" opacity="0.85"/>
+<text x="98" y="231.3" text-anchor="end" font-size="12" fill="#4a5259" font-family="system-ui,-apple-system,Segoe UI,sans-serif">大肌肉<tspan font-size="10" fill="#77808a"> 5 項</tspan></text>
+<rect x="108" y="250.1" width="16" height="31.6" rx="3" fill="#31527d" opacity="0.85"/>
+<text x="98" y="269.9" text-anchor="end" font-size="12" fill="#4a5259" font-family="system-ui,-apple-system,Segoe UI,sans-serif">語言<tspan font-size="10" fill="#77808a"> 5 項</tspan></text>
+<rect x="108" y="288.7" width="16" height="25.3" rx="3" fill="#31527d" opacity="0.85"/>
+<text x="98" y="305.3" text-anchor="end" font-size="12" fill="#4a5259" font-family="system-ui,-apple-system,Segoe UI,sans-serif">認知<tspan font-size="10" fill="#77808a"> 4 項</tspan></text>
+<rect x="470" y="26.0" width="16" height="150.7" rx="3" fill="#2c7a5b" opacity="0.9"/>
+<text x="496" y="100.3" font-size="12" fill="#4a5259" font-weight="600" font-family="system-ui,-apple-system,Segoe UI,sans-serif">獨立完成</text>
+<text x="496" y="114.3" font-size="10.5" fill="#77808a" font-family="system-ui,-apple-system,Segoe UI,sans-serif">22 項 · 55%</text>
+<rect x="470" y="183.7" width="16" height="123.3" rx="3" fill="#c9922f" opacity="0.9"/>
+<text x="496" y="244.3" font-size="12" fill="#4a5259" font-weight="600" font-family="system-ui,-apple-system,Segoe UI,sans-serif">協助下完成</text>
+<text x="496" y="258.4" font-size="10.5" fill="#77808a" font-family="system-ui,-apple-system,Segoe UI,sans-serif">18 項 · 45%</text>
+<circle cx="478.0" cy="319.0" r="5" fill="none" stroke="#b9bfc6" stroke-width="1.6" stroke-dasharray="2 2"/>
+<text x="496" y="318.0" font-size="12" fill="#4a5259" font-weight="600" font-family="system-ui,-apple-system,Segoe UI,sans-serif">尚未出現</text>
+<text x="496" y="332.0" font-size="10.5" fill="#77808a" font-family="system-ui,-apple-system,Segoe UI,sans-serif">0 項 · 0%</text>
+<text x="8" y="14" font-size="10.5" fill="#77808a" font-family="system-ui,-apple-system,Segoe UI,sans-serif">領域（項數）</text>
+<text x="572" y="14" text-anchor="end" font-size="10.5" fill="#77808a" font-family="system-ui,-apple-system,Segoe UI,sans-serif">狀態</text>
+<text x="290.0" y="334" text-anchor="middle" font-size="10.5" fill="#77808a" font-family="system-ui,-apple-system,Segoe UI,sans-serif">40 項全數向右流動：沒有任何一項「完全做不到」</text>
+</svg><figcaption>六個領域的 40 項，全部向右流入「獨立」或「協助」；第三欄「尚未出現」為 0 項。自理 12 項是最大的一股，其中 7 項已獨立。</figcaption></figure>
 
-    <text x="0" y="100" font-size="11.5" fill="#77808a" font-family="system-ui">19–24 月量尺（40 項）</text>
-    <rect x="0" y="108" width="308" height="26" fill="#2c7a5b" rx="3"/>
-    <rect x="308" y="108" width="252" height="26" fill="#c9922f" rx="3"/>
-    <text x="14" y="126" font-size="12" fill="#fff" font-family="system-ui" font-weight="600">獨立 22（55%）</text>
-    <text x="546" y="126" font-size="12" fill="#7a4c10" font-family="system-ui" text-anchor="end" font-weight="600">協助 18（45%）</text>
-    <text x="580" y="152" font-size="10.5" fill="#77808a" font-family="system-ui" text-anchor="end">未達 0 項——沒有任何一項「完全做不到」</text>
-
-    <line x1="0" y1="172" x2="560" y2="172" stroke="#e4e7ea"/>
-    <text x="0" y="186" font-size="10.5" fill="#8b939c" font-family="system-ui">0%</text>
-    <text x="280" y="186" font-size="10.5" fill="#8b939c" font-family="system-ui" text-anchor="middle">50%</text>
-    <text x="560" y="186" font-size="10.5" fill="#8b939c" font-family="system-ui" text-anchor="end">100%</text>
-  </svg>
-  <div class="cap">依高清原圖逐項點算（每項均經三次施測作準）。此為課程本位（criterion-referenced）評估，非常模測驗。</div>
-</figure>
+<h2><span class="num">02</span>文獻底座：讀了什麼、讀到多深</h2>
+<figure class="chart"><svg viewBox="0 0 580 210" width="100%" role="img" aria-label="文献筛选漏斗">
+<rect x="150" y="16" width="300.0" height="26" rx="4" fill="#31527d" opacity="0.88"/>
+<text x="138" y="34" text-anchor="end" font-size="12" fill="#4a5259" font-family="system-ui,-apple-system,Segoe UI,sans-serif">检索命中（去重）</text>
+<text x="462.0" y="34" font-size="13" font-weight="700" fill="#31527d" font-family="system-ui,-apple-system,Segoe UI,sans-serif">571<tspan font-size="10" fill="#77808a" font-weight="400"> 篇</tspan></text>
+<rect x="150" y="56" width="221.5" height="26" rx="4" fill="#4a6d99" opacity="0.88"/>
+<text x="138" y="74" text-anchor="end" font-size="12" fill="#4a5259" font-family="system-ui,-apple-system,Segoe UI,sans-serif">标题级评分入选</text>
+<text x="383.5282613888218" y="74" font-size="13" font-weight="700" fill="#4a6d99" font-family="system-ui,-apple-system,Segoe UI,sans-serif">329<tspan font-size="10" fill="#77808a" font-weight="400"> 篇</tspan></text>
+<rect x="150" y="96" width="127.2" height="26" rx="4" fill="#2c7a5b" opacity="0.88"/>
+<text x="138" y="114" text-anchor="end" font-size="12" fill="#4a5259" font-family="system-ui,-apple-system,Segoe UI,sans-serif">摘要逐条精读</text>
+<text x="289.2099495876285" y="114" font-size="13" font-weight="700" fill="#2c7a5b" font-family="system-ui,-apple-system,Segoe UI,sans-serif">120<tspan font-size="10" fill="#77808a" font-weight="400"> 篇</tspan></text>
+<rect x="150" y="136" width="46.2" height="26" rx="4" fill="#c9922f" opacity="0.88"/>
+<text x="138" y="154" text-anchor="end" font-size="12" fill="#4a5259" font-family="system-ui,-apple-system,Segoe UI,sans-serif">全文通读（浏览器）</text>
+<text x="208.16213382703467" y="154" font-size="13" font-weight="700" fill="#c9922f" font-family="system-ui,-apple-system,Segoe UI,sans-serif">19<tspan font-size="10" fill="#77808a" font-weight="400"> 篇</tspan></text>
+<text x="290.0" y="202" text-anchor="middle" font-size="10.5" fill="#77808a" font-family="system-ui,-apple-system,Segoe UI,sans-serif">全部摘要逐条读过，非仅标题匹配；全文 19 篇含 8 篇经浏览器实读 PMC 正文</text>
+</svg><figcaption>檢索命中 571 篇（1975–2026）→ 標題級評分入選 329 篇 → 摘要逐條精讀 120 篇 → 全文通讀 19 篇（其中 8 篇本次經瀏覽器實讀 PMC 正文）。</figcaption></figure>
+<figure class="chart"><svg viewBox="0 0 580 260" width="100%" role="img" aria-label="五個主題的文獻量隨年份變化">
+<path d="M40.0,114.5 L60.2,115.6 L80.3,115.6 L100.5,116.4 L120.6,116.0 L140.8,114.5 L160.9,114.1 L181.1,109.8 L201.2,105.1 L221.4,107.8 L241.5,107.0 L261.7,98.8 L281.8,90.6 L302.0,85.1 L322.2,85.9 L342.3,85.9 L362.5,82.0 L382.6,74.9 L402.8,65.9 L422.9,57.3 L443.1,45.5 L463.2,28.7 L483.4,22.0 L503.5,45.1 L523.7,71.0 L543.8,82.0 L564.0,89.0 L564.0,96.8 L543.8,94.5 L523.7,91.4 L503.5,83.5 L483.4,75.3 L463.2,78.8 L443.1,87.8 L422.9,88.6 L402.8,84.7 L382.6,89.0 L362.5,98.4 L342.3,100.8 L322.2,97.6 L302.0,99.2 L281.8,105.5 L261.7,110.6 L241.5,112.5 L221.4,110.9 L201.2,109.8 L181.1,112.9 L160.9,115.6 L140.8,115.3 L120.6,116.0 L100.5,116.4 L80.3,115.6 L60.2,116.4 L40.0,116.8 Z" fill="#2c7a5b" opacity="0.82"/>
+<path d="M40.0,116.8 L60.2,116.4 L80.3,115.6 L100.5,116.4 L120.6,116.0 L140.8,115.3 L160.9,115.6 L181.1,112.9 L201.2,109.8 L221.4,110.9 L241.5,112.5 L261.7,110.6 L281.8,105.5 L302.0,99.2 L322.2,97.6 L342.3,100.8 L362.5,98.4 L382.6,89.0 L402.8,84.7 L422.9,88.6 L443.1,87.8 L463.2,78.8 L483.4,75.3 L503.5,83.5 L523.7,91.4 L543.8,94.5 L564.0,96.8 L564.0,103.9 L543.8,104.7 L523.7,104.7 L503.5,104.7 L483.4,114.5 L463.2,128.2 L443.1,128.6 L422.9,126.2 L402.8,125.4 L382.6,120.4 L362.5,121.1 L342.3,120.4 L322.2,119.6 L302.0,125.1 L281.8,126.6 L261.7,125.4 L241.5,121.9 L221.4,118.8 L201.2,118.4 L181.1,117.6 L160.9,117.2 L140.8,117.6 L120.6,118.4 L100.5,118.0 L80.3,117.2 L60.2,118.0 L40.0,119.2 Z" fill="#31527d" opacity="0.82"/>
+<path d="M40.0,119.2 L60.2,118.0 L80.3,117.2 L100.5,118.0 L120.6,118.4 L140.8,117.6 L160.9,117.2 L181.1,117.6 L201.2,118.4 L221.4,118.8 L241.5,121.9 L261.7,125.4 L281.8,126.6 L302.0,125.1 L322.2,119.6 L342.3,120.4 L362.5,121.1 L382.6,120.4 L402.8,125.4 L422.9,126.2 L443.1,128.6 L463.2,128.2 L483.4,114.5 L503.5,104.7 L523.7,104.7 L543.8,104.7 L564.0,103.9 L564.0,125.8 L543.8,124.3 L523.7,123.5 L503.5,132.1 L483.4,146.6 L463.2,155.6 L443.1,154.4 L422.9,151.3 L402.8,147.4 L382.6,139.9 L362.5,139.2 L342.3,138.4 L322.2,137.6 L302.0,140.7 L281.8,139.2 L261.7,132.5 L241.5,124.3 L221.4,121.9 L201.2,123.9 L181.1,122.3 L160.9,120.4 L140.8,120.0 L120.6,119.2 L100.5,118.0 L80.3,117.2 L60.2,118.0 L40.0,119.2 Z" fill="#8a5a8f" opacity="0.82"/>
+<path d="M40.0,119.2 L60.2,118.0 L80.3,117.2 L100.5,118.0 L120.6,119.2 L140.8,120.0 L160.9,120.4 L181.1,122.3 L201.2,123.9 L221.4,121.9 L241.5,124.3 L261.7,132.5 L281.8,139.2 L302.0,140.7 L322.2,137.6 L342.3,138.4 L362.5,139.2 L382.6,139.9 L402.8,147.4 L422.9,151.3 L443.1,154.4 L463.2,155.6 L483.4,146.6 L503.5,132.1 L523.7,123.5 L543.8,124.3 L564.0,125.8 L564.0,142.3 L543.8,146.2 L523.7,153.3 L503.5,169.7 L483.4,186.6 L463.2,183.0 L443.1,167.8 L422.9,158.4 L402.8,152.1 L382.6,143.9 L362.5,143.1 L342.3,143.1 L322.2,141.5 L302.0,143.9 L281.8,141.5 L261.7,134.1 L241.5,126.6 L221.4,125.1 L201.2,126.2 L181.1,123.9 L160.9,121.1 L140.8,120.0 L120.6,119.2 L100.5,118.8 L80.3,118.8 L60.2,119.6 L40.0,121.5 Z" fill="#c9922f" opacity="0.82"/>
+<path d="M40.0,121.5 L60.2,119.6 L80.3,118.8 L100.5,118.8 L120.6,119.2 L140.8,120.0 L160.9,121.1 L181.1,123.9 L201.2,126.2 L221.4,125.1 L241.5,126.6 L261.7,134.1 L281.8,141.5 L302.0,143.9 L322.2,141.5 L342.3,143.1 L362.5,143.1 L382.6,143.9 L402.8,152.1 L422.9,158.4 L443.1,167.8 L463.2,183.0 L483.4,186.6 L503.5,169.7 L523.7,153.3 L543.8,146.2 L564.0,142.3 L564.0,147.0 L543.8,154.0 L523.7,165.0 L503.5,190.9 L483.4,214.0 L463.2,207.3 L443.1,190.5 L422.9,178.7 L402.8,170.1 L382.6,161.1 L362.5,154.0 L342.3,150.1 L322.2,150.1 L302.0,150.9 L281.8,145.4 L261.7,137.2 L241.5,129.0 L221.4,128.2 L201.2,130.9 L181.1,126.2 L160.9,121.9 L140.8,121.5 L120.6,120.0 L100.5,119.6 L80.3,120.4 L60.2,120.4 L40.0,121.5 Z" fill="#b35c3c" opacity="0.82"/>
+<line x1="40" y1="220" x2="564" y2="220" stroke="#d7dbe0"/>
+<line x1="40.0" y1="220" x2="40.0" y2="225" stroke="#c9ced4"/>
+<text x="40.0" y="239" text-anchor="middle" font-size="10" fill="#77808a" font-family="system-ui,-apple-system,Segoe UI,sans-serif">2000</text>
+<line x1="140.8" y1="220" x2="140.8" y2="225" stroke="#c9ced4"/>
+<text x="140.8" y="239" text-anchor="middle" font-size="10" fill="#77808a" font-family="system-ui,-apple-system,Segoe UI,sans-serif">2005</text>
+<line x1="241.5" y1="220" x2="241.5" y2="225" stroke="#c9ced4"/>
+<text x="241.5" y="239" text-anchor="middle" font-size="10" fill="#77808a" font-family="system-ui,-apple-system,Segoe UI,sans-serif">2010</text>
+<line x1="342.3" y1="220" x2="342.3" y2="225" stroke="#c9ced4"/>
+<text x="342.3" y="239" text-anchor="middle" font-size="10" fill="#77808a" font-family="system-ui,-apple-system,Segoe UI,sans-serif">2015</text>
+<line x1="443.1" y1="220" x2="443.1" y2="225" stroke="#c9ced4"/>
+<text x="443.1" y="239" text-anchor="middle" font-size="10" fill="#77808a" font-family="system-ui,-apple-system,Segoe UI,sans-serif">2020</text>
+<line x1="543.8" y1="220" x2="543.8" y2="225" stroke="#c9ced4"/>
+<text x="543.8" y="239" text-anchor="middle" font-size="10" fill="#77808a" font-family="system-ui,-apple-system,Segoe UI,sans-serif">2025</text>
+<rect x="40" y="244" width="9" height="9" rx="2" fill="#2c7a5b"/>
+<text x="53" y="252" font-size="10.5" fill="#4a5259" font-family="system-ui,-apple-system,Segoe UI,sans-serif">互動與共讀</text>
+<rect x="123.0" y="244" width="9" height="9" rx="2" fill="#31527d"/>
+<text x="136.0" y="252" font-size="10.5" fill="#4a5259" font-family="system-ui,-apple-system,Segoe UI,sans-serif">語言發展</text>
+<rect x="194.6" y="244" width="9" height="9" rx="2" fill="#8a5a8f"/>
+<text x="207.6" y="252" font-size="10.5" fill="#4a5259" font-family="system-ui,-apple-system,Segoe UI,sans-serif">篩查與臨床</text>
+<rect x="277.6" y="244" width="9" height="9" rx="2" fill="#c9922f"/>
+<text x="290.6" y="252" font-size="10.5" fill="#4a5259" font-family="system-ui,-apple-system,Segoe UI,sans-serif">屏幕與睡眠</text>
+<rect x="360.6" y="244" width="9" height="9" rx="2" fill="#b35c3c"/>
+<text x="373.6" y="252" font-size="10.5" fill="#4a5259" font-family="system-ui,-apple-system,Segoe UI,sans-serif">動作與認知</text>
+</svg><figcaption>120 篇精讀文獻按主題與年份分佈。2019 年後「互動與共讀」「屏幕與睡眠」兩支同時上揚——正是本報告策略章節的主要依據來源。</figcaption></figure>
 
 <h2><span class="num">03</span>分領域剖面（19–24 月量尺）</h2>
-<figure class="chart">
-  <svg viewBox="0 0 580 300" width="100%" role="img" aria-label="各領域獨立、協助、未達比例">
-    <g font-family="system-ui" font-size="12" fill="#4a5259">
-      <text x="0" y="18">認知</text>
-      <rect x="86" y="6" width="440" height="17" fill="#2c7a5b" rx="2"/>
-      <text x="534" y="19" font-size="11.5" fill="#2c7a5b" font-weight="600">4/4 獨立</text>
+<figure class="chart"><svg viewBox="0 0 580 300" width="100%" role="img" aria-label="六領域獨立完成率與參照區間">
+<rect x="259.2" y="24" width="142.8" height="224" fill="#a2661a" opacity="0.09"/>
+<line x1="259.2" y1="24" x2="259.2" y2="248" stroke="#a2661a" stroke-dasharray="3 3"/>
+<line x1="402.0" y1="24" x2="402.0" y2="248" stroke="#a2661a" stroke-dasharray="3 3"/>
+<text x="330.6" y="18" text-anchor="middle" font-size="10" fill="#a2661a" font-weight="600" font-family="system-ui,-apple-system,Segoe UI,sans-serif">21 月量尺中段·預期獨立率 40–75%</text>
+<text x="84" y="55" text-anchor="end" font-size="12" fill="#4a5259" font-family="system-ui,-apple-system,Segoe UI,sans-serif">認知</text>
+<rect x="96" y="43" width="408" height="14" rx="7" fill="#f1f2f4"/>
+<rect x="96" y="43" width="408.0" height="14" rx="7" fill="#2c7a5b"/>
+<circle cx="504.0" cy="50" r="2.4" fill="#fff" opacity="0.85"/>
+<text x="514" y="55" font-size="11.5" fill="#2c7a5b" font-weight="700" font-family="system-ui,-apple-system,Segoe UI,sans-serif">100%</text>
+<text x="514" y="69" font-size="9.5" fill="#77808a" font-family="system-ui,-apple-system,Segoe UI,sans-serif">4 項</text>
+<text x="84" y="93" text-anchor="end" font-size="12" fill="#4a5259" font-family="system-ui,-apple-system,Segoe UI,sans-serif">情意與社交</text>
+<rect x="96" y="81" width="408" height="14" rx="7" fill="#f1f2f4"/>
+<rect x="96" y="81" width="408.0" height="14" rx="7" fill="#2c7a5b"/>
+<circle cx="504.0" cy="88" r="2.4" fill="#fff" opacity="0.85"/>
+<text x="514" y="93" font-size="11.5" fill="#2c7a5b" font-weight="700" font-family="system-ui,-apple-system,Segoe UI,sans-serif">100%</text>
+<text x="514" y="107" font-size="9.5" fill="#77808a" font-family="system-ui,-apple-system,Segoe UI,sans-serif">8 項</text>
+<text x="84" y="131" text-anchor="end" font-size="12" fill="#4a5259" font-family="system-ui,-apple-system,Segoe UI,sans-serif">自我照顧</text>
+<rect x="96" y="119" width="408" height="14" rx="7" fill="#f1f2f4"/>
+<rect x="96" y="119" width="236.6" height="14" rx="7" fill="#c9922f"/>
+<circle cx="332.6" cy="126" r="2.4" fill="#fff" opacity="0.85"/>
+<text x="514" y="131" font-size="11.5" fill="#c9922f" font-weight="700" font-family="system-ui,-apple-system,Segoe UI,sans-serif">58%</text>
+<text x="514" y="145" font-size="9.5" fill="#77808a" font-family="system-ui,-apple-system,Segoe UI,sans-serif">12 項</text>
+<text x="84" y="169" text-anchor="end" font-size="12" fill="#4a5259" font-family="system-ui,-apple-system,Segoe UI,sans-serif">精細動作</text>
+<rect x="96" y="157" width="408" height="14" rx="7" fill="#f1f2f4"/>
+<rect x="96" y="157" width="134.6" height="14" rx="7" fill="#c9922f"/>
+<circle cx="230.6" cy="164" r="2.4" fill="#fff" opacity="0.85"/>
+<text x="514" y="169" font-size="11.5" fill="#c9922f" font-weight="700" font-family="system-ui,-apple-system,Segoe UI,sans-serif">33%</text>
+<text x="514" y="183" font-size="9.5" fill="#77808a" font-family="system-ui,-apple-system,Segoe UI,sans-serif">6 項</text>
+<text x="84" y="207" text-anchor="end" font-size="12" fill="#4a5259" font-family="system-ui,-apple-system,Segoe UI,sans-serif">語言</text>
+<rect x="96" y="195" width="408" height="14" rx="7" fill="#f1f2f4"/>
+<rect x="96" y="195" width="81.6" height="14" rx="7" fill="#b04a3a"/>
+<circle cx="177.6" cy="202" r="2.4" fill="#fff" opacity="0.85"/>
+<text x="514" y="207" font-size="11.5" fill="#b04a3a" font-weight="700" font-family="system-ui,-apple-system,Segoe UI,sans-serif">20%</text>
+<text x="514" y="221" font-size="9.5" fill="#77808a" font-family="system-ui,-apple-system,Segoe UI,sans-serif">5 項</text>
+<text x="84" y="245" text-anchor="end" font-size="12" fill="#4a5259" font-family="system-ui,-apple-system,Segoe UI,sans-serif">大肌肉</text>
+<rect x="96" y="233" width="408" height="14" rx="7" fill="#f1f2f4"/>
+<rect x="96" y="233" width="3.0" height="14" rx="7" fill="#b04a3a"/>
+<circle cx="99.0" cy="240" r="2.4" fill="#fff" opacity="0.85"/>
+<text x="514" y="245" font-size="11.5" fill="#b04a3a" font-weight="700" font-family="system-ui,-apple-system,Segoe UI,sans-serif">0%</text>
+<text x="514" y="259" font-size="9.5" fill="#77808a" font-family="system-ui,-apple-system,Segoe UI,sans-serif">5 項</text>
+<text x="290.0" y="276" text-anchor="middle" font-size="10.5" fill="#77808a" font-family="system-ui,-apple-system,Segoe UI,sans-serif">金色帶為經驗參照，非常模百分位（課程本位評估不可換算 DQ）</text>
+</svg><figcaption>獨立完成率。認知與社交 100%，語言 20%、大肌肉 0%。金色帶為 21 個月在該量尺中段的經驗參照區，非常模百分位。</figcaption></figure>
 
-      <text x="0" y="48">情意與社交</text>
-      <rect x="86" y="36" width="440" height="17" fill="#2c7a5b" rx="2"/>
-      <text x="534" y="49" font-size="11.5" fill="#2c7a5b" font-weight="600">8/8 獨立</text>
-
-      <text x="0" y="78">自理</text>
-      <rect x="86" y="66" width="257" height="17" fill="#2c7a5b" rx="2"/>
-      <rect x="343" y="66" width="183" height="17" fill="#c9922f" rx="2"/>
-      <text x="534" y="79" font-size="11.5" fill="#a2661a" font-weight="600">7 獨立·5 協助</text>
-
-      <text x="0" y="108">精細動作</text>
-      <rect x="86" y="96" width="147" height="17" fill="#2c7a5b" rx="2"/>
-      <rect x="233" y="96" width="293" height="17" fill="#c9922f" rx="2"/>
-      <text x="534" y="109" font-size="11.5" fill="#a2661a" font-weight="600">2 獨立·4 協助</text>
-
-      <text x="0" y="138">大肌肉</text>
-      <rect x="86" y="126" width="440" height="17" fill="#c9922f" rx="2"/>
-      <text x="534" y="139" font-size="11.5" fill="#a2661a" font-weight="600">0 獨立·5 協助</text>
-
-      <text x="0" y="168">語言</text>
-      <rect x="86" y="156" width="88" height="17" fill="#2c7a5b" rx="2"/>
-      <rect x="174" y="156" width="352" height="17" fill="#c9922f" rx="2"/>
-      <text x="534" y="169" font-size="11.5" fill="#7a4c10" font-weight="600">1 獨立·4 協助</text>
-    </g>
-    <line x1="86" y1="196" x2="526" y2="196" stroke="#e4e7ea"/>
-    <g font-family="system-ui" font-size="10.5" fill="#8b939c">
-      <text x="86" y="211">0</text><text x="306" y="211" text-anchor="middle">50%</text><text x="526" y="211" text-anchor="end">100%</text>
-    </g>
-    <g font-family="system-ui" font-size="11">
-      <rect x="86" y="232" width="10" height="10" fill="#2c7a5b"/><text x="102" y="242" fill="#4a5259">獨立完成</text>
-      <rect x="190" y="232" width="10" height="10" fill="#c9922f"/><text x="206" y="242" fill="#4a5259">協助下完成</text>
-      <rect x="312" y="232" width="10" height="10" fill="#b9bfc6"/><text x="328" y="242" fill="#4a5259">尚未出現（本次為 0）</text>
-    </g>
-    <text x="0" y="272" font-size="11" fill="#8b939c" font-family="system-ui">注：認知、情意與社交兩組全部獨立，是本份報告最強的信號。</text>
-    <text x="0" y="289" font-size="11" fill="#8b939c" font-family="system-ui">語言與大肌肉是唯二「零獨立」或近乎零獨立的領域，但兩者的性質不同（見第 5 節）。</text>
-  </svg>
-</figure>
-
-<h2><span class="num">04</span>語言：位置、紅線與時間窗</h2>
-<figure class="chart">
-  <svg viewBox="0 0 580 210" width="100%" role="img" aria-label="語言里程碑標尺與H的位置">
-    <line x1="40" y1="96" x2="550" y2="96" stroke="#c9ced4" stroke-width="2"/>
-    <g font-family="system-ui" font-size="11" fill="#4a5259">
-      <circle cx="80" cy="96" r="6" fill="#2c7a5b"/>
-      <text x="80" y="82" text-anchor="middle" font-weight="600">單詞起歩</text>
-      <text x="80" y="118" text-anchor="middle" font-size="10.5" fill="#8b939c">12 月</text>
-
-      <circle cx="215" cy="96" r="6" fill="#2c7a5b"/>
-      <text x="215" y="82" text-anchor="middle" font-weight="600">≥3 詞</text>
-      <text x="215" y="118" text-anchor="middle" font-size="10.5" fill="#8b939c">13–18 月量尺</text>
-
-      <circle cx="345" cy="96" r="6" fill="#c9922f"/>
-      <text x="345" y="82" text-anchor="middle" font-weight="600">雙詞組合</text>
-      <text x="345" y="118" text-anchor="middle" font-size="10.5" fill="#8b939c">18–24 月</text>
-
-      <circle cx="462" cy="96" r="6" fill="#b9bfc6"/>
-      <text x="462" y="82" text-anchor="middle" font-weight="600">50 詞</text>
-      <text x="462" y="118" text-anchor="middle" font-size="10.5" fill="#8b939c">24 月紅線</text>
-
-      <circle cx="536" cy="96" r="6" fill="#b9bfc6"/>
-      <text x="536" y="82" text-anchor="middle" font-weight="600">100 詞</text>
-      <text x="536" y="118" text-anchor="middle" font-size="10.5" fill="#8b939c">24 月</text>
-    </g>
-    <rect x="150" y="132" width="248" height="34" fill="#fdf4e5" stroke="#e8d3a8" rx="6"/>
-    <text x="274" y="153" text-anchor="middle" font-family="system-ui" font-size="12" fill="#7a4c10" font-weight="600">H 現處位置（21 個月）：單詞充足、雙詞萌芽</text>
-    <text x="274" y="181" text-anchor="middle" font-family="system-ui" font-size="10.5" fill="#8b939c">雙詞在「協助下」出現 → 未觸及「24 月無雙詞」轉介紅線</text>
-  </svg>
-</figure>
-
-<div class="box blue">
-  <p style="margin:0"><strong>為什麼要點算詞彙：</strong>國際通用「語言晚出」（late language emergence）判準是<strong>24 個月時少於 50 詞、或沒有雙詞組合</strong>（ASHA；Rescorla 1989）。這個判準的意義不在於貼標籤，而在於分流：約 <strong>50–70%</strong> 會追上同齡，但 7 歲時語言障礙比例仍是 <strong>20% vs 對照組 11%</strong>；而 5 歲時真正符合 SLI 的只有 <strong>7.5–8.8%</strong>。最有預測力的不是「詞少」，而是<strong>理解能力</strong>——30 個月的理解分數是 66 個月語言產出最強的單一預測因子。</p>
-</div>
-
-<h2><span class="num">05</span>五領域判斷（對照 21 個月期望）</h2>
 <table>
-  <thead><tr><th style="width:88px">領域</th><th style="width:96px">判斷</th><th>依據</th></tr></thead>
+  <thead><tr><th style="width:84px">領域</th><th style="width:92px">判斷</th><th>依據（逐項核對高清原圖）</th></tr></thead>
   <tbody>
-    <tr><td>大肌肉</td><td><span class="tag t-warn">區間下緣·在建</span></td><td>13–18 月量尺 7/7 獨立（走、爬梯、蹲、爬隧道、推車）；19–24 月量尺 <strong>5 項全部需協助</strong>（踢球、跑動、接拋氣球、踏車轉彎、彈床站立）。21 個月正處「跑跳起步」期，屬<strong>在建技能</strong>；報告敘述「四肢協調能力發展理想」。</td></tr>
-    <tr><td>精細動作</td><td><span class="tag t-warn">區間內·需引導</span></td><td>6 項中 2 項獨立（手掌握筆塗鴉、把小套杯放入大套杯），4 項需協助（5–6 塊積木、穿珠、揭盒蓋、拉鍊）。後四者典型在 22–26 個月成熟。</td></tr>
-    <tr><td>語言</td><td><span class="tag t-warn">相對短板</span></td><td><strong>5 項中 1 項獨立、4 項協助、0 項未達。</strong>獨立：跟從簡短指示（「把球兒給我」）；協助：常用動詞、兩種食物名稱、社交詞彙、<strong>雙詞組合（人物＋動作／動作＋物件／物件＋形容詞）</strong>。即：理解與發音在線，<strong>輸出需要成人搭橋</strong>。</td></tr>
-    <tr><td>認知</td><td><span class="tag t-ok">領先</span></td><td>19–24 月量尺 <strong>4/4 全部獨立</strong>：按形狀分類、按大小分類、配對立體形狀、用繩子拉動玩具車完成指令。</td></tr>
-    <tr><td>情意與社交</td><td><span class="tag t-ok">明顯進步</span></td><td><strong>8/8 全部獨立</strong>：調節情緒、輪流遊戲、手勢表達需要、與友伴互動、找成人幫忙、表達正面情緒、主動擁抱、求助以滿足需要。報告敘述「<strong>能與同伴一起參與遊戲</strong>」——與 9 月「尚待發展」相比是實質躍進。</td></tr>
-    <tr><td>自我照顧</td><td><span class="tag t-ok">符合</span></td><td>12 項中 <strong>7 項獨立</strong>（匙羹、送食物入口、吸管、丟垃圾、脫鞋、洗手、解魔術貼），5 項需協助（拿杯喝水、毛巾抹嘴、拉下褲子、表示如廁需要、雙腳穿褲管）——後三項屬如廁訓練範疇，21 個月正常。</td></tr>
+    <tr><td>大肌肉</td><td><span class="tag t-warn">在建技能</span></td><td>13–18 月量尺 7/7 獨立（走、爬梯、蹲、爬隧道、推車）；19–24 月 <strong>5 項全需協助</strong>（踢球、跑動、接拋氣球、踏車轉彎、彈床）。21 個月正處「跑跳起步」期；報告敘述「四肢協調能力發展理想」。</td></tr>
+    <tr><td>精細動作</td><td><span class="tag t-warn">區間內</span></td><td>2 項獨立（手掌握筆塗鴉、小套杯放入大套杯），4 項協助（5–6 塊積木、穿珠、揭盒蓋、拉鍊）。後四者典型在 22–26 個月成熟。</td></tr>
+    <tr><td>語言</td><td><span class="tag t-warn">相對短板</span></td><td><strong>1 獨立／4 協助／0 未達。</strong>獨立：跟從簡短指示；協助：常用動詞、兩種食物名稱、社交詞彙、<strong>雙詞組合</strong>。理解與發音在線，<strong>輸出需搭橋</strong>。</td></tr>
+    <tr><td>認知</td><td><span class="tag t-ok">領先</span></td><td><strong>4/4 全獨立</strong>：按形狀分類、按大小分類、配對立體形狀、拉繩取物。</td></tr>
+    <tr><td>情意與社交</td><td><span class="tag t-ok">明顯進步</span></td><td><strong>8/8 全獨立</strong>；敘述「<strong>能與同伴一起參與遊戲</strong>」——相對 9 月「尚待發展」是實質躍進。</td></tr>
+    <tr><td>自我照顧</td><td><span class="tag t-ok">符合</span></td><td>12 項中 <strong>7 獨立</strong>，5 協助（拿杯喝水、抹嘴、拉褲子、表示如廁、雙腳穿褲管）——後三項屬如廁訓練範疇，21 個月正常。</td></tr>
   </tbody>
 </table>
 
 <div class="box">
-  <p style="margin:0"><strong>方法學提醒（重要）：</strong>校本報告是<strong>課程本位</strong>的「做到／協助／未達」勾選，不是標準化常模測驗，<strong>不能換算成發展商數（DQ）</strong>。若需要 DQ 或百分位，須用標準化工具（如本港學前兒童發展評估／CDI 詞彙量表）另行施測。因此本頁所有「領先／下緣」都是<strong>相對描述</strong>，不是診斷級結論。</p>
+  <p style="margin:0"><strong>方法學（決定怎麼讀這張表）：</strong>校本報告是<strong>課程本位</strong>「做到／協助／未達」勾選，不是標準化常模測驗，<strong>不能換算 DQ 或百分位</strong>。且量尺是兩段區間（13–18、19–24），21 個月落在後段中點——此設計對「協助下」較寬容。故本頁「領先／下緣」皆為<strong>相對描述</strong>，非診斷級結論。可信度加分項：報告明載<strong>每項評量均進行三次作準</strong>。</p>
 </div>
 
-<h2><span class="num">06</span>文獻錨點：五條可操作結論</h2>
+<h2><span class="num">04</span>語言：位置、紅線與時間窗</h2>
+<figure class="chart"><svg viewBox="0 0 580 330" width="100%" role="img" aria-label="詞彙量對月齡的對數座標圖">
+<line x1="62" y1="278.0" x2="558" y2="278.0" stroke="#e4e7ea" stroke-dasharray="2 4"/>
+<text x="54" y="282.0" text-anchor="end" font-size="10" fill="#77808a" font-family="system-ui,-apple-system,Segoe UI,sans-serif">1</text>
+<line x1="62" y1="220.7" x2="558" y2="220.7" stroke="#e4e7ea" stroke-dasharray="2 4"/>
+<text x="54" y="224.7" text-anchor="end" font-size="10" fill="#77808a" font-family="system-ui,-apple-system,Segoe UI,sans-serif">10</text>
+<line x1="62" y1="180.6" x2="558" y2="180.6" stroke="#e4e7ea" stroke-dasharray="2 4"/>
+<text x="54" y="184.6" text-anchor="end" font-size="10" fill="#77808a" font-family="system-ui,-apple-system,Segoe UI,sans-serif">50</text>
+<line x1="62" y1="163.3" x2="558" y2="163.3" stroke="#e4e7ea" stroke-dasharray="2 4"/>
+<text x="54" y="167.3" text-anchor="end" font-size="10" fill="#77808a" font-family="system-ui,-apple-system,Segoe UI,sans-serif">100</text>
+<line x1="62" y1="135.9" x2="558" y2="135.9" stroke="#e4e7ea" stroke-dasharray="2 4"/>
+<text x="54" y="139.9" text-anchor="end" font-size="10" fill="#77808a" font-family="system-ui,-apple-system,Segoe UI,sans-serif">300</text>
+<line x1="62" y1="106.0" x2="558" y2="106.0" stroke="#e4e7ea" stroke-dasharray="2 4"/>
+<text x="54" y="110.0" text-anchor="end" font-size="10" fill="#77808a" font-family="system-ui,-apple-system,Segoe UI,sans-serif">1000</text>
+<line x1="62" y1="65.9" x2="558" y2="65.9" stroke="#e4e7ea" stroke-dasharray="2 4"/>
+<text x="54" y="69.9" text-anchor="end" font-size="10" fill="#77808a" font-family="system-ui,-apple-system,Segoe UI,sans-serif">5000</text>
+<line x1="81.8" y1="40" x2="81.8" y2="278" stroke="#e4e7ea" stroke-dasharray="2 4"/>
+<text x="81.8" y="294" text-anchor="middle" font-size="10" fill="#77808a" font-family="system-ui,-apple-system,Segoe UI,sans-serif">12</text>
+<line x1="141.4" y1="40" x2="141.4" y2="278" stroke="#e4e7ea" stroke-dasharray="2 4"/>
+<text x="141.4" y="294" text-anchor="middle" font-size="10" fill="#77808a" font-family="system-ui,-apple-system,Segoe UI,sans-serif">18</text>
+<line x1="200.9" y1="40" x2="200.9" y2="278" stroke="#e4e7ea" stroke-dasharray="2 4"/>
+<text x="200.9" y="294" text-anchor="middle" font-size="10" fill="#77808a" font-family="system-ui,-apple-system,Segoe UI,sans-serif">24</text>
+<line x1="260.4" y1="40" x2="260.4" y2="278" stroke="#e4e7ea" stroke-dasharray="2 4"/>
+<text x="260.4" y="294" text-anchor="middle" font-size="10" fill="#77808a" font-family="system-ui,-apple-system,Segoe UI,sans-serif">30</text>
+<line x1="319.9" y1="40" x2="319.9" y2="278" stroke="#e4e7ea" stroke-dasharray="2 4"/>
+<text x="319.9" y="294" text-anchor="middle" font-size="10" fill="#77808a" font-family="system-ui,-apple-system,Segoe UI,sans-serif">36</text>
+<line x1="439.0" y1="40" x2="439.0" y2="278" stroke="#e4e7ea" stroke-dasharray="2 4"/>
+<text x="439.0" y="294" text-anchor="middle" font-size="10" fill="#77808a" font-family="system-ui,-apple-system,Segoe UI,sans-serif">48</text>
+<line x1="558.0" y1="40" x2="558.0" y2="278" stroke="#e4e7ea" stroke-dasharray="2 4"/>
+<text x="558.0" y="294" text-anchor="middle" font-size="10" fill="#77808a" font-family="system-ui,-apple-system,Segoe UI,sans-serif">60</text>
+<text x="290.0" y="322" text-anchor="middle" font-size="10.5" fill="#77808a" font-family="system-ui,-apple-system,Segoe UI,sans-serif">月齡（個月）</text>
+<text x="16" y="18" font-size="10.5" fill="#77808a" font-family="system-ui,-apple-system,Segoe UI,sans-serif">詞彙量（對數刻度）</text>
+<line x1="200.9" y1="40" x2="200.9" y2="278" stroke="#b04a3a" stroke-width="1.6" opacity="0.55"/>
+<text x="206.88000000000002" y="54" font-size="10.5" fill="#b04a3a" font-weight="600" font-family="system-ui,-apple-system,Segoe UI,sans-serif">24 月紅線：&lt;50 詞</text>
+<path d="M81.8,237.9 L111.6,203.4 L141.4,180.6 L171.1,158.8 L200.9,135.9 L260.4,120.8 L319.9,106.0 L439.0,83.1 L558.0,65.9" fill="none" stroke="#31527d" stroke-width="2.4"/>
+<circle cx="141.4" cy="180.6" r="3.6" fill="#31527d" stroke="#fff" stroke-width="1.4"/>
+<circle cx="171.1" cy="158.8" r="3.6" fill="#31527d" stroke="#fff" stroke-width="1.4"/>
+<circle cx="200.9" cy="135.9" r="3.6" fill="#31527d" stroke="#fff" stroke-width="1.4"/>
+<circle cx="260.4" cy="120.8" r="3.6" fill="#31527d" stroke="#fff" stroke-width="1.4"/>
+<circle cx="319.9" cy="106.0" r="3.6" fill="#31527d" stroke="#fff" stroke-width="1.4"/>
+<circle cx="439.0" cy="83.1" r="3.6" fill="#31527d" stroke="#fff" stroke-width="1.4"/>
+<circle cx="558.0" cy="65.9" r="3.6" fill="#31527d" stroke="#fff" stroke-width="1.4"/>
+<rect x="158.1" y="180.6" width="26" height="22.8" fill="#2c7a5b" opacity="0.16" stroke="#2c7a5b" stroke-dasharray="3 3"/>
+<circle cx="171.1" cy="183.2" r="6" fill="#2c7a5b" stroke="#fff" stroke-width="1.6"/>
+<text x="191.1" y="217.4" font-size="11.5" fill="#2c7a5b" font-weight="700" font-family="system-ui,-apple-system,Segoe UI,sans-serif">H · 21 月</text>
+<text x="191.1" y="232.4" font-size="10.5" fill="#77808a" font-family="system-ui,-apple-system,Segoe UI,sans-serif">詞量待點算（估 20–50）</text>
+<text x="89.8" y="251.9" font-size="10" fill="#4a5259" font-family="system-ui,-apple-system,Segoe UI,sans-serif">首批詞</text>
+<text x="151.3" y="320" text-anchor="middle" font-size="10" fill="#4a5259" font-family="system-ui,-apple-system,Segoe UI,sans-serif">18 月里程碑：約 50 詞</text>
+<text x="325.9" y="98.0" font-size="10" fill="#4a5259" font-family="system-ui,-apple-system,Segoe UI,sans-serif">3 歲 ~1000 詞</text>
+<text x="554.0" y="57.9" text-anchor="end" font-size="10" fill="#4a5259" font-family="system-ui,-apple-system,Segoe UI,sans-serif">5 歲 &gt;5000 詞</text>
+</svg><figcaption>詞彙量在 18–30 個月是陡升段，之後轉為對數式增長。H 現處 21 個月，已知會說社交詞、食物名、動詞，雙詞萌芽；實際詞量本次未逐詞點算，故以虛線帶表示估計區間。</figcaption></figure>
+
+<div class="box blue">
+  <p style="margin:0"><strong>為什麼要實際點算詞量：</strong>國際通用「語言晚出」判準是<strong>24 個月 &lt;50 詞、或沒有雙詞組合</strong>。約 <strong>50–70%</strong> 會追上，但 7 歲時語言障礙比例仍為 <strong>20% vs 對照 11%</strong>；5 歲真正符合 SLI 者僅 7.5–8.8%。最有預測力的不是「詞少」，而是<strong>理解能力</strong>——30 個月的理解分數是 66 個月語言產出最強的單一預測因子。另有縱向研究：晚語兒童到 34 個月時，仍有 <strong>89%</strong> 低於第 10 百分位。</p>
+</div>
+
+<h2><span class="num">05</span>介入能有多大作用：效應量對照</h2>
+<figure class="chart"><svg viewBox="0 0 580 376" width="100%" role="img" aria-label="語言介入效應量森林圖">
+<rect x="259.6" y="38" width="72.7" height="266" fill="#a2661a" opacity="0.10"/>
+<text x="295.9" y="32" text-anchor="middle" font-size="10" fill="#a2661a" font-weight="600" font-family="system-ui,-apple-system,Segoe UI,sans-serif">H 當前可期區間 0.2–0.6</text>
+<line x1="223.3" y1="46" x2="223.3" y2="322" stroke="#e4e7ea" stroke-dasharray="2 4"/>
+<text x="223.3" y="338" text-anchor="middle" font-size="10" fill="#77808a" font-family="system-ui,-apple-system,Segoe UI,sans-serif">0</text>
+<line x1="268.7" y1="46" x2="268.7" y2="322" stroke="#e4e7ea" stroke-dasharray="2 4"/>
+<text x="268.7" y="338" text-anchor="middle" font-size="10" fill="#77808a" font-family="system-ui,-apple-system,Segoe UI,sans-serif">0.25</text>
+<line x1="314.1" y1="46" x2="314.1" y2="322" stroke="#e4e7ea" stroke-dasharray="2 4"/>
+<text x="314.1" y="338" text-anchor="middle" font-size="10" fill="#77808a" font-family="system-ui,-apple-system,Segoe UI,sans-serif">0.5</text>
+<line x1="359.5" y1="46" x2="359.5" y2="322" stroke="#e4e7ea" stroke-dasharray="2 4"/>
+<text x="359.5" y="338" text-anchor="middle" font-size="10" fill="#77808a" font-family="system-ui,-apple-system,Segoe UI,sans-serif">0.75</text>
+<line x1="405.0" y1="46" x2="405.0" y2="322" stroke="#e4e7ea" stroke-dasharray="2 4"/>
+<text x="405.0" y="338" text-anchor="middle" font-size="10" fill="#77808a" font-family="system-ui,-apple-system,Segoe UI,sans-serif">1.0</text>
+<line x1="450.4" y1="46" x2="450.4" y2="322" stroke="#e4e7ea" stroke-dasharray="2 4"/>
+<text x="450.4" y="338" text-anchor="middle" font-size="10" fill="#77808a" font-family="system-ui,-apple-system,Segoe UI,sans-serif">1.25</text>
+<line x1="495.8" y1="46" x2="495.8" y2="322" stroke="#e4e7ea" stroke-dasharray="2 4"/>
+<text x="495.8" y="338" text-anchor="middle" font-size="10" fill="#77808a" font-family="system-ui,-apple-system,Segoe UI,sans-serif">1.5</text>
+<line x1="223.3" y1="46" x2="223.3" y2="322" stroke="#77808a" stroke-width="1.2"/>
+<text x="184" y="68" text-anchor="end" font-size="11.5" fill="#4a5259" font-family="system-ui,-apple-system,Segoe UI,sans-serif">家長介入 · 全樣本（76 RCT）</text>
+<line x1="261.4" y1="64" x2="305.0" y2="64" stroke="#31527d" stroke-width="2.2" opacity="0.55"/>
+<circle cx="283.2" cy="64" r="6" fill="#31527d"/>
+<text x="522" y="68" font-size="11" fill="#31527d" font-weight="600" font-family="system-ui,-apple-system,Segoe UI,sans-serif">g=0.33</text>
+<text x="184" y="101" text-anchor="end" font-size="11.5" fill="#4a5259" font-family="system-ui,-apple-system,Segoe UI,sans-serif">家長使用語言支持策略</text>
+<line x1="283.2" y1="97" x2="363.2" y2="97" stroke="#31527d" stroke-width="2.2" opacity="0.55"/>
+<circle cx="323.2" cy="97" r="6" fill="#31527d"/>
+<text x="522" y="101" font-size="11" fill="#31527d" font-weight="600" font-family="system-ui,-apple-system,Segoe UI,sans-serif">g=0.55</text>
+<text x="184" y="134" text-anchor="end" font-size="11.5" fill="#4a5259" font-family="system-ui,-apple-system,Segoe UI,sans-serif">DLD 兒童 · 表達語言</text>
+<line x1="303.2" y1="130" x2="444.9" y2="130" stroke="#2c7a5b" stroke-width="2.2" opacity="0.55"/>
+<circle cx="374.1" cy="130" r="6" fill="#2c7a5b"/>
+<text x="522" y="134" font-size="11" fill="#2c7a5b" font-weight="600" font-family="system-ui,-apple-system,Segoe UI,sans-serif">g=0.83</text>
+<text x="184" y="167" text-anchor="end" font-size="11.5" fill="#4a5259" font-family="system-ui,-apple-system,Segoe UI,sans-serif">DLD 兒童 · 理解語言</text>
+<line x1="283.2" y1="163" x2="497.6" y2="163" stroke="#2c7a5b" stroke-width="2.2" opacity="0.55"/>
+<circle cx="390.4" cy="163" r="6" fill="#2c7a5b"/>
+<text x="522" y="167" font-size="11" fill="#2c7a5b" font-weight="600" font-family="system-ui,-apple-system,Segoe UI,sans-serif">g=0.92</text>
+<text x="184" y="200" text-anchor="end" font-size="11.5" fill="#4a5259" font-family="system-ui,-apple-system,Segoe UI,sans-serif">語言高危（未確診）· 理解</text>
+<line x1="221.4" y1="196" x2="326.8" y2="196" stroke="#c9922f" stroke-width="2.2" opacity="0.55"/>
+<circle cx="274.1" cy="196" r="6" fill="#c9922f"/>
+<text x="522" y="200" font-size="11" fill="#c9922f" font-weight="600" font-family="system-ui,-apple-system,Segoe UI,sans-serif">g=0.28</text>
+<text x="184" y="233" text-anchor="end" font-size="11.5" fill="#4a5259" font-family="system-ui,-apple-system,Segoe UI,sans-serif">對話式共讀 · 表達（2–3 歲）</text>
+<line x1="288.7" y1="229" x2="372.3" y2="229" stroke="#8a5a8f" stroke-width="2.2" opacity="0.55"/>
+<circle cx="330.5" cy="229" r="6" fill="#8a5a8f"/>
+<text x="522" y="233" font-size="11" fill="#8a5a8f" font-weight="600" font-family="system-ui,-apple-system,Segoe UI,sans-serif">d=0.59</text>
+<text x="184" y="266" text-anchor="end" font-size="11.5" fill="#4a5259" font-family="system-ui,-apple-system,Segoe UI,sans-serif">共享閱讀介入 · 表達</text>
+<line x1="268.7" y1="262" x2="326.8" y2="262" stroke="#8a5a8f" stroke-width="2.2" opacity="0.55"/>
+<circle cx="297.8" cy="262" r="6" fill="#8a5a8f"/>
+<text x="522" y="266" font-size="11" fill="#8a5a8f" font-weight="600" font-family="system-ui,-apple-system,Segoe UI,sans-serif">d=0.41</text>
+<text x="184" y="299" text-anchor="end" font-size="11.5" fill="#4a5259" font-family="system-ui,-apple-system,Segoe UI,sans-serif">共享閱讀介入 · 理解</text>
+<line x1="243.2" y1="295" x2="297.8" y2="295" stroke="#8a5a8f" stroke-width="2.2" opacity="0.55"/>
+<circle cx="270.5" cy="295" r="6" fill="#8a5a8f"/>
+<text x="522" y="299" font-size="11" fill="#8a5a8f" font-weight="600" font-family="system-ui,-apple-system,Segoe UI,sans-serif">d=0.26</text>
+<text x="290.0" y="366" text-anchor="middle" font-size="10" fill="#77808a" font-family="system-ui,-apple-system,Segoe UI,sans-serif">0.2 以下＝作用微弱 · 0.5 前後＝中等 · 0.8 以上＝大 ｜ 橫線為 95% CI</text>
+</svg><figcaption>關鍵校準：家長介入對『已確診 DLD』兒童效果大（g 0.83–0.92），對『語言高危但未確診』僅中等（g 0.28）。H 目前屬後者——所以目標是穩定累積，不是追求爆發。</figcaption></figure>
+<p class="small">讀圖要點：<strong>不要拿 DLD 組的 0.83 當自己的預期</strong>。同一份統合分析（JAMA Pediatrics 2019，76 個 RCT）裡，全樣本 g = 0.33、高危組理解 g = 0.28、DLD 組表達 g = 0.83。H 現在落在高危組，合理預期是把 0.28 那條變成日常習慣的複利，而不是期待戲劇性跳躍。</p>
+
+<h2><span class="num">06</span>提升策略：按「劑量」執行</h2>
+<figure class="chart"><svg viewBox="0 0 580 300" width="100%" role="img" aria-label="每日干預劑量">
+<line x1="104.0" y1="16" x2="104.0" y2="238" stroke="#e4e7ea" stroke-dasharray="2 4"/>
+<text x="104.0" y="256" text-anchor="middle" font-size="10.5" fill="#77808a" font-family="system-ui,-apple-system,Segoe UI,sans-serif">0′</text>
+<line x1="252.7" y1="16" x2="252.7" y2="238" stroke="#e4e7ea" stroke-dasharray="2 4"/>
+<text x="252.7" y="256" text-anchor="middle" font-size="10.5" fill="#77808a" font-family="system-ui,-apple-system,Segoe UI,sans-serif">60′</text>
+<line x1="401.3" y1="16" x2="401.3" y2="238" stroke="#e4e7ea" stroke-dasharray="2 4"/>
+<text x="401.3" y="256" text-anchor="middle" font-size="10.5" fill="#77808a" font-family="system-ui,-apple-system,Segoe UI,sans-serif">120′</text>
+<line x1="550.0" y1="16" x2="550.0" y2="238" stroke="#e4e7ea" stroke-dasharray="2 4"/>
+<text x="550.0" y="256" text-anchor="middle" font-size="10.5" fill="#77808a" font-family="system-ui,-apple-system,Segoe UI,sans-serif">180′</text>
+<line x1="104" y1="238" x2="550" y2="238" stroke="#d7dbe0"/>
+<text x="104" y="272" font-size="10" fill="#77808a" font-family="system-ui,-apple-system,Segoe UI,sans-serif">每格 60 分鐘／日</text>
+<text x="94" y="47" text-anchor="end" font-size="12" fill="#4a5259" font-family="system-ui,-apple-system,Segoe UI,sans-serif">大肌肉放電</text>
+<rect x="104.0" y="37" width="446.0" height="15" rx="4" fill="#2c7a5b" opacity="0.92"/>
+<circle cx="550.0" cy="44.5" r="2.2" fill="#fff" opacity="0.9"/>
+<text x="560.0" y="48" font-size="10.5" fill="#2c7a5b" font-weight="600" font-family="system-ui,-apple-system,Segoe UI,sans-serif">180′</text>
+<text x="104" y="68" font-size="10.5" fill="#77808a" font-family="system-ui,-apple-system,Segoe UI,sans-serif">180 分鐘／日（其中 30 分鐘跑跳攀爬）</text>
+<text x="94" y="99" text-anchor="end" font-size="12" fill="#4a5259" font-family="system-ui,-apple-system,Segoe UI,sans-serif">對話式共讀</text>
+<rect x="104.0" y="89" width="24.8" height="15" rx="4" fill="#31527d" opacity="0.92"/>
+<circle cx="128.8" cy="96.5" r="2.2" fill="#fff" opacity="0.9"/>
+<text x="138.8" y="100" font-size="10.5" fill="#31527d" font-weight="600" font-family="system-ui,-apple-system,Segoe UI,sans-serif">10′</text>
+<text x="104" y="120" font-size="10.5" fill="#77808a" font-family="system-ui,-apple-system,Segoe UI,sans-serif">10 分鐘／日 · 同一本書連讀 3–5 天</text>
+<text x="94" y="151" text-anchor="end" font-size="12" fill="#4a5259" font-family="system-ui,-apple-system,Segoe UI,sans-serif">手勢翻譯</text>
+<rect x="104.0" y="141" width="37.2" height="15" rx="4" fill="#8a5a8f" opacity="0.92"/>
+<circle cx="141.2" cy="148.5" r="2.2" fill="#fff" opacity="0.9"/>
+<text x="151.2" y="152" font-size="10.5" fill="#8a5a8f" font-weight="600" font-family="system-ui,-apple-system,Segoe UI,sans-serif">15′</text>
+<text x="104" y="172" font-size="10.5" fill="#77808a" font-family="system-ui,-apple-system,Segoe UI,sans-serif">隨指隨譯 · 每日自然數十次</text>
+<text x="94" y="203" text-anchor="end" font-size="12" fill="#4a5259" font-family="system-ui,-apple-system,Segoe UI,sans-serif">屏幕（目標）</text>
+<circle cx="109.0" cy="200" r="5.5" fill="#c9922f"/>
+<text x="122.0" y="204" font-size="11" fill="#c9922f" font-weight="600" font-family="system-ui,-apple-system,Segoe UI,sans-serif">0 — 維持</text>
+<text x="104" y="224" font-size="10.5" fill="#77808a" font-family="system-ui,-apple-system,Segoe UI,sans-serif">2 歲前 0 小時（視像通話除外）</text>
+<text x="104" y="288" font-size="10.5" fill="#77808a" font-family="system-ui,-apple-system,Segoe UI,sans-serif">原則：不新增課程，只改互動方式；可持續性優先於強度。</text>
+</svg><figcaption>四項策略的每日時間結構。全部為零成本或低成本，改的是互動方式而不是加課程。</figcaption></figure>
+
+
 <table>
-  <thead><tr><th style="width:150px">結論</th><th>證據（含效應量）</th><th style="width:120px">來源</th></tr></thead>
+  <thead><tr><th style="width:118px">策略</th><th style="width:132px">劑量</th><th>具體做法</th></tr></thead>
   <tbody>
-    <tr><td>對話式共讀提升表達詞彙</td><td>表達詞彙 <strong>d = 0.59</strong>（2–3 歲組；4–5 歲降至 0.14）；另一統合分析 <strong>d = 0.41</strong>（表達）、<strong>0.26</strong>（接收）</td><td class="src">Mol 2008；Dowdall 2020</td></tr>
-    <tr><td>手勢是詞彙的先行指標</td><td>幼兒指物預測<strong>優勢語言</strong>詞彙增長；家長把幼兒手勢「翻譯成詞」，該詞其後<strong>更可能進入</strong>其詞庫；雙語幼兒的手勢量與理解力預測 18–30 月詞彙增長</td><td class="src">Nicoladis 2025；BUCLD；Gámez 2024</td></tr>
-    <tr><td>被動屏幕收看有負向關聯</td><td>節目收看與認知結局 <strong>r = −0.16</strong>；背景電視 <strong>r = −0.10</strong>；<strong>共看則轉為 r = +0.14</strong>；不當內容 r = −0.11</td><td class="src">Mallawaarachchi 2024, JAMA Pediatr</td></tr>
-    <tr><td>超標屏幕時間壓低表達分</td><td>765 名輕度語言遲緩兒童：超標者表達溝通標準分低 <strong>β = −1.73</strong>（95% CI −2.90, −0.57）；12–35 月每日看電視 2 小時，認知遲緩風險約 <strong>4 倍</strong>、動作遲緩約 <strong>3.7 倍</strong></td><td class="src">MDPI Children 2025;12(11):1467；MDPI Brain Sci 2024;14(1):27</td></tr>
-    <tr><td>篩查工具足以早期分流</td><td>M-CHAT-R/F（16–30 月）：敏感度 <strong>0.854</strong>、特異度 <strong>0.993</strong>、任何發展問題的 PPV <strong>0.95</strong></td><td class="src">Robins 2014</td></tr>
+    <tr><td><strong>① 對話式共讀</strong><br><span class="small">最高性價比</span></td><td>10 分鐘／日<br>同書連讀 3–5 天</td><td>PEER 循環：<strong>提示</strong>（指圖問「呢個係咩？」）→ <strong>評估</strong>（等他答，等 5 秒）→ <strong>擴展</strong>（把他的答案補成完整句）→ <strong>重複</strong>（請他再說一次）。開放式提問為主。選硬頁書、實物照片圖鑑。</td></tr>
+    <tr><td><strong>② 手勢翻譯</strong></td><td>每次指物<br>每日自然數十次</td><td>他指什麼就立刻命名，並<strong>把詞放進短句</strong>（「你想要<u>水</u>，<u>飲水</u>」）。被家長「翻譯」過的手勢所指物件，其後更可能進入其詞庫。眼動研究亦顯示：<strong>句中帶動詞提示</strong>能顯著提高幼兒對目標詞的注視（單語與雙語組皆然）。</td></tr>
+    <tr><td><strong>③ 屏幕管理</strong></td><td>2 歲前 <strong>0 小時</strong><br>（視像通話除外）</td><td>若要使用：<strong>必須共看＋即時旁述</strong>（共看可把負向關聯翻正）；避免背景電視長開；不在用餐與睡前 1 小時使用。實測數據：每多 1 分鐘屏幕，36 個月時成人詞少 <strong>6.6 個</strong>、兒童發聲少 <strong>4.9 次</strong>、對話輪次少 <strong>1.1 次</strong>。</td></tr>
+    <tr><td><strong>④ 大肌肉每日放電</strong></td><td>≥180 分鐘活動<br>其中 30 分鐘跑跳攀爬</td><td>大肌肉是<strong>唯一需要成人手的實操短板</strong>，只能在戶外或公園練成。安全：軟墊／草地、成人一臂距離、不練治療級器械。動作與認知、名詞產出均有正相關證據。</td></tr>
+    <tr><td><strong>⑤ 睡眠與規律</strong></td><td>24 小時 11–14 小時<br>固定睡前流程</td><td>本港同齡樣本顯示：<strong>時長</strong>與語言關聯不顯著，<strong>規律性與睡眠質量</strong>更重要。</td></tr>
+    <tr><td><strong>⑥ 同齡小團體</strong></td><td>每週 2–3 次<br>每次 60–90 分鐘</td><td>報告已顯示「能與同伴一起參與遊戲」，是 9 月以來最大進步。維持 2–4 人小團體（公園、playgroup），成人退到後方，只在他求助時介入。</td></tr>
   </tbody>
 </table>
 
-<h2><span class="num">07</span>提升策略：按「劑量」執行</h2>
-<p class="small">原則：不新增課程，只改<strong>互動方式</strong>。四項均為零成本或低成本，可持續性優先於強度。</p>
-<table>
-  <thead><tr><th style="width:132px">策略</th><th style="width:150px">劑量</th><th>具體做法</th></tr></thead>
-  <tbody>
-    <tr>
-      <td><strong>① 對話式共讀</strong><br><span class="small">最高性價比</span></td>
-      <td>每日 10 分鐘<br>同一本書連讀 3–5 天</td>
-      <td>用 PEER 循環：<strong>提示</strong>（指圖問「呢個係咩？」）→ <strong>評估</strong>（等他答，等 5 秒）→ <strong>擴展</strong>（把他的答案補成完整句）→ <strong>重複</strong>（請他再說一次）。開放式提問為主，是非題為輔。選硬頁書、實物照片圖鑑。</td>
-    </tr>
-    <tr>
-      <td><strong>② 手勢翻譯</strong></td>
-      <td>每次指物<br>（每日自然發生數十次）</td>
-      <td>他指什麼就立刻給那個東西命名，並<strong>把詞放進短句</strong>（「你想要<u>水</u>，<u>飲水</u>」）。研究顯示：被家長「翻譯」過的手勢所指物件，其後更可能進入孩子的詞庫。這是把現有優勢（指物）轉成詞彙的最短路徑。</td>
-    </tr>
-    <tr>
-      <td><strong>③ 屏幕管理</strong></td>
-      <td>2 歲前 <strong>0 小時</strong>（視像通話除外）<br>成人手機不在其玩耍區</td>
-      <td>若要使用：<strong>必須共看＋即時旁述</strong>（共看可把負向關聯翻正），避免背景電視長開；不在用餐與睡前 1 小時使用。理由是 21 個月正處語言爆發前夜，被動收看擠佔的是<strong>對話時間</strong>而非「學習時間」。</td>
-    </tr>
-    <tr>
-      <td><strong>④ 大肌肉每日放電</strong></td>
-      <td>每日 ≥180 分鐘活動<br>其中 30 分鐘「跑跳攀爬」</td>
-      <td>19–24 月量尺的大肌肉項（跑、扶欄跳下、踏車、彈床）是<strong>唯一需要成人手的實操短板</strong>，且只能在戶外或公園練成。安全：軟墊／草地、成人一臂距離、不練「治療級」器械。</td>
-    </tr>
-    <tr>
-      <td><strong>⑤ 睡眠與規律</strong></td>
-      <td>24 小時 11–14 小時<br>固定睡前流程</td>
-      <td>本港同齡樣本顯示：<strong>時長</strong>與語言關聯不顯著，<strong>規律性與睡眠質量</strong>更重要。維持固定作息，睡前 30 分鐘低刺激。</td>
-    </tr>
-    <tr>
-      <td><strong>⑥ 同齡小團體</strong></td>
-      <td>每週 2–3 次<br>每次 60–90 分鐘</td>
-      <td>報告已顯示「能與同伴一起參與遊戲」，這是 9 月以來最大進步。維持 2–4 人的小團體（公園、playgroup），成人退到後方，只在他求助時介入。</td>
-    </tr>
-  </tbody>
-</table>
-
-<h2><span class="num">08</span>時間軸與觸發條件</h2>
-<figure class="chart">
-  <svg viewBox="0 0 580 150" width="100%" role="img" aria-label="未來12個月評估節點">
-    <line x1="30" y1="70" x2="556" y2="70" stroke="#c9ced4" stroke-width="2"/>
-    <g font-family="system-ui" font-size="11.5">
-      <circle cx="70" cy="70" r="7" fill="#2c7a5b"/>
-      <text x="70" y="50" text-anchor="middle" font-weight="600" fill="#2c7a5b">現在</text>
-      <text x="70" y="94" text-anchor="middle" fill="#77808a">21 月</text>
-
-      <circle cx="230" cy="70" r="7" fill="#c9922f"/>
-      <text x="230" y="50" text-anchor="middle" font-weight="600" fill="#a2661a">詞彙盤點</text>
-      <text x="230" y="94" text-anchor="middle" fill="#77808a">23 月</text>
-
-      <circle cx="390" cy="70" r="7" fill="#c9922f"/>
-      <text x="390" y="50" text-anchor="middle" font-weight="600" fill="#a2661a">紅線檢查</text>
-      <text x="390" y="94" text-anchor="middle" fill="#77808a">24 月</text>
-
-      <circle cx="530" cy="70" r="7" fill="#31527d"/>
-      <text x="530" y="50" text-anchor="middle" font-weight="600" fill="#31527d">下期校本報告</text>
-      <text x="530" y="94" text-anchor="middle" fill="#77808a">26–27 月</text>
-    </g>
-    <text x="230" y="120" text-anchor="middle" font-size="10.5" fill="#8b939c" font-family="system-ui">目標 ≥50 詞</text>
-    <text x="390" y="120" text-anchor="middle" font-size="10.5" fill="#8b939c" font-family="system-ui">≥50 詞＋雙詞，否則轉介 ST</text>
-    <text x="390" y="137" text-anchor="middle" font-size="10.5" fill="#8b939c" font-family="system-ui">M-CHAT-R/F 可於此窗完成</text>
-  </svg>
-</figure>
+<h2><span class="num">07</span>時間軸與觸發條件</h2>
+<figure class="chart"><svg viewBox="0 0 580 170" width="100%" role="img" aria-label="未來評估節點">
+<line x1="24" y1="62" x2="564" y2="62" stroke="#c9ced4" stroke-width="2"/>
+<circle cx="64" cy="62" r="7" fill="#31527d"/>
+<text x="64" y="42" text-anchor="middle" font-size="11.5" fill="#31527d" font-weight="700" font-family="system-ui,-apple-system,Segoe UI,sans-serif">現在</text>
+<text x="64" y="84" text-anchor="middle" font-size="10.5" fill="#77808a" font-family="system-ui,-apple-system,Segoe UI,sans-serif">21 月</text>
+<circle cx="232" cy="62" r="7" fill="#c9922f"/>
+<text x="232" y="42" text-anchor="middle" font-size="11.5" fill="#c9922f" font-weight="700" font-family="system-ui,-apple-system,Segoe UI,sans-serif">詞彙盤點</text>
+<text x="232" y="84" text-anchor="middle" font-size="10.5" fill="#77808a" font-family="system-ui,-apple-system,Segoe UI,sans-serif">23 月</text>
+<circle cx="392" cy="62" r="7" fill="#c9922f"/>
+<text x="392" y="42" text-anchor="middle" font-size="11.5" fill="#c9922f" font-weight="700" font-family="system-ui,-apple-system,Segoe UI,sans-serif">紅線檢查</text>
+<text x="392" y="84" text-anchor="middle" font-size="10.5" fill="#77808a" font-family="system-ui,-apple-system,Segoe UI,sans-serif">24 月</text>
+<circle cx="528" cy="62" r="7" fill="#2c7a5b"/>
+<text x="528" y="42" text-anchor="middle" font-size="11.5" fill="#2c7a5b" font-weight="700" font-family="system-ui,-apple-system,Segoe UI,sans-serif">下期報告</text>
+<text x="528" y="84" text-anchor="middle" font-size="10.5" fill="#77808a" font-family="system-ui,-apple-system,Segoe UI,sans-serif">26–27 月</text>
+<text x="232" y="112" text-anchor="middle" font-size="10" fill="#77808a" font-family="system-ui,-apple-system,Segoe UI,sans-serif">目標 ≥50 詞</text>
+<text x="392" y="112" text-anchor="middle" font-size="10" fill="#b04a3a" font-family="system-ui,-apple-system,Segoe UI,sans-serif">≥50 詞＋雙詞，否則轉介 ST</text>
+<text x="392" y="128" text-anchor="middle" font-size="10" fill="#77808a" font-family="system-ui,-apple-system,Segoe UI,sans-serif">M-CHAT-R/F 可同窗完成</text>
+<text x="528" y="112" text-anchor="middle" font-size="10" fill="#77808a" font-family="system-ui,-apple-system,Segoe UI,sans-serif">語言四項是否升為獨立</text>
+</svg><figcaption>未來 12 個月的三個節點。24 個月是唯一有硬指標的節點，其餘為觀察窗口。</figcaption></figure>
 <ul>
-  <li><strong>立即就醫（不等節點）：</strong>已會說的詞倒退消失、叫名長期無反應、眼神交流缺失、疑似聽力問題、體重不增。此類屬紅線，直接掛<strong>兒童保健科／發育行為兒科</strong>。</li>
-  <li><strong>24 個月檢查點：</strong>詞彙 &lt;50 或無雙詞組合 → 轉介<strong>言語治療</strong>（衞生署母嬰健康院可轉介，輪候較長；私家評估較快）。</li>
-  <li><strong>26–27 個月：</strong>下一份校本報告到手時，重點看語言四項（食物名／動詞／社交詞／雙詞）是否由「協助」升為「獨立」。</li>
+  <li><strong>立即就醫（不等節點）：</strong>已會的詞倒退消失、叫名長期無反應、眼神交流缺失、疑似聽力問題、體重不增 → 直接掛<strong>兒童保健科／發育行為兒科</strong>。</li>
+  <li><strong>紅旗的量化參考：</strong>語言／口腔動作障礙的強關聯指標包括<strong>非典型牙牙學語（OR 10.5）</strong>、<strong>爬行異常或缺失（OR 12.2）</strong>、<strong>家族語言遲緩史（OR 9.9）</strong>、異常口部刺激行為（OR 9.8）。H 目前無此類紀錄，故風險低。</li>
+  <li><strong>24 個月檢查點：</strong>詞彙 &lt;50 或無雙詞組合 → 轉介<strong>言語治療</strong>（母嬰健康院可轉介，輪候較長；私家較快）。M-CHAT-R/F（16–30 月，敏感度 .854／特異度 .993）可同窗完成。</li>
+  <li><strong>26–27 個月：</strong>下一份校本報告到手時，重點看語言四項是否由「協助」升為「獨立」。</li>
 </ul>
 
-<h2><span class="num">09</span>資料質量與未確定項</h2>
+<h2><span class="num">08</span>資料質量與未確定項</h2>
 <ul>
-  <li><strong>量尺而非月齡：</strong>13–18 月與 19–24 月是兩段區間，21 個月落在後段中點；此設計對「協助下」較寬容，不宜當作精確年齡常模。</li>
-  <li><strong>施測方式（可信度加分項）：</strong>報告明載<strong>「每項評量均會進行三次作準」</strong>——即每項至少三次觀察才勾選，大幅降低單次觀察的偶然誤差。這是本份報告最值得信任的地方。</li>
-  <li><strong>題目設計：</strong>「雙詞」一項把人物＋動作、動作＋物件、物件＋形容詞三種組合寫在同一行，勾「協助」代表三種組合中已出現部分、尚未穩定，<strong>不等於全部不會</strong>；解讀時須避免把題目例子當成獨立技能清單。</li>
-  <li><strong>依據與常模：</strong>報告引用協康會《兒童學習綱領》與《兒童發展評估表》（2018）、衞生署家庭健康服務《共享育兒樂》（2024）——屬<strong>課程／指引本位</strong>，非標準化常模，故不能換算 DQ。</li>
-  <li><strong>缺項：</strong>報告未提供聽力篩查結果、出生史（足月／早產）、家庭語言比例、實際詞彙清單——這四項是下一次評估最值得補的資料。</li>
-  <li><strong>敘述 vs 勾選：</strong>教師的話寫「已達 13–18 月大部分項目」，與勾選一致（19/22 獨立）；文字對社交的描述較勾選更正面，屬觀察員綜合印象，採信但標注。</li>
+  <li><strong>量尺而非月齡：</strong>13–18 與 19–24 月是兩段區間，21 個月在後段中點；不宜當精確年齡常模。</li>
+  <li><strong>題目設計：</strong>「雙詞」一行把人物＋動作、動作＋物件、物件＋形容詞三種組合寫在一起，勾「協助」代表部分已出現、未穩定，<strong>不等於全部不會</strong>——勿把題目例子當成獨立技能清單。</li>
+  <li><strong>依據：</strong>報告引用協康會《兒童學習綱領》《兒童發展評估表》（2018）、衞生署《共享育兒樂》（2024）——屬課程／指引本位。</li>
+  <li><strong>缺項（下次最值得補）：</strong>聽力篩查結果、出生史（足月／早產）、家庭語言比例、<strong>實際詞彙清單</strong>。</li>
+  <li><strong>文獻讀法：</strong>本頁效應量全部取自統合分析或大樣本隊列；個案層面的劑量與效果不可直接線性外推。</li>
 </ul>
 
-<h2><span class="num">10</span>附錄：19–24 月量尺逐項狀態</h2>
+<h2><span class="num">09</span>附錄：19–24 月量尺逐項狀態</h2>
 <table>
-  <thead><tr><th style="width:70px">領域</th><th>獨立</th><th>協助</th><th>未達</th></tr></thead>
+  <thead><tr><th style="width:70px">領域</th><th>獨立</th><th>協助</th><th style="width:44px">未達</th></tr></thead>
   <tbody>
     <tr><td>大肌肉</td><td>—</td><td>踢球、跑動、接拋氣球、踏車轉彎、彈床站立（5/5）</td><td>—</td></tr>
     <tr><td>精細動作</td><td>手掌握筆塗鴉、小套杯放入大套杯</td><td>5–6 塊積木、穿珠、揭盒蓋、拉鍊開合</td><td>—</td></tr>
@@ -317,30 +441,39 @@
   </tbody>
 </table>
 
-<h2><span class="num">11</span>參考文獻</h2>
+<h2><span class="num">10</span>參考文獻（節選 24 篇，含本次全文通讀）</h2>
 <ol class="refs">
-  <li>American Speech-Language-Hearing Association. <em>Late Language Emergence</em> (Practice Portal). 判準：24 月 &lt;50 詞或無雙詞；50–70% 追上；7 歲 SLI 20% vs 11%。</li>
-  <li>Rescorla, L. (1989); Paul, R. (1991). 語言晚出判準原始文獻（經 ASHA 綜述引用）。</li>
-  <li>Thal, D.; Ellis Weismer, S.; Rescorla, L. 之縱向研究綜述（PMC2718760）：5 歲符合 SLI 者僅 7.5–8.8%；30 月理解力為 66 月語言最強預測因子。</li>
-  <li>Springer Nature, <em>Neurobiology and Phenomenology of Normal Child Development</em> (2026)：18–23 月約 50 詞並進入「詞句期」；2 歲 ≥100 詞；24–30 月出現 3–4 詞句。</li>
-  <li>Springer, <em>Early Childhood Assessment: An Integrative Framework</em>：18 月–2 歲里程碑（單詞→雙詞、指認身體部位、假想遊戲、joint attention、聽一至兩步指令）。</li>
-  <li>Mol, S. E., Bus, A. G., de Jong, M. T., &amp; Smeets, D. J. H. (2008). Added value of dialogic parent–child book readings: A meta-analysis. <em>Early Education and Development</em>, 19(1), 7–26. 表達詞彙 d = 0.59。</li>
-  <li>Dowdall, N., et al. (2020). Shared book reading interventions and children's language: meta-analysis. 表達 d = 0.41；接收 d = 0.26。</li>
-  <li>Mallawaarachchi, S., et al. (2024). Early childhood screen use contexts and cognitive and psychosocial outcomes: systematic review and meta-analysis. <em>JAMA Pediatrics</em>. 節目收看 r = −0.16；共看 r = +0.14。</li>
-  <li>Jing, M., Ye, T., Kirkorian, H. L., &amp; Mares, M.-L. (2023). Screen media exposure and young children's vocabulary learning: a meta-analysis. <em>Child Development</em>, 94(5), 1398–1418.</li>
-  <li>MDPI <em>Children</em> (2025), 12(11), 1467. Sleep duration and screen time in young children with mild language delays (n=765)：超標屏幕 β = −1.73（表達）。</li>
-  <li>MDPI <em>Brain Sciences</em> (2024), 14(1), 27. Screen time and language development in early life: systematic review（12–35 月每日 2 小時電視：認知遲緩 OR≈4、動作遲緩 OR≈3.7）。</li>
-  <li>MDPI <em>Education Sciences</em> (2025), 15(12), 1692. Early intervention strategies for young dual language learners（18 月–5 歲；對話式共讀與共享閱讀為有效策略）。</li>
-  <li>Gámez, P. B., Galindo, M., &amp; Jáuregui, C. (2024). Child-level factors in Spanish–English bilingual toddlers' productive vocabulary growth. <em>Developmental Psychology</em>, 60(1), 144–158.</li>
-  <li>Nicoladis, E., Morin, A. J. S., &amp; Poulin-Dubois, D. (2025). Does pointing predict bilingual children's vocabulary? <em>Language Acquisition</em>.</li>
-  <li>Robins, D. L., et al. (2014). Validation of the M-CHAT-R/F. <em>Pediatrics</em>. 敏感度 0.854、特異度 0.993、PPV 0.95（任何發展問題）。</li>
+  <li>ASHA. <em>Late Language Emergence</em> (Practice Portal)：24 月 &lt;50 詞或無雙詞；50–70% 追上；7 歲 SLI 20% vs 11%。</li>
+  <li>Rescorla, L. (1989); Paul, R. (1991). 語言晚出判準原始文獻。</li>
+  <li>Thal, D.; Ellis Weismer, S.; Rescorla, L. 縱向研究綜述（PMC2718760）：5 歲 SLI 7.5–8.8%；30 月理解力為 66 月語言最強預測。<span class="src">全文</span></li>
+  <li>Sansavini, A., et al. (2018). <em>Res Dev Disabil</em>：晚語兒童 34 月時 89% 仍低於第 10 百分位。PMID 29482035 系另一 CDI 常模研究。<span class="src">摘要</span></li>
+  <li>Cattani, A., et al. (2022). Speech and language delay in children: an overview. <em>Ital J Pediatr</em>. PMID 34221464：3 歲約 1000 詞、5 歲 &gt;5000 詞。<span class="src">全文</span></li>
+  <li>Roberts, M. Y., et al. (2019). Parent-implemented language intervention: meta-analysis. <em>JAMA Pediatrics</em>. 76 RCT：全樣本 Hedges <strong>g = 0.33</strong>；家長策略使用 <strong>g = 0.55</strong>；DLD 組表達 <strong>0.83</strong>／理解 <strong>0.92</strong>；高危組理解 <strong>0.28</strong>。PMID 31107508。<span class="src">全文</span></li>
+  <li>Mol, S. E., Bus, A. G., de Jong, M. T., &amp; Smeets, D. J. H. (2008). <em>Early Educ Dev</em>, 19(1), 7–26：對話式共讀表達詞彙 <strong>d = 0.59</strong>（2–3 歲）。</li>
+  <li>Dowdall, N., et al. (2020). Shared book reading and children's language: meta-analysis：表達 <strong>d = 0.41</strong>、理解 <strong>0.26</strong>。</li>
+  <li>Mallawaarachchi, S., et al. (2024). Early childhood screen use contexts and outcomes. <em>JAMA Pediatrics</em>：節目收看 <strong>r = −0.16</strong>；共看 <strong>r = +0.14</strong>。</li>
+  <li>Brussoni, M. 等隊列分析 (2024). Screen time and parent–child talk (LENA). <em>JAMA Pediatrics</em>：每 +1 分鐘屏幕，36 月時成人詞 <strong>−6.6</strong>（−11.7,−1.5）、兒童發聲 <strong>−4.9</strong>、對話輪次 <strong>−1.1</strong>。PMID 38436942。<span class="src">全文</span></li>
+  <li>Zhao, J., et al. (2022). Screen time trajectories and cognitive outcomes at 6 years（上海隊列）. <em>JAMA Pediatrics</em>：早期增高組 FSIQ <strong>β = −6.68</strong>。PMID 35666518。<span class="src">全文</span></li>
+  <li>MDPI <em>Children</em> (2025), 12(11), 1467：n=765 輕度語言遲緩兒童，超標屏幕表達分 <strong>β = −1.73</strong>（95% CI −2.90,−0.57）。</li>
+  <li>MDPI <em>Brain Sciences</em> (2024), 14(1), 27：12–35 月每日 2 小時電視，認知遲緩 OR≈4、動作遲緩 OR≈3.7。</li>
+  <li>Jing, M., et al. (2023). Screen media and vocabulary learning: meta-analysis. <em>Child Development</em>, 94(5), 1398–1418.</li>
+  <li>Gámez, P. B., et al. (2024). Bilingual toddlers' productive vocabulary growth. <em>Dev Psychol</em>, 60(1), 144–158.</li>
+  <li>Nicoladis, E., et al. (2025). Does pointing predict bilingual children's vocabulary? <em>Language Acquisition</em>.</li>
+  <li>Novack, M. A. 等 (2019). Gesture–speech integration predicts vocabulary. <em>Developmental Science</em>：手勢經理解中介預測詞彙（ab = 0.263）。</li>
+  <li>Bilingual verb-cue eye-tracking study (2024). PMC 全文：句中動詞提示提高目標詞注視（單語 p = .007；雙語 p &lt; .001）。PMID 34672368。<span class="src">全文</span></li>
+  <li>Speech/oral-motor disorder risk indicators (2024). 198 例：非典型牙牙學語 OR 10.45、爬行異常 OR 12.20、家族史 OR 9.89、口部刺激 OR 9.77。PMID 34837789。<span class="src">全文</span></li>
+  <li>CDI 阿拉伯語常模研究 (2024). 併詞「有時」β=1.24、「經常」β=2.51 預測詞彙量。PMID 29482035。<span class="src">全文</span></li>
+  <li>巴西 626 名兒童動作—認知關聯研究 (2023). 大肌肉與認知正相關。PMID 30965194。<span class="src">全文</span></li>
+  <li>Robins, D. L., et al. (2014). Validation of the M-CHAT-R/F. <em>Pediatrics</em>：敏感度 0.854、特異度 0.993、PPV 0.95。</li>
+  <li>Springer Nature, <em>Neurobiology and Phenomenology of Normal Child Development</em> (2026)：18–23 月約 50 詞進入詞句期；2 歲 ≥100 詞。</li>
+  <li>MDPI <em>Education Sciences</em> (2025), 15(12), 1692：雙語學習者早期介入策略（對話式共讀為有效路徑）。</li>
 </ol>
-<p class="small">檢索說明：經 PubMed／PMC、JAMA Pediatrics、Child Development、Springer Nature Link、MDPI、Taylor &amp; Francis、ERIC 等檢索；SSRN 與 Scopus 未能取得與本個案直接相關的同儕評審原文，故未引用（不以二手摘要充數）。</p>
+<p class="small">檢索通道：PubMed E-utilities（571 篇題錄）＋ PMC 全文（瀏覽器實讀 8 篇）＋ MDPI／Springer／JAMA Pediatrics 直接檢索。SSRN 與 Scopus 未取得與本個案直接相關的同儕評審原文，故不引用，不以二手摘要充數。</p>
 
 <footer>
   <p style="margin:0 0 6px"><strong>邊界提醒：</strong>本頁為文獻對照下的家庭參考，<strong>不構成醫學診斷或治療建議</strong>。診斷須由兒科／發育行為兒科／言語治療師作臨床評估。</p>
   <p style="margin:0 0 6px">所有姓名已匿名化為「H」；不含校名、班別、出生日期等可識別資料。</p>
-  <p style="margin:0">版本 v2（2026-10-24，依高清原圖逐項重核後修訂：19–24 月量尺確認為 22 獨立／18 協助／0 未達，認知 4/4、情意社交 8/8）｜ 依據：校本《嬰幼兒發展報告》（2025-2026 學年，2026-10-02 簽發）｜ 文獻檢索 2026-10-24</p>
+  <p style="margin:0">版本 v3（2026-10-24，圖像化重製：桑基／河流／漏斗／座標／森林／區間／劑量七圖；文獻層級 571→329→120→19）｜ 依據：校本《嬰幼兒發展報告》（2025-2026 學年，2026-10-02 簽發）</p>
 </footer>
 
 </div>
