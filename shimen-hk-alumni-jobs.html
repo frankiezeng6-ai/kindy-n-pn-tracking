@@ -74,7 +74,7 @@ footer p{margin:6px 0}
     <img class="logo" src="logo.png" alt="石門中學香港校友會會徽">
     <div>
       <h1>石門中學香港校友會 <span class="hd">· 群內招聘資訊彙編</span></h1>
-      <div class="sub">整理自「5. 石門中學香港校友會大家庭」微信群公開招募訊息 · 覆蓋 2025-09-11 至 2026-10-15</div>
+      <div class="sub">整理自「5. 石門中學香港校友會大家庭」微信群公開招募訊息 · 覆蓋 2025-09-11 至 2026-10-30</div>
     </div>
   </div>
   <div class="stats">
@@ -320,7 +320,7 @@ document.getElementById('s-total').textContent=JOBS.length;
 document.getElementById('s-latest').textContent=JOBS.map(j=>j.date).sort().pop();
 const mix={};JOBS.forEach(j=>mix[j.type]=(mix[j.type]||0)+1);
 document.getElementById('s-mix').textContent=Object.entries(mix).map(([k,v])=>k+' '+v).join(' · ');
-document.getElementById('stamp').textContent='最後整理時間：2026-10-18';
+document.getElementById('stamp').textContent='最後整理時間：2026-11-02';
 
 cats.forEach(c=>{
   const b=document.createElement('div');
