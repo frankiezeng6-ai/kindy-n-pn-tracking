@@ -79,8 +79,6 @@ footer p{margin:6px 0}
 .hm .sub2{font-size:12.5px;color:var(--sub);margin:0}
 .hm-legend{display:flex;align-items:center;gap:6px;font-size:11.5px;color:var(--sub)}
 .hm-legend i{width:15px;height:15px;border-radius:3px;display:inline-block}
-.hm-sec{font-size:12.5px;font-weight:600;color:var(--ink);margin:16px 0 8px;
-  padding-left:9px;border-left:3px solid var(--brand)}
 .hm-scroll{overflow-x:auto}
 .hm-grid{display:grid;gap:3px;min-width:520px;align-items:stretch}
 .hm-cell{border:0;border-radius:5px;min-height:29px;display:flex;align-items:center;justify-content:center;
@@ -98,9 +96,6 @@ footer p{margin:6px 0}
 .hm-rowhead b{font-size:11.5px;color:var(--brand);font-variant-numeric:tabular-nums}
 .hm-total{font-size:12px;font-weight:600;color:var(--ink);display:flex;align-items:center;justify-content:center;
   background:#f0f5f2;border-radius:5px;font-variant-numeric:tabular-nums}
-.hm-notes{margin:14px 0 0;padding:12px 14px;background:#f7faf8;border:1px dashed #d3e6da;
-  border-radius:9px;font-size:12.5px;color:var(--sub);line-height:1.9}
-.hm-notes b{color:var(--ink)}
 .hm-filterbar{display:none;margin:0 0 10px;padding:8px 12px;background:#fdf1e4;border:1px solid #f0d6b9;
   border-radius:9px;font-size:12.5px;color:#8a4a17;align-items:center;gap:10px}
 .hm-filterbar b{color:#6d3510}
@@ -151,8 +146,8 @@ footer p{margin:6px 0}
 <section class="hm" id="hm">
   <div class="hm-head">
     <div>
-      <h2>行業分佈熱力圖</h2>
-      <p class="sub2">按招聘方主營行業歸類（不按崗位職能）· 顏色越深代表職位越多 · 點擊色塊可直接篩選；下方職位列表依發布季度分組，可於工具列切換為依行業分組</p>
+      <h2>行業 × 發布季度 · 職位熱度</h2>
+      <p class="sub2">按招聘方主營行業歸類 · 顏色越深＝該季職位越多 · 點擊色塊直接篩選，再點一次清除</p>
     </div>
     <div class="hm-legend">少
       <i style="background:#f4f7f5"></i><i style="background:#e3f1e8"></i><i style="background:#b6dfc5"></i>
@@ -160,11 +155,7 @@ footer p{margin:6px 0}
     </div>
   </div>
   <div class="hm-filterbar" id="hm-filterbar"><span id="hm-filtertext"></span><button id="hm-clear">清除篩選</button></div>
-  <div class="hm-sec">① 各行業 × 發布季度（時間熱度）</div>
   <div class="hm-scroll"><div class="hm-grid" id="hm-time"></div></div>
-  <div class="hm-sec">② 各行業 × 職位性質（用工結構）</div>
-  <div class="hm-scroll"><div class="hm-grid" id="hm-nature"></div></div>
-  <div class="hm-notes" id="hm-notes"></div>
 </section>
 
 <div class="grid" id="grid"></div>
@@ -431,13 +422,11 @@ const groupEl=document.getElementById('group');
 
 /* ---- v2 行業受控詞表（必須在 cats 之前聲明） ---- */
 const INDUSTRIES = ["金融服務", "資訊科技與電訊", "製造與貿易", "教育與研究", "公共機構與人才計劃", "社團與活動", "地產與物業", "專業服務與行政"];
-const NATURES = ["全職","實習","全職／實習","兼職","其他"];
 function qOf(j){const [y,m]=j.date.split('-').map(Number);return y+'Q'+Math.ceil(m/3);}
-function natOf(j){return NATURES.includes(j.type)?j.type:"其他";}
 const QUARTERS=[...new Set(JOBS.map(qOf))].sort();
 const indCount={}; JOBS.forEach(j=>indCount[j.ind]=(indCount[j.ind]||0)+1);
 INDUSTRIES.sort((a,b)=>(indCount[b]||0)-(indCount[a]||0));
-let activeQ="", activeNat="";
+let activeQ="";
 const cats=["全部",...INDUSTRIES];
 let active="全部";
 
@@ -446,13 +435,13 @@ document.getElementById('s-total').textContent=JOBS.length;
 document.getElementById('s-latest').textContent=JOBS.map(j=>j.date).sort().pop();
 const mix={};JOBS.forEach(j=>mix[j.type]=(mix[j.type]||0)+1);
 document.getElementById('s-mix').textContent=Object.entries(mix).map(([k,v])=>k+' '+v).join(' · ');
-document.getElementById('stamp').textContent='最後整理時間：2026-11-05 · 行業分類 v2';
+document.getElementById('stamp').textContent='最後整理時間：2026-11-05 · 行業分類 v3';
 
 cats.forEach(c=>{
   const b=document.createElement('div');
   b.className='chip'+(c===active?' on':'');
   b.textContent=c;
-  b.onclick=()=>{active=c;activeQ='';activeNat='';syncChips();drawHeat();render();syncBar();};
+  b.onclick=()=>{active=c;activeQ='';syncChips();drawHeat();render();syncBar();};
   chipsEl.appendChild(b);
 });
 
@@ -482,7 +471,7 @@ function card(j){
 
 function render(){
   const kw=qEl.value.trim().toLowerCase();
-  let list=JOBS.filter(j=>(active==="全部"||j.ind===active)&&(!activeQ||qOf(j)===activeQ)&&(!activeNat||natOf(j)===activeNat));
+  let list=JOBS.filter(j=>(active==="全部"||j.ind===active)&&(!activeQ||qOf(j)===activeQ));
   if(kw) list=list.filter(j=>JSON.stringify(j).toLowerCase().includes(kw));
   list.sort((a,b)=>sortEl.value==="new"?b.date.localeCompare(a.date):a.date.localeCompare(b.date));
   const gmode=groupEl.value;
@@ -509,21 +498,21 @@ document.querySelector('.stats').insertAdjacentHTML('beforeend',
   '<div class="stat">行業數 <b>'+INDUSTRIES.filter(x=>indCount[x]).length+'</b></div>'+
   '<div class="stat">最集中 <b style="font-size:13px">'+INDUSTRIES[0]+' '+Math.round(indCount[INDUSTRIES[0]]/JOBS.length*100)+'%</b></div>');
 
-function cell(n,key,val,ind){
+function cell(n,val,ind){
   const lv=n===0?0:n===1?1:n===2?2:n<=4?3:4;
-  const on=active===ind&&((key==='q'&&activeQ===val)||(key==='n'&&activeNat===val));
+  const on=active===ind&&activeQ===val;
   const b=document.createElement('button');
   b.className='hm-cell'+(lv?' lv'+lv:'')+(lv?' clickable':'')+(on?' on':'');
   b.textContent=n||'·';
   if(lv) b.onclick=()=>{
-    const hit=active===ind&&((key==='q'&&activeQ===val)||(key==='n'&&activeNat===val));
-    if(hit){active="全部";activeQ="";activeNat="";}
-    else{active=ind;activeQ=key==='q'?val:'';activeNat=key==='n'?val:'';}
+    const hit=active===ind&&activeQ===val;
+    if(hit){active="全部";activeQ="";}
+    else{active=ind;activeQ=val;}
     syncChips(); drawHeat(); render(); syncBar();
   };
   return b;
 }
-function drawOne(el, cols, colOf, key){
+function drawOne(el, cols, colOf){
   el.innerHTML='';
   el.style.gridTemplateColumns='minmax(140px,1.4fr) repeat('+cols.length+',minmax(44px,1fr)) 62px';
   const corner=document.createElement('div');corner.className='hm-headcell';corner.style.textAlign='left';
@@ -535,38 +524,26 @@ function drawOne(el, cols, colOf, key){
     rh.innerHTML='<span>'+ind+'</span><b>'+(indCount[ind]||0)+'</b>';el.appendChild(rh);
     cols.forEach(c=>{
       const n=JOBS.filter(j=>j.ind===ind&&colOf(j)===c).length;
-      el.appendChild(cell(n,key,c,ind));
+      el.appendChild(cell(n,c,ind));
     });
     const t=document.createElement('div');t.className='hm-total';t.textContent=indCount[ind]||0;el.appendChild(t);
   });
 }
 function drawHeat(){
-  drawOne(document.getElementById('hm-time'),QUARTERS,qOf,'q');
-  drawOne(document.getElementById('hm-nature'),NATURES,natOf,'n');
+  drawOne(document.getElementById('hm-time'),QUARTERS,qOf);
 }
 function syncBar(){
   const bar=document.getElementById('hm-filterbar');
   const bits=[];
   if(active!=="全部")bits.push('行業 '+active);
   if(activeQ)bits.push(activeQ);
-  if(activeNat)bits.push('性質 '+activeNat);
   bar.style.display=bits.length?'flex':'none';
   document.getElementById('hm-filtertext').innerHTML='<b>熱力圖篩選：</b>'+bits.join(' ＋ ');
 }
 document.getElementById('hm-clear').onclick=()=>{
-  active="全部";activeQ="";activeNat="";syncChips();drawHeat();render();syncBar();
+  active="全部";activeQ="";syncChips();drawHeat();render();syncBar();
 };
 function syncChips(){[...chipsEl.children].forEach(x=>x.classList.toggle('on',x.textContent===active));}
-
-const peak=QUARTERS.map(q=>[q,JOBS.filter(j=>qOf(j)===q).length]).sort((a,b)=>b[1]-a[1])[0];
-const fin=indCount['金融服務']||0, tech=indCount['資訊科技與電訊']||0;
-const early=JOBS.filter(j=>j.date<'2026-01-01').length;
-document.getElementById('hm-notes').innerHTML=
-  '<b>讀圖：</b>共 '+JOBS.length+' 則職位、'+INDUSTRIES.filter(x=>indCount[x]).length+' 個行業，覆蓋 '+QUARTERS[0]+'–'+QUARTERS[QUARTERS.length-1]+'。'+
-  '<b>'+INDUSTRIES[0]+'</b> '+fin+' 則（'+Math.round(fin/JOBS.length*100)+'%）、<b>'+INDUSTRIES[1]+'</b> '+tech+' 則（'+Math.round(tech/JOBS.length*100)+'%），兩者合計 '+Math.round((fin+tech)/JOBS.length*100)+'%。'+
-  '發布最密集為 <b>'+peak[0]+'</b>（'+peak[1]+' 則）；2026 年前僅 '+early+' 則，其餘集中於 2026 年。'+
-  '其餘六個行業多在 1–2 則，屬長尾，色塊稀疏是資料本身的分佈，不是缺漏。'+
-  '<br><b>口徑：</b>以招聘方主營業務歸行業；金融機構的技術／電商崗位仍計入金融服務。原「'+new Set(JOBS.map(j=>j.cat)).size+' 種」自由標籤保留在卡片上作細分，僅用於搜尋，不再作為篩選維度。';
 
 drawHeat(); syncBar(); render();
 </script>
